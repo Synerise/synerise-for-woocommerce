@@ -1,0 +1,42 @@
+.ManageableList{
+  padding: 0 !important;
+}
+
+.ManageableList .title{
+  overflow: auto !important;
+}
+
+.fieldsRow{
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+  gap: 20px;
+}
+.field{
+  width: 100%;
+  grid-column: span 1 / span 1;
+  .fieldName{
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+}
+.divider{
+  background-color: #b5bdc3;
+}
+
+.sectionTitle{
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #384350;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.flexRow{
+  display: flex;
+  flex-direction: row;
+}
