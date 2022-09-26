@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Synerise For Woocommerce
- * Plugin URI:        https://github.com/synerise/woocommerce-integration
+ * Plugin URI:        https://github.com/Synerise/synerise-for-woocommerce
  * Description:       Grow your business on Synerise! Use this official plugin to allow shoppers to Pin products while browsing your store, track conversions, and advertise on synerise.
  * Version:           1.0.0
  * Requires at least: 4.7
