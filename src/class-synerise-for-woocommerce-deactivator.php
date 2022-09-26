@@ -15,10 +15,6 @@ use Synerise\Integration\Synchronization\Synchronization;
 class Synerise_For_Woocommerce_Deactivator {
 
 	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
