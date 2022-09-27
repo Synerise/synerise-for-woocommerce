@@ -37,7 +37,8 @@ class Synerise_For_Woocommerce_Activator {
 		],
 		'page_tracking_enabled' => true,
 		'page_tracking_open_graph_enabled' => true,
-		'page_tracking_script' => '',
+        'page_tracking_custom_script_enabled' => false,
+		'page_tracking_custom_script' => '',
 		'data_catalog_name' => "Shop",
 		'data_products_attributes' => [
 			["value" => "date_created", "label" => "Date created", "type" => "property"],
@@ -64,6 +65,9 @@ class Synerise_For_Woocommerce_Activator {
 		'synchronization_updates_synchronization_cron_expression' => "* * * * *",
 		'synchronization_updates_synchronization_enabled' => true,
 		'synchronization_updates_synchronization_page_size' => 100,
+        'opt_in' => 0,
+        'opt_in_email_marketing_agreement_enabled' => false,
+        'opt_in_sms_marketing_agreement_enabled' => false
 	];
 
 	/**

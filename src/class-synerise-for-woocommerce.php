@@ -24,7 +24,6 @@ use Synerise\IntegrationCore\Factory\DataManagementApiFactory;
 use Synerise\IntegrationCore\Factory\DataManagementCatalogsApiFactory;
 use Synerise\IntegrationCore\Factory\TrackerApiFactory;
 use Synerise\IntegrationCore\Provider\AuthApiTokenProvider;
-use Synerise\IntegrationCore\Provider\ConfigProviderInterface;
 use Synerise\IntegrationCore\Tracking;
 use Synerise\IntegrationCore\Updater\Client;
 use Synerise\Integration\Synchronization\DataStore\History_Data_Store;

@@ -49,7 +49,7 @@ class Tracking_Service
     {
         $customScript = Synerise_For_Woocommerce::get_setting('page_tracking_custom_script_enabled');
         if ($customScript) {
-            $script = Synerise_For_Woocommerce::get_setting('page_tracking_script');
+            $script = Synerise_For_Woocommerce::get_setting('page_tracking_custom_script');
             if (!empty($script)) {
                 echo $script;
             }

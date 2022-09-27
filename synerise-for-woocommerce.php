@@ -1,7 +1,6 @@
 <?php
 
 /**
- *
  * @link              https://synerise.com
  * @since             1.0.0
  * @package           Synerise\Integration
@@ -15,8 +14,6 @@
  * Requires PHP:      7.0.0
  * Author:            Synerise
  * Author URI:        https://synerise.com/
- * License:           GPL v2 or later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       synerise-for-woocommerce
  * Domain Path:       /languages
  */
@@ -33,12 +30,6 @@ if ( ! defined( 'WPINC' ) ) {
 
 /**
  * Autoload packages.
- *
- * The package autoloader includes version information which prevents classes in this feature plugin
- * conflicting with WooCommerce core.
- *
- * We want to fail gracefully if `composer install` has not been executed yet, so we are checking for the autoloader.
- * If the autoloader is not present, let's log the failure and display a nice admin notice.
  */
 $autoloader = plugin_dir_path( __FILE__ ) . 'vendor/autoload_packages.php';
 
@@ -88,7 +79,7 @@ define( 'SYNERISE_FOR_WOOCOMMERCE_DB_VERSION', '1.0.0' );
 define( 'SYNERISE_FOR_WOOCOMMERCE_PREFIX', 'synerise_for_woocommerce' );
 define( 'SYNERISE_FOR_WOOCOMMERCE_OPTION_NAME', 'synerise-for-woocommerce');
 define( 'SYNERISE_FOR_WOOCOMMERCE_BASEDIR', plugin_dir_path(__FILE__));
-define( 'SYNERISE_FOR_WOOCOMMERCE_BUILD_URL', plugin_dir_url(__FILE__).'build');
+define( 'SYNERISE_FOR_WOOCOMMERCE_BUILD_URL', plugin_dir_url(__FILE__).'assets/js/');
 
 require_once( plugin_dir_path( __FILE__ ) . '/lib/action-scheduler/action-scheduler.php' );
 
