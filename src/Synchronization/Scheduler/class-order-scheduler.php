@@ -3,6 +3,7 @@
 namespace Synerise\Integration\Synchronization\Scheduler;
 
 use Psr\Log\LoggerInterface;
+use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Synerise_For_Woocommerce;
 use Synerise\IntegrationCore\Factory\DataManagementApiFactory;
 use Synerise\IntegrationCore\Uuid;
@@ -71,7 +72,7 @@ class Order_Scheduler extends Abstract_Scheduler
                 ->batchAddOrUpdateTransactionsWithHttpInfo($add_or_update_transactions_body, '4.4');
             return $status_code;
 		} catch (\Exception $e) {
-            $this->logger->error('Synerise Api request failed', ['exception' => $e]);
+            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
         }
     }
 

@@ -15,7 +15,7 @@ class Client_Service
             $customer->get_billing_address_1() . ' ' . $customer->get_billing_address_2() :
             $customer->get_billing_address_1();
 
-        $default_params = array_filter([
+        $params = array_filter([
             'uuid' => Uuid::generateUuidByEmail($customer->get_email()),
             'email' => $customer->get_email(),
             'firstname' => $customer->get_first_name() ?: null,
@@ -32,10 +32,10 @@ class Client_Service
 
         if(Opt_In_Service::is_opt_in_enabled()){
             $agreements = self::get_customer_agreements($customer->get_id());
-            return array_merge($default_params, $agreements);
+            $params = array_merge($params, $agreements);
         }
 
-	    return $default_params;
+        return array_filter($params);
     }
 
     public static function prepare_client_params_from_order(\WC_Order $order): array
@@ -44,7 +44,7 @@ class Client_Service
             $order->get_billing_address_1() . ' ' . $order->get_billing_address_2() :
             $order->get_billing_address_1();
 
-        $default_params = array_filter([
+        $params = array_filter([
             'uuid' => Uuid::generateUuidByEmail($order->get_billing_email()),
             'email' => $order->get_billing_email(),
             'firstname' => $order->get_billing_first_name() ?: null,
@@ -60,10 +60,10 @@ class Client_Service
 
         if(Opt_In_Service::is_opt_in_enabled()){
             $agreements = Order_Service::get_agreements_from_order($order->get_id());
-            return array_merge($default_params, $agreements);
+            $params = array_merge($params, $agreements);
         }
 
-        return $default_params;
+        return array_filter($params);
     }
 
 	public static function get_customers_count()
@@ -113,7 +113,10 @@ class Client_Service
             }
         }
 
+        $array['agreements'] = array_filter($array['agreements'], static function($value){
+            return ($value !== null && $value !== '');
+        });
+
         return $array;
     }
-
 }

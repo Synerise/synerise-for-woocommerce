@@ -3,6 +3,7 @@
 namespace Synerise\IntegrationCore;
 
 use Psr\Log\LoggerInterface;
+use Synerise\Integration\Logger_Service;
 use Synerise\IntegrationCore\Exception\InputException;
 use Synerise\IntegrationCore\Exception\MergeException;
 use Synerise\IntegrationCore\Provider\ConfigProviderInterface;
@@ -186,7 +187,7 @@ class Tracking
         try{
             $this->clientUpdater->mergeByEmail($email, $emailUuid, $uuid);
         } catch (\Exception $e) {
-            $this->logger->error('Client update with uuid reset failed', ['exception' => $e]);
+            $this->logger->error(Logger_Service::addExceptionToMessage('Client update with uuid reset failed', $e));
         }
 
         return $this->clientUuid;

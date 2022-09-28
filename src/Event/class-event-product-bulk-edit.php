@@ -3,6 +3,7 @@
 namespace Synerise\Integration\Events;
 
 use Psr\Log\LoggerInterface;
+use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Service\Tracking_Service;
 use Synerise\Integration\Synchronization\Synchronization;
 
@@ -43,7 +44,7 @@ class Event_Product_Bulk_Edit
         try {
             Synchronization::add_item_to_queue('product', $product->get_id());
         } catch (\Exception $e) {
-            $this->logger->error('Failed to add product to cron queue', ['exception' => $e]);
+            $this->logger->error(Logger_Service::addExceptionToMessage('Failed to add product to cron queue', $e));
         }
 
     }

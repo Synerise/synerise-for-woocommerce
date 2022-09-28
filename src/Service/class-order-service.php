@@ -111,18 +111,20 @@ class Order_Service
                 $array['agreements']['email'] = $email_meta_field ? (bool) $email_meta_field[0] : null;
             }
         } else {
-            if($email_agreement_enabled){
+            if($sms_agreement_enabled){
                 $sms_meta_field = get_post_meta($order_id, Opt_In_Service::AGREEMENT_ORDER_METADATA_NAME_SMS);
                 $array['agreements']['sms'] = $sms_meta_field ? (bool) $sms_meta_field[0] : null;
             }
-            if($sms_agreement_enabled){
+            if($email_agreement_enabled){
                 $email_meta_field = get_post_meta($order_id, Opt_In_Service::AGREEMENT_ORDER_METADATA_NAME_EMAIL);
                 $array['agreements']['email'] = $email_meta_field ? (bool) $email_meta_field[0] : null;
             }
         }
 
-        $array['agreements'] = array_filter($array['agreements']);
+        $array['agreements'] = array_filter($array['agreements'], static function($value){
+            return ($value !== null && $value !== '');
+        });
 
-        return array_filter($array);
+        return $array;
     }
 }

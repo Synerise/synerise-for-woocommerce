@@ -3,6 +3,7 @@
 namespace Synerise\Integration\Events;
 
 use Psr\Log\LoggerInterface;
+use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Mapper\Client_Action;
 use Synerise\Integration\Service\Client_Service;
 use Synerise\Integration\Service\Tracking_Service;
@@ -83,7 +84,7 @@ class Event_Client_Register
 
 	        return $status_code;
 		} catch (\Exception $e) {
-            $this->logger->error('Synerise Api request failed', ['exception' => $e]);
+            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
         }
     }
 }

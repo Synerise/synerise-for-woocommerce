@@ -4,6 +4,7 @@ namespace Synerise\Integration\Synchronization\Scheduler;
 
 use Psr\Log\LoggerInterface;
 use Synerise\DataManagement\ApiException;
+use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Synerise_For_Woocommerce;
 use Synerise\IntegrationCore\Exception\ApiConfigurationException;
 use Synerise\IntegrationCore\Factory\DataManagementCatalogsApiFactory;
@@ -90,7 +91,7 @@ class Product_Scheduler extends Abstract_Scheduler
                 $this->catalog_service->get_catalog_id_by_name($catalog_name);
                 $this->send_products_to_synerise($items);
             } else {
-                $this->logger->error('Synerise Api request failed', ['exception' => $e]);
+                $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
             }
         }
     }

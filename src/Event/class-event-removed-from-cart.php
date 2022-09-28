@@ -3,6 +3,7 @@
 namespace Synerise\Integration\Events;
 
 use Psr\Log\LoggerInterface;
+use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Mapper\Client_Action;
 use Synerise\Integration\Service\Cart_Service;
 use Synerise\Integration\Service\Tracking_Service;
@@ -75,7 +76,7 @@ class Event_Removed_From_Cart
             list($body, $status_code, $headers) = $this->data_management_api_factory->create()->clientRemovedProductFromCartWithHttpInfo($event_client_removed_from_cart_body, '4.4');
 			return $status_code;
         } catch (\Exception $e) {
-            $this->logger->error('Synerise Api request failed', ['exception' => $e]);
+            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
         }
     }
 }

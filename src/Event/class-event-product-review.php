@@ -2,6 +2,7 @@
 namespace Synerise\Integration\Events;
 
 use Psr\Log\LoggerInterface;
+use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Mapper\Client_Action;
 use Synerise\Integration\Service\Review_Service;
 use Synerise\IntegrationCore\Factory\DataManagementApiFactory;
@@ -72,7 +73,7 @@ class Event_Product_Review {
 
 						$this->data_management_api_factory->create()->clientRegisteredWithHttpInfo('4.4', $company_clients_body);
 					} catch (\Exception $e) {
-						$this->logger->error('Synerise Api request failed', ['exception' => $e]);
+                        $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
 					}
 				}
 			} else {
@@ -93,7 +94,7 @@ class Event_Product_Review {
 			list($body, $status_code, $headers) = $this->data_management_api_factory->create()->customEventWithHttpInfo('4.4', $event_added_review_body);
 			return $status_code;
 		} catch (\Exception $e) {
-			$this->logger->error('Synerise Api request failed', ['exception' => $e]);
+            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
 		}
 
 	}

@@ -4,6 +4,7 @@ namespace Synerise\Integration\Synchronization\Scheduler;
 
 use Psr\Log\LoggerInterface;
 use Synerise\DataManagement\ApiException;
+use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Service\User_Service;
 use Synerise\Integration\Synerise_For_Woocommerce;
 use Synerise\IntegrationCore\Factory\ClientManagementApiFactory;
@@ -87,7 +88,7 @@ class Customer_Scheduler extends Abstract_Scheduler
 
 			return $statusCode;
         } catch (\Exception $e) {
-            $this->logger->error('Synerise Api request failed', ['exception' => $e]);
+            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
         }
     }
 

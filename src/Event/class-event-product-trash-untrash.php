@@ -3,6 +3,7 @@
 namespace Synerise\Integration\Events;
 
 use Psr\Log\LoggerInterface;
+use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Service\Catalog_Service;
 use Synerise\Integration\Service\Product_Service;
 use Synerise\Integration\Service\Tracking_Service;
@@ -70,12 +71,13 @@ class Event_Product_Trash_Untrash
 			return $status_code;
 		} catch (\Exception $e) {
 			if ($e->getCode() === 404) {
-				$this->logger->warning('Catalog with id: '.$catalog_id.' not found', ['exception' => $e]);
+                $this->logger->warning(Logger_Service::addExceptionToMessage('Catalog with id: '.$catalog_id.' not found', $e));
+
 				$catalog_name = Synerise_For_Woocommerce::get_setting('data_catalog_name');
 				$this->catalog_service->get_catalog_id_by_name($catalog_name);
 				$this->send_event($post_id);
 			} else {
-				$this->logger->error('Synerise Api request failed', ['exception' => $e]);
+                $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
 			}
 		}
 

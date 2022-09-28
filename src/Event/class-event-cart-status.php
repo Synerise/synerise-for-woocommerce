@@ -3,6 +3,7 @@
 namespace Synerise\Integration\Events;
 
 use Psr\Log\LoggerInterface;
+use Synerise\Integration\Logger_Service;
 use Synerise\IntegrationCore\Factory\DataManagementApiFactory;
 use Synerise\IntegrationCore\Tracking;
 use Synerise\Integration\Mapper\Client_Action;
@@ -71,7 +72,7 @@ class Event_Cart_Status
 
 			return $status_code;
         } catch (\Exception $e) {
-            $this->logger->error('Synerise Api request failed', ['exception' => $e]);
+            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
         }
     }
 }

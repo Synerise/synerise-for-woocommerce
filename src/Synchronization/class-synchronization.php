@@ -2,6 +2,7 @@
 
 namespace Synerise\Integration\Synchronization;
 
+use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Synchronization\DataStore\Status_Data_Store;
 use Synerise\Integration\Synerise_For_Woocommerce;
 
@@ -69,7 +70,7 @@ class Synchronization {
                 $status->save();
             }
         } catch (\Exception $e) {
-            (new Synchronization)->logger->error('Failed to process cron items', ['exception' => $e]);
+            (new Synchronization)->logger->error(Logger_Service::addExceptionToMessage('Failed to process cron items', $e));
         }
     }
 
@@ -110,7 +111,7 @@ class Synchronization {
             self::delete_items_from_queue($queue_items);
 
         } catch (\Exception $e) {
-            (new Synchronization)->logger->error('Failed to process cron items', ['exception' => $e]);
+            (new Synchronization)->logger->error(Logger_Service::addExceptionToMessage('Failed to process cron items', $e));
         }
     }
 
