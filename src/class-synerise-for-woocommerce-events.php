@@ -88,6 +88,11 @@ class Synerise_For_Woocommerce_Events
         );
 	    $this->loader->add_action($order_placed::HOOK_NAME, $order_placed, 'send_event', 9999);
 
+        $order_update = new Events\Event_Order_Update(
+            Synerise_For_Woocommerce::get_logger()
+        );
+        $this->loader->add_action($order_update::HOOK_NAME, $order_update, 'send_event', 9999);
+
         $product_added = new Events\Event_Product_Added(
             Synerise_For_Woocommerce::get_logger()
         );

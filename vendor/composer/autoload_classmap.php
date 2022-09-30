@@ -765,6 +765,7 @@ return array(
     'Synerise\\Integration\\Events\\Event_Client_Logout' => $baseDir . '/src/Event/class-event-client-logout.php',
     'Synerise\\Integration\\Events\\Event_Client_Register' => $baseDir . '/src/Event/class-event-client-register.php',
     'Synerise\\Integration\\Events\\Event_Order_Placed' => $baseDir . '/src/Event/class-event-order-placed.php',
+    'Synerise\\Integration\\Events\\Event_Order_Update' => $baseDir . '/src/Event/class-event-order-update.php',
     'Synerise\\Integration\\Events\\Event_Product_Added' => $baseDir . '/src/Event/class-event-product-added.php',
     'Synerise\\Integration\\Events\\Event_Product_Bulk_Edit' => $baseDir . '/src/Event/class-event-product-bulk-edit.php',
     'Synerise\\Integration\\Events\\Event_Product_Import' => $baseDir . '/src/Event/class-event-product-import.php',

@@ -73,6 +73,7 @@ class Order_Scheduler extends Abstract_Scheduler
             return $status_code;
 		} catch (\Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
+            throw $e;
         }
     }
 

@@ -8,10 +8,17 @@ class Order_Service
 {
     public static function prepare_order_params(\WC_Order $order): array
     {
+        $date = $order->get_date_created() ?: new \DateTime('now');
+        $date->setTimezone(new \DateTimeZone("UTC"));
+        $date->format('Y-m-d\TH:i:s.v\Z');
+
         $params = [
             'orderId' => (string) $order->get_id(),
             'paymentInfo' => [
                 'method' => $order->get_payment_method_title()
+            ],
+            'metadata' => [
+                "orderStatus" => $order->get_status(),
             ],
             'discountAmount' => [
                 'amount' => (float) $order->get_discount_total(),
@@ -19,12 +26,12 @@ class Order_Service
             ],
             'revenue' => [
                 'amount' => (float) $order->get_total(),
-                'currency' => get_woocommerce_currency()
+                'currency' => $order->get_currency()
             ],
-            'recordedAt' => $order->get_date_created()->format('Y-m-d\TH:i:s.Z\Z'),
+            'recordedAt' => $date,
             'value' => [
                 'amount' => (float) $order->get_total() - $order->get_total_tax(),
-                'currency' => get_woocommerce_currency()
+                'currency' => $order->get_currency()
             ],
             'eventSalt' => $order->get_order_key(),
 	        'products' => []

@@ -35,6 +35,10 @@ class Client_Action
 		    'action' => 'order_placed',
 		    'label'  => 'Customer placed order'
 	    ),
+        array(
+            'action' => 'order_update',
+            'label'  => 'Order update'
+        ),
 	    array(
 		    'action' => 'product_update',
 		    'label'  => 'Product update'
@@ -69,6 +73,7 @@ class Client_Action
 
     public static function get_time(\DateTime $date_time): string
     {
+        $date_time->setTimezone(new \DateTimeZone("UTC"));
         return $date_time->format(self::FORMAT_ISO_8601);
     }
 
