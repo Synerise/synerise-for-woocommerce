@@ -97,8 +97,8 @@ class Client_Action
         $mobileDetect = new Mobile_Detect();
         if ($mobileDetect->isMobile()) {
             return 'WEB_MOBILE';
-        } else {
-            return 'WEB_DESKTOP';
         }
+
+        return 'WEB_DESKTOP';
     }
 }

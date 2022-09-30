@@ -10,7 +10,6 @@ class Order_Service
     {
         $date = $order->get_date_created() ?: new \DateTime('now');
         $date->setTimezone(new \DateTimeZone("UTC"));
-        $date->format('Y-m-d\TH:i:s.v\Z');
 
         $params = [
             'orderId' => (string) $order->get_id(),
@@ -28,7 +27,7 @@ class Order_Service
                 'amount' => (float) $order->get_total(),
                 'currency' => $order->get_currency()
             ],
-            'recordedAt' => $date,
+            'recordedAt' => $date->format('Y-m-d\TH:i:s.v\Z'),
             'value' => [
                 'amount' => (float) $order->get_total() - $order->get_total_tax(),
                 'currency' => $order->get_currency()
