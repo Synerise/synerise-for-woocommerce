@@ -70,9 +70,10 @@ class Customer_Scheduler extends Abstract_Scheduler
     }
 
 
-	/**
-	 * @param $event_add_or_update_clients_body
-	 */
+    /**
+     * @param $event_add_or_update_clients_body
+     * @throws ApiException
+     */
     public function send_customers_to_synerise($event_add_or_update_clients_body)
     {
         try {
@@ -89,6 +90,7 @@ class Customer_Scheduler extends Abstract_Scheduler
 			return $statusCode;
         } catch (\Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
+            throw $e;
         }
     }
 

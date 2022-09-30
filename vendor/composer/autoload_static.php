@@ -865,6 +865,7 @@ class ComposerStaticInit884dcde41d96115f0d99a798b7b5a459
         'Synerise\\Integration\\Events\\Event_Client_Logout' => __DIR__ . '/../..' . '/src/Event/class-event-client-logout.php',
         'Synerise\\Integration\\Events\\Event_Client_Register' => __DIR__ . '/../..' . '/src/Event/class-event-client-register.php',
         'Synerise\\Integration\\Events\\Event_Order_Placed' => __DIR__ . '/../..' . '/src/Event/class-event-order-placed.php',
+        'Synerise\\Integration\\Events\\Event_Order_Update' => __DIR__ . '/../..' . '/src/Event/class-event-order-update.php',
         'Synerise\\Integration\\Events\\Event_Product_Added' => __DIR__ . '/../..' . '/src/Event/class-event-product-added.php',
         'Synerise\\Integration\\Events\\Event_Product_Bulk_Edit' => __DIR__ . '/../..' . '/src/Event/class-event-product-bulk-edit.php',
         'Synerise\\Integration\\Events\\Event_Product_Import' => __DIR__ . '/../..' . '/src/Event/class-event-product-import.php',

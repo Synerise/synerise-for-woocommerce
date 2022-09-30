@@ -28,6 +28,7 @@ class Synerise_For_Woocommerce_Activator {
 			["value" => "remove_from_cart", "label" => "Customer removed product from cart"],
 			["value" => "cart_status_change", "label" => "Cart status"],
 			["value" => "order_placed", "label" => "Customer placed order"],
+            ["value" => "order_update", "label" => "Order update"],
 			["value" => "product_update", "label" => "Product update"],
 			["value" => "product_update_in_bulk", "label" => "Product update in bulk"],
 			["value" => "product_update_with_quick_edit", "label" => "Product update by quick edit"],

@@ -11,10 +11,10 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-class Event_Product_Added
+class Event_Order_Update
 {
-    const HOOK_NAME = 'woocommerce_update_product';
-	const EVENT_NAME = 'product_update';
+    const HOOK_NAME = 'save_post_shop_order';
+    const EVENT_NAME = 'order_update';
 
     /**
      * @var LoggerInterface
@@ -27,7 +27,11 @@ class Event_Product_Added
         $this->logger = $logger;
     }
 
-    public function send_event(int $product_id)
+    /**
+     * @param int $order_id
+     * @return void
+     */
+    public function send_event(int $order_id)
     {
         if (!Tracking_Service::is_event_enabled(self::EVENT_NAME)) {
             return;
@@ -38,15 +42,9 @@ class Event_Product_Added
         }
 
         try {
-			$product = wc_get_product($product_id);
-
-			if(empty($product->get_sku())){
-				return;
-			}
-
-            Synchronization::add_item_to_queue('product', $product_id);
+            Synchronization::add_item_to_queue('order', $order_id);
         } catch (\Exception $e) {
-            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
+            $this->logger->error(Logger_Service::addExceptionToMessage('Failed to add order to cron queue', $e));
         }
     }
 }

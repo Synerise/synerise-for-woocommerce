@@ -174,6 +174,10 @@ return array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-product-added.php'
 	),
+	'Synerise\\Integration\\Events\\Event_Order_Update' => array(
+		'version' => '9999999-dev',
+		'path'    => $baseDir . '/src/Event/class-event-order-update.php'
+	),
 	'Synerise\\Integration\\Events\\Event_Product_Bulk_Edit' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-product-bulk-edit.php'

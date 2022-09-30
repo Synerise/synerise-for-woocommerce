@@ -54,14 +54,13 @@ class Product_Scheduler extends Abstract_Scheduler
 	    $prepared_items = [];
 
         foreach ($collection as $product_id) {
-            $product = new \WC_Product($product_id);
+            $product = wc_get_product($product_id);
 			if(empty($product->get_sku())){
 				continue;
 			}
 
             $products_ids[] = $product_id;
-
-            $prepared_items = array_merge($prepared_items, Product_Service::prepare_items($product));
+            $prepared_items[] = Product_Service::get_add_item($product);
         }
 
         if(!empty($prepared_items)) {
@@ -92,6 +91,7 @@ class Product_Scheduler extends Abstract_Scheduler
                 $this->send_products_to_synerise($items);
             } else {
                 $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
+                throw $e;
             }
         }
     }
@@ -113,7 +113,7 @@ class Product_Scheduler extends Abstract_Scheduler
 
 	    $table_name = $wpdb->prefix. 'posts';
 
-        return $wpdb->get_var("SELECT ID FROM {$table_name} WHERE post_type = 'product' ORDER BY ID DESC LIMIT 1");
+        return $wpdb->get_var("SELECT ID FROM {$table_name} WHERE post_type IN ('product', 'product_variation') ORDER BY ID DESC LIMIT 1");
     }
 
     public function is_enabled(): bool
