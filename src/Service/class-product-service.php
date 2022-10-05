@@ -3,6 +3,7 @@
 namespace Synerise\Integration\Service;
 
 use Synerise\Integration\Synerise_For_Woocommerce;
+use WC_Product_Variation;
 use WP_Query;
 
 class Product_Service
@@ -45,7 +46,7 @@ class Product_Service
     public static function get_add_item(\WC_Product $product): array {
         $params = [
             'itemName' => $product->get_name(),
-            'itemType' => 'product',
+            'itemType' => $product->get_type(),
             'itemUrl' => $product->get_permalink(),
             'itemPrice' => $product->get_price(),
             'itemId' => $product->get_sku()
@@ -53,7 +54,7 @@ class Product_Service
 
         $params['itemVisibility'] = self::get_item_visibility($product);
 
-        if ($product->get_type() == 'variation') {
+        if ($product instanceof WC_Product_Variation) {
             $parent_data = $product->get_parent_data();
 			if(!empty($parent_data['sku'])){
 				$params['parentId'] = $parent_data['sku'];

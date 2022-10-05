@@ -3,6 +3,7 @@
 namespace Synerise\Integration\Service;
 
 use Synerise\Integration\Synerise_For_Woocommerce;
+use WC_Product_Variation;
 
 class Order_Service
 {
@@ -59,7 +60,7 @@ class Order_Service
 			return [];
 		}
 
-        if ( $product->get_type() === 'variation') {
+        if ( $product instanceof WC_Product_Variation ) {
             $parent_data = $product->get_parent_data();
 	        $parent_sku = $parent_data['sku'];
         }
