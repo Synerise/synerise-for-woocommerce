@@ -87,7 +87,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'synerise-integration';
+    protected $userAgent = 'synerise-for-woocommerce';
 
     /**
      * Debug switch (default set to false)
