@@ -46,10 +46,6 @@ class Customer_Scheduler extends Abstract_Scheduler
         $customers_ids = [];
 
         foreach ($collection as $customer_id) {
-            if(User_Service::is_user_admin($customer_id)) {
-				continue;
-			}
-
 			if(!User_Service::is_user_customer($customer_id)){
 				continue;
 			}
