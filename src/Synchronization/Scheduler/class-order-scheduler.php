@@ -46,6 +46,7 @@ class Order_Scheduler extends Abstract_Scheduler
             $action_data = [
                 'client' => [
                     'uuid' => Uuid::generateUuidByEmail($order->get_billing_email()),
+                    'email' => $order->get_billing_email()
                 ]
             ];
 

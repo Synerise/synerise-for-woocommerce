@@ -55,10 +55,6 @@ class Event_Client_Login
 
 		$wp_user = \WP_User::get_data_by('login', $username);
 
-        if (User_Service::is_user_admin($wp_user->ID)) {
-            return;
-        }
-
         try {
 	        $customer = new \WC_Customer($wp_user->ID);
 

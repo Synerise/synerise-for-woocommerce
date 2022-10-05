@@ -2,6 +2,8 @@
 
 namespace Synerise\Integration\Service;
 
+use WC_Product_Variation;
+
 class Cart_Service
 {
 
@@ -14,7 +16,11 @@ class Cart_Service
         $cart_item = WC()->cart->get_cart_item($cart_item_key);
 
         /** @var \WC_Product $product */
-        $product = wc_get_product($cart_item['product_id']);
+        if(isset($cart_item['data']) && !empty($cart_item['data']) && $cart_item['data'] instanceof \WC_Product){
+            $product = $cart_item['data'];
+        } else {
+            $product = wc_get_product($cart_item['product_id']);
+        }
 
         $product_data = self::get_default_product_data($product);
 
@@ -32,7 +38,11 @@ class Cart_Service
 	    $removed_product_data = $cart->get_removed_cart_contents()[$cart_item_key];
 
         /** @var \WC_Product $product */
-        $product = wc_get_product($removed_product_data['product_id']);
+        if(isset($removed_product_data['variation_id']) && !empty($removed_product_data['variation_id'])){
+            $product = wc_get_product($removed_product_data['variation_id']);
+        } else {
+            $product = wc_get_product($removed_product_data['product_id']);
+        }
 
         $default_data = self::get_default_product_data($product);
 
@@ -62,11 +72,16 @@ class Cart_Service
             'categories' => Product_Service::get_as_name_array($product_id, 'product_cat')
         ];
 
-	    if ($product->get_type() == 'variation') {
+	    if ($product instanceof WC_Product_Variation) {
 		    $parent_data = $product->get_parent_data();
+
 		    if(!empty($parent_data['sku'])){
-			    $data['parentSku'] = $parent_data['sku'];
+			    $data['parentId'] = $parent_data['sku'];
 		    }
+
+            $parent_id = $product->get_parent_id();
+
+            $data['categories'] = Product_Service::get_as_name_array($parent_id, 'product_cat');
 	    }
 
 		return $data;
@@ -80,12 +95,19 @@ class Cart_Service
         $items = $cart->get_cart_contents();
 
         foreach ($items as $key => $data) {
-			$product = wc_get_product($data['product_id']);
+
+            if(isset($data['data']) && !empty($data['data']) && $data['data'] instanceof \WC_Product){
+                $product = $data['data'];
+            } else {
+                $product = wc_get_product($data['product_id']);
+            }
+
 			if(empty($product->get_sku())){
 				continue;
 			}
+
 	        for($i = 0; $i < $data['quantity']; $i++){
-		        $total_amount += $product->get_sale_price();
+		        $total_amount += (float) $product->get_sale_price();
 	        }
 	        $total_qty += $data['quantity'];
             $products[] = self::prepare_add_to_cart_product_data($key, $data['quantity']);

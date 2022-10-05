@@ -56,10 +56,6 @@ class Event_Client_Register
             return;
         }
 
-        if (User_Service::is_user_admin($user_id)) {
-            return;
-        }
-
 	    /**
 	     * @var \WP_User|null $user_data
 	     */

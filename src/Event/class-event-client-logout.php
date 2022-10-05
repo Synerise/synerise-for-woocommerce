@@ -55,18 +55,13 @@ class Event_Client_Logout
             return;
         }
 
-        if (User_Service::is_user_admin($user_id)) {
-            return;
-        }
-
         try {
             $event_client_logged_out_body = \GuzzleHttp\json_encode(
                 [
                     'time' => Client_Action::get_time(new \DateTime()),
                     'label' => Client_Action::get_label(self::EVENT_NAME),
                     'client' => [
-                        'uuid' => $this->tracking_manager->getClientUuid(),
-                        'custom_id' => $user_id
+                        'uuid' => $this->tracking_manager->getClientUuid()
                     ]
                 ]
             );

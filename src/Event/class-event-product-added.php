@@ -45,6 +45,19 @@ class Event_Product_Added
 			}
 
             Synchronization::add_item_to_queue('product', $product_id);
+
+            $wp_query = new \WP_Query([
+                'post_parent' => $product->get_id(),
+                'post_type' => 'product_variation',
+                'post_status' => get_post_stati()
+            ]);
+
+            $product_variations = wp_list_pluck( $wp_query->posts, 'ID' );
+
+            foreach ($product_variations as $product_variation){
+                Synchronization::add_item_to_queue('product', $product_variation);
+            }
+
         } catch (\Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
         }
