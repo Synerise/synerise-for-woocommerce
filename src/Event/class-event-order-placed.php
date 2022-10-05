@@ -77,6 +77,7 @@ class Event_Order_Placed
                 'label' => Client_Action::get_label(self::EVENT_NAME),
                 'client' => [
                     'uuid' => $this->tracking_manager->getClientUuid(),
+                    'email' => $order->get_billing_email()
                 ],
                 'source' => Client_Action::get_source()
             ];
