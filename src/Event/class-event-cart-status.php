@@ -1,6 +1,6 @@
 <?php
 
-namespace Synerise\Integration\Events;
+namespace Synerise\Integration\Event;
 
 use Psr\Log\LoggerInterface;
 use Synerise\Integration\Logger_Service;
@@ -47,13 +47,13 @@ class Event_Cart_Status
             return;
         }
 
+        if(defined ( 'SYNERISE_CART_STATUS_SENT' )){
+            return;
+        }
+
         try {
             $cart = WC()->cart;
             $cart_status_params = Cart_Service::prepare_cart_status_params($cart);
-
-			if(empty($cart_status_params['products'])){
-				return;
-			}
 
             $custom_event_request = \GuzzleHttp\json_encode(
                 [
@@ -69,6 +69,8 @@ class Event_Cart_Status
 
             list($body, $status_code, $headers) = $this->data_management_api_factory->create()
                 ->customEventWithHttpInfo('4.4', $custom_event_request);
+
+            define('SYNERISE_CART_STATUS_SENT', true);
 
 			return $status_code;
         } catch (\Exception $e) {

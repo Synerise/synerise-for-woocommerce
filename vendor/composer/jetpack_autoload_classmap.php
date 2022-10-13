@@ -166,67 +166,67 @@ return array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Service/class-user-service.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Client_Edit' => array(
+	'Synerise\\Integration\\Event\\Event_Client_Edit' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-client-edit.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Product_Added' => array(
+	'Synerise\\Integration\\Event\\Event_Product_Added' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-product-added.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Order_Update' => array(
+	'Synerise\\Integration\\Event\\Event_Order_Update' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-order-update.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Product_Bulk_Edit' => array(
+	'Synerise\\Integration\\Event\\Event_Product_Bulk_Edit' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-product-bulk-edit.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Add_To_Cart' => array(
+	'Synerise\\Integration\\Event\\Event_Add_To_Cart' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-add-to-cart.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Client_Register' => array(
+	'Synerise\\Integration\\Event\\Event_Client_Register' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-client-register.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Product_Quick_Edit' => array(
+	'Synerise\\Integration\\Event\\Event_Product_Quick_Edit' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-product-quick-edit.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Product_Review' => array(
+	'Synerise\\Integration\\Event\\Event_Product_Review' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-product-review.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Product_Trash_Untrash' => array(
+	'Synerise\\Integration\\Event\\Event_Product_Trash_Untrash' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-product-trash-untrash.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Client_Login' => array(
+	'Synerise\\Integration\\Event\\Event_Client_Login' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-client-login.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Cart_Status' => array(
+	'Synerise\\Integration\\Event\\Event_Cart_Status' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-cart-status.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Product_Import' => array(
+	'Synerise\\Integration\\Event\\Event_Product_Import' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-product-import.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Order_Placed' => array(
+	'Synerise\\Integration\\Event\\Event_Order_Placed' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-order-placed.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Cart_Updated' => array(
+	'Synerise\\Integration\\Event\\Event_Cart_Updated' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-cart-updated.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Client_Logout' => array(
+	'Synerise\\Integration\\Event\\Event_Client_Logout' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-client-logout.php'
 	),
-	'Synerise\\Integration\\Events\\Event_Removed_From_Cart' => array(
+	'Synerise\\Integration\\Event\\Event_Removed_From_Cart' => array(
 		'version' => '9999999-dev',
 		'path'    => $baseDir . '/src/Event/class-event-removed-from-cart.php'
 	),

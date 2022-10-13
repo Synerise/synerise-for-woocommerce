@@ -107,7 +107,8 @@ class Cart_Service
 			}
 
 	        for($i = 0; $i < $data['quantity']; $i++){
-		        $total_amount += (float) $product->get_sale_price();
+                $price = $product->get_price();
+		        $total_amount += (float) $price;
 	        }
 	        $total_qty += $data['quantity'];
             $products[] = self::prepare_add_to_cart_product_data($key, $data['quantity']);
@@ -115,7 +116,7 @@ class Cart_Service
 
         return [
             'products' => $products,
-            'totalAmount' => $total_amount,
+            'totalAmount' => round($total_amount, 2),
             'totalQty' => $total_qty
         ];
     }

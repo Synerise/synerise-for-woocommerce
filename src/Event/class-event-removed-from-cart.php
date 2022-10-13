@@ -1,6 +1,6 @@
 <?php
 
-namespace Synerise\Integration\Events;
+namespace Synerise\Integration\Event;
 
 use Psr\Log\LoggerInterface;
 use Synerise\Integration\Logger_Service;
@@ -57,9 +57,6 @@ class Event_Removed_From_Cart
             $default_params = [
                 'source' => Client_Action::get_source()
             ];
-
-            $event_cart_status = new Event_Cart_Status($this->logger, $this->tracking_manager, $this->data_management_api_factory);
-	        $event_cart_status->send_event();
 
             $params = Cart_Service::prepare_remove_from_cart_product_data($instance, $cart_item_key);
             $params = array_merge($params, $default_params);
