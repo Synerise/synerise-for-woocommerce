@@ -1,6 +1,6 @@
 <?php
 
-namespace Synerise\Integration\Events;
+namespace Synerise\Integration\Event;
 
 use Psr\Log\LoggerInterface;
 use Synerise\Integration\Logger_Service;
@@ -57,9 +57,6 @@ class Event_Add_To_Cart
             $defaultParams = [
                 'source' => Client_Action::get_source()
             ];
-
-            $cart_status_event = new Event_Cart_Status($this->logger, $this->tracking_manager, $this->data_management_api_factory);
-	        $cart_status_event->send_event();
 
             $params = Cart_Service::prepare_add_to_cart_product_data($cart_item_key, $quantity);
             $params = array_merge($params, $defaultParams);

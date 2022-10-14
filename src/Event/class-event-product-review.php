@@ -1,5 +1,5 @@
 <?php
-namespace Synerise\Integration\Events;
+namespace Synerise\Integration\Event;
 
 use Psr\Log\LoggerInterface;
 use Synerise\Integration\Logger_Service;
