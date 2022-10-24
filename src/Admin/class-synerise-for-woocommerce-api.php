@@ -266,5 +266,41 @@ class Synerise_For_Woocommerce_API {
 				}
 			]
 		]);
+
+        register_rest_route($this->plugin_name.'/v1' , '/product-og-data', [
+            'methods' => 'GET',
+            'callback' => function($request){
+                $query_params = $request->get_query_params();
+
+                $wp_response = new \WP_REST_Response();
+                $wp_response->set_data([
+                    'success' => false
+                ]);
+
+                if(isset($query_params['product_id'])){
+                    $product_id = $query_params['product_id'];
+                    $product = wc_get_product($product_id);
+
+                    if($product){
+                        $wp_response->set_data([
+                            'success' => true,
+                            'product_tags' => [
+                                'og:title' => esc_attr($product->get_name()),
+                                'og:image' => Product_Service::get_product_image($product),
+                                'og:url' => $product->get_permalink(),
+                                'product:price:amount' => $product->get_price(),
+                                'product:original_price:amount' => $product->get_regular_price(),
+                                'product:retailer_part_no' => Product_Service::get_item_key($product)
+                            ]
+                        ]);
+
+                        return rest_ensure_response($wp_response);
+                    }
+                }
+
+                return rest_ensure_response($wp_response);
+            },
+            'permission_callback' => function(){ return true; }
+        ]);
 	}
 }

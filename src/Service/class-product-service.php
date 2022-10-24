@@ -49,15 +49,16 @@ class Product_Service
             'itemType' => $product->get_type(),
             'itemUrl' => $product->get_permalink(),
             'itemPrice' => $product->get_price(),
-            'itemId' => $product->get_sku()
+            'itemId' => self::get_item_key($product)
         ];
 
         $params['itemVisibility'] = self::get_item_visibility($product);
 
         if ($product instanceof WC_Product_Variation) {
-            $parent_data = $product->get_parent_data();
-			if(!empty($parent_data['sku'])){
-				$params['parentId'] = $parent_data['sku'];
+            $parent = wc_get_product($product->get_parent_id());
+            $parentKey = self::get_item_key($parent);
+			if(!empty($parentKey)){
+				$params['parentId'] = $parentKey;
 			}
         }
 
@@ -73,7 +74,7 @@ class Product_Service
         $params['deleted'] = ($product->get_status() === 'trash') ? 1 : 0;
 
         return [
-            'itemKey' => $product->get_sku(),
+            'itemKey' => (string) self::get_item_key($product),
             'value' => $params
         ];
     }
@@ -211,17 +212,93 @@ class Product_Service
 		$args = array(
 			'post_type'  => array('product','product_variation'),
             'post_status' => array('publish', 'draft', 'pending', 'trash', 'private', 'auto-draft', 'wc-processing', 'inherit'),
-			'meta_key'   => '_sku',
-			'meta_query' => array(
-				array(
-					'key'     => '_sku',
-					'compare' => 'EXISTS',
-				),
-			),
 		);
+
+        if(self::is_sku_item_key()){
+            $args['meta_key'] = '_sku';
+            $args['meta_query'] = array(
+                array(
+                    'key'     => '_sku',
+                    'compare' => 'EXISTS',
+                ),
+            );
+        }
 
 		$products = new WP_Query($args);
 
 		return $products->found_posts;
 	}
+
+    public static function get_product_default_variation(\WC_Product_Variable $product_variable) {
+        $is_default_variation = false;
+
+        foreach($product_variable->get_available_variations() as $variation_values ){
+            foreach($variation_values['attributes'] as $key => $attribute_value ){
+                $attribute_name = str_replace( 'attribute_', '', $key );
+                $default_value = $product_variable->get_variation_default_attribute($attribute_name);
+                if( $default_value == $attribute_value ){
+                    $is_default_variation = true;
+                    break;
+                } else {
+                    $is_default_variation = false;
+                }
+            }
+
+            if( $is_default_variation ){
+                $variation_id = $variation_values['variation_id'];
+                break;
+            }
+        }
+
+        return $is_default_variation ? wc_get_product($variation_id) : false;
+    }
+
+    /**
+     * Find matching product variation
+     *
+     * @param \WC_Product_Variable $product
+     * @param $attributes
+     * @return WC_Product_Variation|false
+     */
+    public static function find_matching_product_variation_id(\WC_Product_Variable $product, $attributes)
+    {
+        $product_data_store = new \WC_Product_Data_Store_CPT();
+        $product_variation_id = $product_data_store->find_matching_product_variation( $product, $attributes );
+
+        if($product_variation_id){
+            return wc_get_product($product_variation_id);
+        }
+
+        return false;
+    }
+
+    public static function get_item_key(\WC_Product $product) {
+        if(self::is_sku_item_key()){
+            return $product->get_data()['sku'];
+        }
+
+        return $product->get_id();
+    }
+
+    public static function is_sku_item_key(): bool {
+        return (bool) Synerise_For_Woocommerce::get_setting('data_products_sku_enabled');
+    }
+
+    public static function get_product_image($product) {
+        if($product instanceof \WC_Product_Variation){
+            $parent_id = $product->get_parent_id();
+        }
+
+        if(has_post_thumbnail($product->get_id())) {
+            $img_src_arr = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'full');
+            $img_src = $img_src_arr[0];
+        } elseif(isset($parent_id) && has_post_thumbnail($parent_id)) {
+            $img_src_arr = wp_get_attachment_image_src(get_post_thumbnail_id($parent_id), 'full');
+            $img_src = $img_src_arr[0];
+        } else {
+            $img_src = apply_filters('woocommerce_placeholder_img_src', WC()->plugin_url() . '/assets/images/placeholder.png');
+        }
+
+        return $img_src;
+    }
 }

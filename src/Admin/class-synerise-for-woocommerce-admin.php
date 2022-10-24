@@ -78,7 +78,7 @@ class Synerise_For_Woocommerce_Admin {
 			return;
 		}
 
-		wp_enqueue_script( $this->plugin_name, SYNERISE_FOR_WOOCOMMERCE_BUILD_URL . '/' . $this->plugin_name.'-admin.js', array(), time(), false );
+		wp_enqueue_script( $this->plugin_name, SYNERISE_FOR_WOOCOMMERCE_BUILD_URL . $this->plugin_name.'-admin.js', array(), time(), false );
 		wp_localize_script( $this->plugin_name, 'rest', [
 			'url' => get_rest_url().$this->plugin_name.'/v1/',
 			'dashboard_url' => menu_page_url('synerise', false),

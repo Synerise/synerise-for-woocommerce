@@ -6,6 +6,7 @@ use Psr\Log\LoggerInterface;
 use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Mapper\Client_Action;
 use Synerise\Integration\Service\Cart_Service;
+use Synerise\Integration\Service\Product_Service;
 use Synerise\Integration\Service\Tracking_Service;
 use Synerise\IntegrationCore\Factory\DataManagementApiFactory;
 use Synerise\IntegrationCore\Tracking;
@@ -48,7 +49,7 @@ class Event_Removed_From_Cart
             return;
         }
 
-	    if(!Cart_Service::cart_item_has_sku($cart_item_key, 'removed')){
+	    if(Product_Service::is_sku_item_key() && !Cart_Service::cart_item_has_sku($cart_item_key, 'removed')){
 		    return;
 	    }
 

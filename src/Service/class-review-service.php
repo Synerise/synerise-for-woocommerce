@@ -10,13 +10,14 @@ class Review_Service
 		$product = wc_get_product($comment->comment_post_ID);
 
 		$params = [
-			'sku' => $product->get_sku(),
+            'itemKey' => Product_Service::get_item_key($product),
+			'sku' => $product->get_data()['sku'],
 			'detail' => $comment->comment_content,
 			'applicationName' => Tracking_Service::APPLICATION_NAME,
 		];
 
-		if(!empty($product->get_sku())){
-			$params['productSku'] = $product->get_sku();
+		if(!empty($product->get_data()['sku'])){
+			$params['productSku'] = $product->get_data()['sku'];
 		}
 
 		if(!empty($comment->comment_author)){
