@@ -57,28 +57,47 @@ class Open_Graph_Service
 
 	protected static function print_product_tags()
 	{
-		global $post;
+        global $product, $post;
+
+        $attributes = array();
+        foreach($_GET as $key => $value){if(str_contains($key, 'attribute_')){
+                $attributes[$key] = $value;
+            }
+        }
 
 		if ($post->post_type == 'product') {
-			$product = wc_get_product($post->ID);
+            if($product instanceof \WC_Product_Variable){
+
+                $variation = false;
+                if(!empty($attributes)){
+                    $variation = Product_Service::find_matching_product_variation_id($product, $attributes);
+                }
+
+                if(!$variation) {
+                    $default_variation = Product_Service::get_product_default_variation($product);
+                    if($default_variation){
+                        $product = $default_variation;
+                    }
+                } else {
+                    $product = $variation;
+                }
+            }
 
             $categories = Product_Service::get_as_name_array($post->ID, 'product_cat');
 
-			if (has_post_thumbnail($post->ID)) {
-				$img_src_arr = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
-				$img_src = $img_src_arr[0];
-			} else {
-				$img_src = apply_filters('woocommerce_placeholder_img_src', WC()->plugin_url() . '/assets/images/placeholder.png');
-			} ?>
-
-			<meta property="og:title" content="<?php echo esc_attr(get_the_title()); ?>" />
-			<meta property="og:description" content="<?php echo get_the_excerpt(); ?>" />
+			$img_src = Product_Service::get_product_image($product);
+            ?>
+			<meta property="og:title" content="<?php echo esc_attr($product->get_name()); ?>" />
+			<meta property="og:description" content="<?php echo strip_tags(get_the_excerpt()); ?>" />
 			<meta property="og:image" content="<?php echo esc_attr($img_src); ?>" />
 			<meta property="og:type" content="product" />
-			<meta property="og:url" content="<?php echo get_permalink(); ?>" />
+			<meta property="og:url" content="<?php echo $product->get_permalink(); ?>" />
 			<meta property="og:site_name" content="<?php echo get_bloginfo(strip_tags('name')); ?>" />
-			<?php if(!empty($product->get_sku())) { ?>
-                <meta property="product:retailer_part_no" content="<?php echo $product->get_sku(); ?>" />
+
+			<?php
+            $item_key = Product_Service::get_item_key($product);
+            if(!empty($item_key)) { ?>
+                <meta property="product:retailer_part_no" content="<?php echo $item_key; ?>" />
                 <meta property="product:price:amount" content="<?php echo $product->get_price(); ?>"/>
                 <meta property="product:price:currency" content="<?php echo get_woocommerce_currency(); ?>" />
                 <meta property="product:original_price:amount" content="<?php echo $product->get_regular_price(); ?>" />

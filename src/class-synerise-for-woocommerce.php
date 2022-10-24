@@ -241,6 +241,7 @@ if(!class_exists('Synerise_For_Woocommerce')){
 			}
 
 			if (Tracking_Service::is_tracking_enabled()) {
+                add_action('woocommerce_before_add_to_cart_quantity', [Tracking_Service::class, 'add_variation_change_script']);
 				add_action('wp_footer', [Tracking_Service::class, 'print_script']);
 			}
 		}

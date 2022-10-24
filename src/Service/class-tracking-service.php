@@ -88,4 +88,15 @@ class Tracking_Service
 
         return implode(', ', $options);
     }
+
+    public static function add_variation_change_script() {
+        global $product;
+        if ( $product instanceof \WC_Product_Variable) {
+            wp_enqueue_script( 'synerise-for-woocommerce', SYNERISE_FOR_WOOCOMMERCE_BUILD_URL . 'synerise-for-woocommerce-tracking.js', array(), time(), false );
+            wp_localize_script( 'synerise-for-woocommerce', 'rest', [
+                'url' => get_rest_url().'synerise-for-woocommerce'.'/v1/',
+                'nonce' => wp_create_nonce( 'wp_rest' )
+            ]);
+        }
+    }
 }

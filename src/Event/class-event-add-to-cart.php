@@ -4,6 +4,7 @@ namespace Synerise\Integration\Event;
 
 use Psr\Log\LoggerInterface;
 use Synerise\Integration\Logger_Service;
+use Synerise\Integration\Service\Product_Service;
 use Synerise\IntegrationCore\Factory\DataManagementApiFactory;
 use Synerise\IntegrationCore\Tracking;
 use Synerise\Integration\Mapper\Client_Action;
@@ -49,7 +50,7 @@ class Event_Add_To_Cart
             return;
         }
 
-		if(!Cart_Service::cart_item_has_sku($cart_item_key)){
+		if(Product_Service::is_sku_item_key() && !Cart_Service::cart_item_has_sku($cart_item_key)){
 			return;
 		}
 

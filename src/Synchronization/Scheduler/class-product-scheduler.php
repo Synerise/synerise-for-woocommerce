@@ -55,7 +55,7 @@ class Product_Scheduler extends Abstract_Scheduler
 
         foreach ($collection as $product_id) {
             $product = wc_get_product($product_id);
-			if(empty($product->get_sku())){
+			if(empty(Product_Service::get_item_key($product))){
 				continue;
 			}
 

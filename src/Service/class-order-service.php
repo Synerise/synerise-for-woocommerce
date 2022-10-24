@@ -54,15 +54,15 @@ class Order_Service
          * @var \WC_Product $product
          */
         $product = $product_item->get_product();
-        $product_sku = $product->get_sku();
+        $productKey = Product_Service::get_item_key($product);
 
-		if(empty($product_sku)){
+		if(empty($productKey)){
 			return [];
 		}
 
         if ( $product instanceof WC_Product_Variation ) {
-            $parent_data = $product->get_parent_data();
-	        $parent_sku = $parent_data['sku'];
+            $parent = wc_get_product($product->get_parent_id());
+            $parentKey = Product_Service::get_item_key($parent);
         }
 
         return [
@@ -81,8 +81,11 @@ class Order_Service
                 'amount' => (float) $product->get_regular_price(),
                 'currency' => get_woocommerce_currency()
             ],
-            'sku' => $product_sku,
-            'parentSku' => $parent_sku ?? null
+            'sku' => $productKey,
+            'parentSku' => $parentKey ?? null,
+            'productSku' => $product->get_data()['sku'],
+            'parentProductSku' => isset($parent) ? $parent->get_data()['sku'] : null
+
         ];
     }
 

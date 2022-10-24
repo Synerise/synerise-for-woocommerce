@@ -54,7 +54,6 @@ class Cart_Service
     public static function get_default_product_data(\WC_Product $product): array
     {
         $product_id = $product->get_id();
-        $product_sku = $product->get_sku();
 
         $data =  [
             "name" => $product->get_name(),
@@ -68,7 +67,7 @@ class Cart_Service
             ],
             "url" => $product->get_permalink(),
             "offline" => false,
-            'sku' => $product_sku,
+            'sku' => Product_Service::get_item_key($product),
             'categories' => Product_Service::get_as_name_array($product_id, 'product_cat')
         ];
 
@@ -80,7 +79,6 @@ class Cart_Service
 		    }
 
             $parent_id = $product->get_parent_id();
-
             $data['categories'] = Product_Service::get_as_name_array($parent_id, 'product_cat');
 	    }
 
@@ -102,7 +100,7 @@ class Cart_Service
                 $product = wc_get_product($data['product_id']);
             }
 
-			if(empty($product->get_sku())){
+			if(empty(Product_Service::get_item_key($product))){
 				continue;
 			}
 
@@ -131,6 +129,6 @@ class Cart_Service
 		}
 
 		$product = wc_get_product($cart_item['product_id']);
-		return !empty($product->get_sku());
+		return !empty($product->get_data()['sku']);
 	}
 }

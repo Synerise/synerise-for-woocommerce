@@ -58,7 +58,7 @@ class Event_Product_Trash_Untrash
 		 * @var \WC_Product $product
 		 */
 		$product = wc_get_product($post_id);
-		if(empty($product->get_sku())){
+		if(empty(Product_Service::get_item_key($product))){
 			return;
 		}
 

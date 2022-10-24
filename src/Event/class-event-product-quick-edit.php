@@ -4,6 +4,7 @@ namespace Synerise\Integration\Event;
 
 use Psr\Log\LoggerInterface;
 use Synerise\Integration\Logger_Service;
+use Synerise\Integration\Service\Product_Service;
 use Synerise\Integration\Service\Tracking_Service;
 use Synerise\Integration\Synchronization\Synchronization;
 use WC_Product;
@@ -39,7 +40,7 @@ class Event_Product_Quick_Edit
             return;
         }
 
-	    if(empty($product->get_sku())){
+	    if(empty(Product_Service::get_item_key($product))){
 		    return;
 	    }
 
