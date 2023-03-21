@@ -219,7 +219,8 @@ class Synerise_For_Woocommerce_Activator {
     }
 
     public static function redirect_after_activation($plugin) {
-        if($plugin !== 'synerise-for-woocommerce/synerise-for-woocommerce.php'){
+        $plugin_name = explode('/', $plugin)[1];
+        if($plugin_name !== 'synerise-for-woocommerce.php'){
             return;
         }
 
