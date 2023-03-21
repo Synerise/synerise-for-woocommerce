@@ -4,14 +4,18 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e
+class ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a
 {
     public static $files = array (
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
+        '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
+        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -21,6 +25,10 @@ class ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e
             'Synerise\\Integration\\' => 21,
             'Synerise\\IntegrationCore\\' => 25,
             'Synerise\\DataManagement\\' => 24,
+            'Symfony\\Polyfill\\Php72\\' => 23,
+            'Symfony\\Polyfill\\Php70\\' => 23,
+            'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
+            'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
         ),
         'R' => 
         array (
@@ -60,6 +68,22 @@ class ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e
         'Synerise\\DataManagement\\' => 
         array (
             0 => __DIR__ . '/../..' . '/lib/api-data-management',
+        ),
+        'Symfony\\Polyfill\\Php72\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
+        ),
+        'Symfony\\Polyfill\\Php70\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php70',
+        ),
+        'Symfony\\Polyfill\\Intl\\Normalizer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer',
+        ),
+        'Symfony\\Polyfill\\Intl\\Idn\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-idn',
         ),
         'Rhumsaa\\Uuid\\' => 
         array (
@@ -106,12 +130,17 @@ class ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e
     );
 
     public static $classMap = array (
+        'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
+        'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'Automattic\\Jetpack\\Autoloader\\AutoloadFileWriter' => __DIR__ . '/..' . '/automattic/jetpack-autoloader/src/AutoloadFileWriter.php',
         'Automattic\\Jetpack\\Autoloader\\AutoloadGenerator' => __DIR__ . '/..' . '/automattic/jetpack-autoloader/src/AutoloadGenerator.php',
         'Automattic\\Jetpack\\Autoloader\\AutoloadProcessor' => __DIR__ . '/..' . '/automattic/jetpack-autoloader/src/AutoloadProcessor.php',
         'Automattic\\Jetpack\\Autoloader\\CustomAutoloaderPlugin' => __DIR__ . '/..' . '/automattic/jetpack-autoloader/src/CustomAutoloaderPlugin.php',
         'Automattic\\Jetpack\\Autoloader\\ManifestGenerator' => __DIR__ . '/..' . '/automattic/jetpack-autoloader/src/ManifestGenerator.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
+        'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
+        'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
         'Gmponos\\GuzzleLogger\\Handler\\ArrayHandler' => __DIR__ . '/..' . '/gmponos/guzzle_logger/src/Handler/ArrayHandler.php',
         'Gmponos\\GuzzleLogger\\Handler\\Exception\\UnsupportedException' => __DIR__ . '/..' . '/gmponos/guzzle_logger/src/Handler/Exception/UnsupportedException.php',
         'Gmponos\\GuzzleLogger\\Handler\\HandlerInterface' => __DIR__ . '/..' . '/gmponos/guzzle_logger/src/Handler/HandlerInterface.php',
@@ -199,7 +228,10 @@ class ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e
         'GuzzleHttp\\RetryMiddleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/RetryMiddleware.php',
         'GuzzleHttp\\TransferStats' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/TransferStats.php',
         'GuzzleHttp\\UriTemplate' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/UriTemplate.php',
+        'GuzzleHttp\\Utils' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Utils.php',
         'Mobile_Detect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
+        'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
+        'ParseError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
         'Psr\\Http\\Message\\MessageInterface' => __DIR__ . '/..' . '/psr/http-message/src/MessageInterface.php',
         'Psr\\Http\\Message\\RequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/RequestInterface.php',
         'Psr\\Http\\Message\\ResponseInterface' => __DIR__ . '/..' . '/psr/http-message/src/ResponseInterface.php',
@@ -227,6 +259,14 @@ class ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e
         'Rhumsaa\\Uuid\\Exception\\UnsatisfiedDependencyException' => __DIR__ . '/..' . '/ramsey/uuid/src/Exception/UnsatisfiedDependencyException.php',
         'Rhumsaa\\Uuid\\Exception\\UnsupportedOperationException' => __DIR__ . '/..' . '/ramsey/uuid/src/Exception/UnsupportedOperationException.php',
         'Rhumsaa\\Uuid\\Uuid' => __DIR__ . '/..' . '/ramsey/uuid/src/Uuid.php',
+        'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
+        'Symfony\\Polyfill\\Intl\\Idn\\Idn' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/Idn.php',
+        'Symfony\\Polyfill\\Intl\\Idn\\Info' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/Info.php',
+        'Symfony\\Polyfill\\Intl\\Idn\\Resources\\unidata\\DisallowedRanges' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/Resources/unidata/DisallowedRanges.php',
+        'Symfony\\Polyfill\\Intl\\Idn\\Resources\\unidata\\Regex' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/Resources/unidata/Regex.php',
+        'Symfony\\Polyfill\\Intl\\Normalizer\\Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Normalizer.php',
+        'Symfony\\Polyfill\\Php70\\Php70' => __DIR__ . '/..' . '/symfony/polyfill-php70/Php70.php',
+        'Symfony\\Polyfill\\Php72\\Php72' => __DIR__ . '/..' . '/symfony/polyfill-php72/Php72.php',
         'Synerise\\DataManagement\\ApiException' => __DIR__ . '/../..' . '/lib/api-data-management/ApiException.php',
         'Synerise\\DataManagement\\Api\\ApiKeyControllerApi' => __DIR__ . '/../..' . '/lib/api-data-management/Api/ApiKeyControllerApi.php',
         'Synerise\\DataManagement\\Api\\AuthorizationApi' => __DIR__ . '/../..' . '/lib/api-data-management/Api/AuthorizationApi.php',
@@ -854,71 +894,17 @@ class ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e
         'Synerise\\IntegrationCore\\Updater\\Client' => __DIR__ . '/../..' . '/lib/integration-core/Updater/Client.php',
         'Synerise\\IntegrationCore\\Updater\\ClientInterface' => __DIR__ . '/../..' . '/lib/integration-core/Updater/ClientInterface.php',
         'Synerise\\IntegrationCore\\Uuid' => __DIR__ . '/../..' . '/lib/integration-core/Uuid.php',
-        'Synerise\\Integration\\Admin\\Synerise_For_Woocommerce_API' => __DIR__ . '/../..' . '/src/Admin/class-synerise-for-woocommerce-api.php',
-        'Synerise\\Integration\\Admin\\Synerise_For_Woocommerce_Admin' => __DIR__ . '/../..' . '/src/Admin/class-synerise-for-woocommerce-admin.php',
-        'Synerise\\Integration\\Config_Provider' => __DIR__ . '/../..' . '/src/class-config-provider.php',
-        'Synerise\\Integration\\Event\\Event_Add_To_Cart' => __DIR__ . '/../..' . '/src/Event/class-event-add-to-cart.php',
-        'Synerise\\Integration\\Event\\Event_Cart_Status' => __DIR__ . '/../..' . '/src/Event/class-event-cart-status.php',
-        'Synerise\\Integration\\Event\\Event_Cart_Updated' => __DIR__ . '/../..' . '/src/Event/class-event-cart-updated.php',
-        'Synerise\\Integration\\Event\\Event_Client_Edit' => __DIR__ . '/../..' . '/src/Event/class-event-client-edit.php',
-        'Synerise\\Integration\\Event\\Event_Client_Login' => __DIR__ . '/../..' . '/src/Event/class-event-client-login.php',
-        'Synerise\\Integration\\Event\\Event_Client_Logout' => __DIR__ . '/../..' . '/src/Event/class-event-client-logout.php',
-        'Synerise\\Integration\\Event\\Event_Client_Register' => __DIR__ . '/../..' . '/src/Event/class-event-client-register.php',
-        'Synerise\\Integration\\Event\\Event_Order_Placed' => __DIR__ . '/../..' . '/src/Event/class-event-order-placed.php',
-        'Synerise\\Integration\\Event\\Event_Order_Update' => __DIR__ . '/../..' . '/src/Event/class-event-order-update.php',
-        'Synerise\\Integration\\Event\\Event_Product_Added' => __DIR__ . '/../..' . '/src/Event/class-event-product-added.php',
-        'Synerise\\Integration\\Event\\Event_Product_Bulk_Edit' => __DIR__ . '/../..' . '/src/Event/class-event-product-bulk-edit.php',
-        'Synerise\\Integration\\Event\\Event_Product_Import' => __DIR__ . '/../..' . '/src/Event/class-event-product-import.php',
-        'Synerise\\Integration\\Event\\Event_Product_Quick_Edit' => __DIR__ . '/../..' . '/src/Event/class-event-product-quick-edit.php',
-        'Synerise\\Integration\\Event\\Event_Product_Review' => __DIR__ . '/../..' . '/src/Event/class-event-product-review.php',
-        'Synerise\\Integration\\Event\\Event_Product_Trash_Untrash' => __DIR__ . '/../..' . '/src/Event/class-event-product-trash-untrash.php',
-        'Synerise\\Integration\\Event\\Event_Removed_From_Cart' => __DIR__ . '/../..' . '/src/Event/class-event-removed-from-cart.php',
-        'Synerise\\Integration\\Logger_Service' => __DIR__ . '/../..' . '/src/Service/class-logger-service.php',
-        'Synerise\\Integration\\Mapper\\Client_Action' => __DIR__ . '/../..' . '/src/Mapper/class-client-action.php',
-        'Synerise\\Integration\\Service\\Cart_Service' => __DIR__ . '/../..' . '/src/Service/class-cart-service.php',
-        'Synerise\\Integration\\Service\\Catalog_Service' => __DIR__ . '/../..' . '/src/Service/class-catalog-service.php',
-        'Synerise\\Integration\\Service\\Client_Service' => __DIR__ . '/../..' . '/src/Service/class-client-service.php',
-        'Synerise\\Integration\\Service\\Open_Graph_Service' => __DIR__ . '/../..' . '/src/Service/class-open-graph-service.php',
-        'Synerise\\Integration\\Service\\Opt_In_Service' => __DIR__ . '/../..' . '/src/Service/class-opt-in-service.php',
-        'Synerise\\Integration\\Service\\Order_Service' => __DIR__ . '/../..' . '/src/Service/class-order-service.php',
-        'Synerise\\Integration\\Service\\Product_Service' => __DIR__ . '/../..' . '/src/Service/class-product-service.php',
-        'Synerise\\Integration\\Service\\Review_Service' => __DIR__ . '/../..' . '/src/Service/class-review-service.php',
-        'Synerise\\Integration\\Service\\Tracking_Service' => __DIR__ . '/../..' . '/src/Service/class-tracking-service.php',
-        'Synerise\\Integration\\Service\\User_Service' => __DIR__ . '/../..' . '/src/Service/class-user-service.php',
-        'Synerise\\Integration\\Synchronization\\DataStore\\History_Data_Store' => __DIR__ . '/../..' . '/src/Synchronization/DataStore/class-history-data-store.php',
-        'Synerise\\Integration\\Synchronization\\DataStore\\Queue_Data_Store' => __DIR__ . '/../..' . '/src/Synchronization/DataStore/class-queue-data-store.php',
-        'Synerise\\Integration\\Synchronization\\DataStore\\Status_Data_Store' => __DIR__ . '/../..' . '/src/Synchronization/DataStore/class-status-data-store.php',
         'Synerise\\Integration\\Synchronization\\Filters\\MultipleSendForSynchronization' => __DIR__ . '/../..' . '/src/Synchronization/Filters/MultipleSendForSynchronization.php',
-        'Synerise\\Integration\\Synchronization\\History_Data' => __DIR__ . '/../..' . '/src/Synchronization/class-history-data.php',
-        'Synerise\\Integration\\Synchronization\\Queue_Data' => __DIR__ . '/../..' . '/src/Synchronization/class-queue-data.php',
-        'Synerise\\Integration\\Synchronization\\Scheduler\\Abstract_Scheduler' => __DIR__ . '/../..' . '/src/Synchronization/Scheduler/class-abstract-scheduler.php',
-        'Synerise\\Integration\\Synchronization\\Scheduler\\Customer_Scheduler' => __DIR__ . '/../..' . '/src/Synchronization/Scheduler/class-customer-scheduler.php',
-        'Synerise\\Integration\\Synchronization\\Scheduler\\Order_Scheduler' => __DIR__ . '/../..' . '/src/Synchronization/Scheduler/class-order-scheduler.php',
-        'Synerise\\Integration\\Synchronization\\Scheduler\\Product_Scheduler' => __DIR__ . '/../..' . '/src/Synchronization/Scheduler/class-product-scheduler.php',
-        'Synerise\\Integration\\Synchronization\\Status_Data' => __DIR__ . '/../..' . '/src/Synchronization/class-status-data.php',
-        'Synerise\\Integration\\Synchronization\\Synchronization' => __DIR__ . '/../..' . '/src/Synchronization/class-synchronization.php',
-        'Synerise\\Integration\\Synerise_For_Woocommerce' => __DIR__ . '/../..' . '/src/class-synerise-for-woocommerce.php',
-        'Synerise\\Integration\\Synerise_For_Woocommerce_Activator' => __DIR__ . '/../..' . '/src/class-synerise-for-woocommerce-activator.php',
-        'Synerise\\Integration\\Synerise_For_Woocommerce_Deactivator' => __DIR__ . '/../..' . '/src/class-synerise-for-woocommerce-deactivator.php',
-        'Synerise\\Integration\\Synerise_For_Woocommerce_Events' => __DIR__ . '/../..' . '/src/class-synerise-for-woocommerce-events.php',
-        'Synerise\\Integration\\Synerise_For_Woocommerce_Loader' => __DIR__ . '/../..' . '/src/class-synerise-for-woocommerce-loader.php',
-        'Synerise\\Integration\\Synerise_For_Woocommerce_Uninstall' => __DIR__ . '/../..' . '/src/class-synerise-for-woocommerce-uninstall.php',
-        'Synerise\\Integration\\Synerise_For_Woocommerce_i18n' => __DIR__ . '/../..' . '/src/class-synerise-for-woocommerce-i18n.php',
-        'Synerise\\Integration\\Tests\\Helpers\\Helper_Coupon' => __DIR__ . '/../..' . '/tests/Helpers/class-helper-coupon.php',
-        'Synerise\\Integration\\Tests\\Helpers\\Helper_Customer' => __DIR__ . '/../..' . '/tests/Helpers/class-helper-customer.php',
-        'Synerise\\Integration\\Tests\\Helpers\\Helper_Database' => __DIR__ . '/../..' . '/tests/Helpers/class-helper-database.php',
-        'Synerise\\Integration\\Tests\\Helpers\\Helper_Order' => __DIR__ . '/../..' . '/tests/Helpers/class-helper-order.php',
-        'Synerise\\Integration\\Tests\\Helpers\\Helper_Product' => __DIR__ . '/../..' . '/tests/Helpers/class-helper-product.php',
-        'Synerise\\Integration\\Tests\\Helpers\\Helper_Shipping' => __DIR__ . '/../..' . '/tests/Helpers/class-helper-shipping.php',
+        'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitd09ba100ed0a2fe02d2087c15045864e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a::$classMap;
 
         }, null, ClassLoader::class);
     }
