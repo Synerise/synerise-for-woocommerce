@@ -14,6 +14,9 @@ use Synerise\Integration\Synerise_For_Woocommerce;
  */
 class Synerise_For_Woocommerce_Admin {
 
+    const SYNERISE_PAGES = ['toplevel_page_synerise', 'synerise_page_synerise/settings', 'admin_page_synerise/wizard'];
+
+
 	/**
 	 * The ID of this plugin.
 	 *
@@ -40,10 +43,8 @@ class Synerise_For_Woocommerce_Admin {
 	 * @param      string    $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
-
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -52,14 +53,13 @@ class Synerise_For_Woocommerce_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles($hook) {
-
-		wp_enqueue_style($this->plugin_name, plugins_url( 'synerise-for-woocommerce/assets/css/global.css' ), array(), false );
+        wp_enqueue_style($this->plugin_name.'_global', SYNERISE_FOR_WOOCOMMERCE_PUBLIC_URL . '/css/global.css' , array(), false );
 
 		/**
 		 * Enqueue assets only on the admin page
 		 */
-		if ('toplevel_page_synerise' != $hook) {
-			return;
+		if (in_array($hook, self::SYNERISE_PAGES)) {
+            wp_enqueue_style($this->plugin_name, SYNERISE_FOR_WOOCOMMERCE_PUBLIC_URL . '/css/' . $this->plugin_name.'.min.css' , array(), false );
 		}
 	}
 
@@ -69,16 +69,15 @@ class Synerise_For_Woocommerce_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts($hook) {
-		$synerise_pages = ['toplevel_page_synerise', 'synerise_page_synerise/settings', 'admin_page_synerise/wizard'];
 
 		/**
 		 * Enqueue assets only on the admin page
 		 */
-		if (!in_array($hook, $synerise_pages)) {
+		if (!in_array($hook, self::SYNERISE_PAGES)) {
 			return;
 		}
 
-		wp_enqueue_script( $this->plugin_name, SYNERISE_FOR_WOOCOMMERCE_BUILD_URL . $this->plugin_name.'-admin.js', array(), time(), false );
+		wp_enqueue_script( $this->plugin_name, SYNERISE_FOR_WOOCOMMERCE_PUBLIC_URL . '/js/' . $this->plugin_name.'.min.js', array(), time(), false );
 		wp_localize_script( $this->plugin_name, 'rest', [
 			'url' => get_rest_url().$this->plugin_name.'/v1/',
 			'dashboard_url' => menu_page_url('synerise', false),
@@ -101,7 +100,7 @@ class Synerise_For_Woocommerce_Admin {
 			function () {
 				echo '<div id="'.$this->plugin_name.'-root"></div>';
 			},
-			plugins_url( 'synerise-for-woocommerce/assets/images/synerise_icon.png' )
+            SYNERISE_FOR_WOOCOMMERCE_PUBLIC_URL. '/images/synerise_icon.png'
 		);
 		//Settings Page
 		add_submenu_page(

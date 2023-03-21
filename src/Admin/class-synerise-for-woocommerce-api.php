@@ -4,6 +4,7 @@ namespace Synerise\Integration\Admin;
 
 use Synerise\DataManagement\Api\AuthorizationApi;
 use Synerise\DataManagement\Configuration;
+use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Mapper\Client_Action;
 use Synerise\Integration\Service\Client_Service;
 use Synerise\Integration\Service\Opt_In_Service;
@@ -74,9 +75,6 @@ class Synerise_For_Woocommerce_API {
 							Synerise_For_Woocommerce::get_settings()
 						)
 					);
-				},
-				'permission_callback' => function(){
-					return current_user_can('manage_options');
 				}
 			],
 			//Endpoint to update settings at
@@ -84,10 +82,16 @@ class Synerise_For_Woocommerce_API {
 				'methods' => ['POST'],
 				'callback' => function($request){
 					Synerise_For_Woocommerce::save_settings($request->get_json_params());
-					return rest_ensure_response(Synerise_For_Woocommerce::get_settings());
-				},
-				'permission_callback' => function(){
-					return current_user_can('manage_options');
+					return rest_ensure_response(
+                        array_merge(
+                            array(
+                                'event_tracking_events_list' => Client_Action::ACTION_LABELS,
+                                'data_products_attributes_list' => Product_Service::get_product_attributes(),
+                                'opt_in_mode_list' => Opt_In_Service::OPT_IN
+                            ),
+                            Synerise_For_Woocommerce::get_settings()
+                        )
+                    );
 				}
 			]
 		]);
@@ -246,6 +250,7 @@ class Synerise_For_Woocommerce_API {
 						$wp_response->set_status($status_code);
 						return rest_ensure_response($wp_response);
 					} catch (\Exception $exception) {
+                        Synerise_For_Woocommerce::get_logger()->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $exception));
 						$message = 'Something went wrong with the API key validation. Please check your API key and host.';
 						if($exception->getResponseBody()){
 							$response = \GuzzleHttp\json_decode($exception->getResponseBody());
