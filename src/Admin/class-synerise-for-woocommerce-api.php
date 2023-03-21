@@ -75,7 +75,10 @@ class Synerise_For_Woocommerce_API {
 							Synerise_For_Woocommerce::get_settings()
 						)
 					);
-				}
+				},
+                'permission_callback' => function(){
+                    return current_user_can('manage_options');
+                }
 			],
 			//Endpoint to update settings at
 			[
@@ -92,7 +95,10 @@ class Synerise_For_Woocommerce_API {
                             Synerise_For_Woocommerce::get_settings()
                         )
                     );
-				}
+				},
+                'permission_callback' => function(){
+                    return current_user_can('manage_options');
+                }
 			]
 		]);
 
