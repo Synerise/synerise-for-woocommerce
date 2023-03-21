@@ -6,2761 +6,485 @@ $vendorDir = dirname(__DIR__);
 $baseDir   = dirname($vendorDir);
 
 return array(
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Order' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-order.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Coupon' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-coupon.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Product' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-product.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Customer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-customer.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Database' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-database.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Shipping' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-shipping.php'
-	),
-	'Synerise\\Integration\\Synerise_For_Woocommerce_Events' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-events.php'
-	),
-	'Synerise\\Integration\\Synerise_For_Woocommerce_Activator' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-activator.php'
-	),
-	'Synerise\\Integration\\Synchronization\\Filters\\MultipleSendForSynchronization' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/Filters/MultipleSendForSynchronization.php'
-	),
-	'Synerise\\Integration\\Synchronization\\History_Data' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/class-history-data.php'
-	),
-	'Synerise\\Integration\\Synchronization\\Scheduler\\Abstract_Scheduler' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/Scheduler/class-abstract-scheduler.php'
-	),
-	'Synerise\\Integration\\Synchronization\\Scheduler\\Product_Scheduler' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/Scheduler/class-product-scheduler.php'
-	),
-	'Synerise\\Integration\\Synchronization\\Scheduler\\Customer_Scheduler' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/Scheduler/class-customer-scheduler.php'
-	),
-	'Synerise\\Integration\\Synchronization\\Scheduler\\Order_Scheduler' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/Scheduler/class-order-scheduler.php'
-	),
-	'Synerise\\Integration\\Synchronization\\Status_Data' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/class-status-data.php'
-	),
-	'Synerise\\Integration\\Synchronization\\DataStore\\History_Data_Store' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/DataStore/class-history-data-store.php'
-	),
-	'Synerise\\Integration\\Synchronization\\DataStore\\Status_Data_Store' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/DataStore/class-status-data-store.php'
-	),
-	'Synerise\\Integration\\Synchronization\\DataStore\\Queue_Data_Store' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/DataStore/class-queue-data-store.php'
-	),
-	'Synerise\\Integration\\Synchronization\\Queue_Data' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/class-queue-data.php'
-	),
-	'Synerise\\Integration\\Synchronization\\Synchronization' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Synchronization/class-synchronization.php'
-	),
-	'Synerise\\Integration\\Config_Provider' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/class-config-provider.php'
-	),
-	'Synerise\\Integration\\Synerise_For_Woocommerce_Loader' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-loader.php'
-	),
-	'Synerise\\Integration\\Admin\\Synerise_For_Woocommerce_Admin' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Admin/class-synerise-for-woocommerce-admin.php'
-	),
-	'Synerise\\Integration\\Admin\\Synerise_For_Woocommerce_API' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Admin/class-synerise-for-woocommerce-api.php'
-	),
-	'Synerise\\Integration\\Mapper\\Client_Action' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Mapper/class-client-action.php'
-	),
-	'Synerise\\Integration\\Synerise_For_Woocommerce' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/class-synerise-for-woocommerce.php'
-	),
-	'Synerise\\Integration\\Synerise_For_Woocommerce_i18n' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-i18n.php'
-	),
-	'Synerise\\Integration\\Synerise_For_Woocommerce_Deactivator' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-deactivator.php'
-	),
-	'Synerise\\Integration\\Synerise_For_Woocommerce_Uninstall' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-uninstall.php'
-	),
-	'Synerise\\Integration\\Service\\Client_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-client-service.php'
-	),
-	'Synerise\\Integration\\Service\\Tracking_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-tracking-service.php'
-	),
-	'Synerise\\Integration\\Service\\Review_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-review-service.php'
-	),
-	'Synerise\\Integration\\Logger_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-logger-service.php'
-	),
-	'Synerise\\Integration\\Service\\Product_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-product-service.php'
-	),
-	'Synerise\\Integration\\Service\\Cart_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-cart-service.php'
-	),
-	'Synerise\\Integration\\Service\\Open_Graph_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-open-graph-service.php'
-	),
-	'Synerise\\Integration\\Service\\Catalog_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-catalog-service.php'
-	),
-	'Synerise\\Integration\\Service\\Opt_In_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-opt-in-service.php'
-	),
-	'Synerise\\Integration\\Service\\Order_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-order-service.php'
-	),
-	'Synerise\\Integration\\Service\\User_Service' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Service/class-user-service.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Client_Edit' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-client-edit.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Product_Added' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-product-added.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Order_Update' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-order-update.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Product_Bulk_Edit' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-product-bulk-edit.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Add_To_Cart' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-add-to-cart.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Client_Register' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-client-register.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Product_Quick_Edit' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-product-quick-edit.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Product_Review' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-product-review.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Product_Trash_Untrash' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-product-trash-untrash.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Client_Login' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-client-login.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Cart_Status' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-cart-status.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Product_Import' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-product-import.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Order_Placed' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-order-placed.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Cart_Updated' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-cart-updated.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Client_Logout' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-client-logout.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Removed_From_Cart' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/src/Event/class-event-removed-from-cart.php'
-	),
-	'Synerise\\IntegrationCore\\Logger\\Handler' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Logger/Handler.php'
-	),
-	'Synerise\\IntegrationCore\\Uuid' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Uuid.php'
-	),
-	'Synerise\\IntegrationCore\\Mapper\\Time' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Mapper/Time.php'
-	),
-	'Synerise\\IntegrationCore\\Provider\\ConfigProviderInterface' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Provider/ConfigProviderInterface.php'
-	),
-	'Synerise\\IntegrationCore\\Provider\\AuthApiTokenProvider' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Provider/AuthApiTokenProvider.php'
-	),
-	'Synerise\\IntegrationCore\\Provider\\TokenProviderInterface' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Provider/TokenProviderInterface.php'
-	),
-	'Synerise\\IntegrationCore\\Updater\\ClientInterface' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Updater/ClientInterface.php'
-	),
-	'Synerise\\IntegrationCore\\Updater\\Client' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Updater/Client.php'
-	),
-	'Synerise\\IntegrationCore\\Tracking' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Tracking.php'
-	),
-	'Synerise\\IntegrationCore\\CookieManager' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/CookieManager.php'
-	),
-	'Synerise\\IntegrationCore\\CookieManagerInterface' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/CookieManagerInterface.php'
-	),
-	'Synerise\\IntegrationCore\\Exception\\MergeException' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Exception/MergeException.php'
-	),
-	'Synerise\\IntegrationCore\\Exception\\InputException' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Exception/InputException.php'
-	),
-	'Synerise\\IntegrationCore\\Exception\\ApiConfigurationException' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Exception/ApiConfigurationException.php'
-	),
-	'Synerise\\IntegrationCore\\Exception\\CoreException' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Exception/CoreException.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\DataManagementApiFactory' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Factory/DataManagementApiFactory.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\TrackerApiFactory' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Factory/TrackerApiFactory.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\Api\\ClientConfigurationFactoryInterface' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientConfigurationFactoryInterface.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\Api\\ClientConfigurationFactory' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientConfigurationFactory.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\Api\\ClientFactoryInterface' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientFactoryInterface.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\Api\\ClientFactory' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientFactory.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\Api\\CatalogsConfigurationFactory' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Factory/Api/CatalogsConfigurationFactory.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\Api\\CatalogsConfigurationFactoryInterface' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Factory/Api/CatalogsConfigurationFactoryInterface.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\ClientManagementApiFactory' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Factory/ClientManagementApiFactory.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\DataManagementCatalogsApiFactory' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/integration-core/Factory/DataManagementCatalogsApiFactory.php'
-	),
-	'Synerise\\DataManagement\\HeaderSelector' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/HeaderSelector.php'
-	),
-	'Synerise\\DataManagement\\Configuration' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Configuration.php'
-	),
-	'Synerise\\DataManagement\\ObjectSerializer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/ObjectSerializer.php'
-	),
-	'Synerise\\DataManagement\\ApiException' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/ApiException.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfSchemaRelationConstraint' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaRelationConstraint.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserDataUpdateRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserDataUpdateRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\Expression' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Expression.php'
-	),
-	'Synerise\\DataManagement\\Model\\DescriptionsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DescriptionsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsAddedtofavoritesBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsAddedtofavoritesBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValuesDataSourceValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValuesDataSourceValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20048' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20048.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfcalculateHistogramBodyDateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateHistogramBodyDateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\RadioValueType' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RadioValueType.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse2009' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2009.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsCustomBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsCustomBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\AggregateAction' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AggregateAction.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordMaxIdleTime' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordMaxIdleTime.php'
-	),
-	'Synerise\\DataManagement\\Model\\FingerprintUserResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/FingerprintUserResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\CalculateOverrideBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateOverrideBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\AuthenticationRequestV21' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AuthenticationRequestV21.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfSchemaRelationItem' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaRelationItem.php'
-	),
-	'Synerise\\DataManagement\\Model\\RecordRelationItem' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RecordRelationItem.php'
-	),
-	'Synerise\\DataManagement\\Model\\LabelsLabelIdBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LabelsLabelIdBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\CatalogIdItemsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CatalogIdItemsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\BusinessProfileInvitationRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileInvitationRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserPasswordLastModificationDate' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserPasswordLastModificationDate.php'
-	),
-	'Synerise\\DataManagement\\Model\\PaginationMetaPagination' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PaginationMetaPagination.php'
-	),
-	'Synerise\\DataManagement\\Model\\MultiFactorAuthVerificationRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/MultiFactorAuthVerificationRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\CheckboxGroupValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CheckboxGroupValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\AclEntryData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AclEntryData.php'
-	),
-	'Synerise\\DataManagement\\Model\\Record' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Record.php'
-	),
-	'Synerise\\DataManagement\\Model\\DirectoriesType' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoriesType.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse2008' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2008.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20049' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20049.php'
-	),
-	'Synerise\\DataManagement\\Model\\BrideApiApiKeyResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BrideApiApiKeyResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\AclEntryDTO' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AclEntryDTO.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleGroupName' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupName.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeData2Source' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData2Source.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfValueTypeDataSource' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfValueTypeDataSource.php'
-	),
-	'Synerise\\DataManagement\\Model\\PaginatedSchemaPagination' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedSchemaPagination.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaInput' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaInput.php'
-	),
-	'Synerise\\DataManagement\\Model\\InvitationUpdateRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InvitationUpdateRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApikeyPermissioncheckBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApikeyPermissioncheckBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\BathRoleAssignmentData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BathRoleAssignmentData.php'
-	),
-	'Synerise\\DataManagement\\Model\\EqualFieldValueRelationConstraint' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EqualFieldValueRelationConstraint.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20016Data' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20016Data.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsCancelledtransactionBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsCancelledtransactionBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\LegacyApiKeysListing' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyApiKeysListing.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaTags' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaTags.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValidationUnique' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValidationUnique.php'
-	),
-	'Synerise\\DataManagement\\Model\\RelativeUpdateInput' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RelativeUpdateInput.php'
-	),
-	'Synerise\\DataManagement\\Model\\RecordFields' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RecordFields.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyGroupDto' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyGroupDto.php'
-	),
-	'Synerise\\DataManagement\\Model\\V1BatchBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/V1BatchBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\GrantedAuthority' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/GrantedAuthority.php'
-	),
-	'Synerise\\DataManagement\\Model\\CheckboxGroupValueTypeDesign' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CheckboxGroupValueTypeDesign.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserRoleNames' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserRoleNames.php'
-	),
-	'Synerise\\DataManagement\\Model\\BusinessProfileAccessConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileAccessConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsLoggedoutBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsLoggedoutBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleGroupResponseData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupResponseData.php'
-	),
-	'Synerise\\DataManagement\\Model\\SwitchValueTypeData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SwitchValueTypeData.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientsListBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientsListBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReactUsersListingMetaPagination' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUsersListingMetaPagination.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleApiGatewayResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleApiGatewayResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfPaginatedSchemaDataLayoutItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfPaginatedSchemaDataLayoutItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\ResendConfirmationPayload' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ResendConfirmationPayload.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyGeneral' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyGeneral.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsaddedtocartParamsFinalUnitPrice' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsaddedtocartParamsFinalUnitPrice.php'
-	),
-	'Synerise\\DataManagement\\Model\\TableLayout' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TableLayout.php'
-	),
-	'Synerise\\DataManagement\\Model\\MultiFactorAuthConfirmRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/MultiFactorAuthConfirmRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserPassword' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserPassword.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeValidation2' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeValidation2.php'
-	),
-	'Synerise\\DataManagement\\Model\\SelectValueDesign' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueDesign.php'
-	),
-	'Synerise\\DataManagement\\Model\\AuthenticationResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AuthenticationResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfAggregateAttribute' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfAggregateAttribute.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleDescriptionUpdateRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleDescriptionUpdateRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientIDLogoutBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientIDLogoutBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\AggregatesUUIDBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AggregatesUUIDBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\BridgeApiUserBusinessProfileAssociationResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BridgeApiUserBusinessProfileAssociationResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20041Customers' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20041Customers.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordResetRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordResetRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\Fields' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Fields.php'
-	),
-	'Synerise\\DataManagement\\Model\\AccessConsumerData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AccessConsumerData.php'
-	),
-	'Synerise\\DataManagement\\Model\\ObjectPermissionData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ObjectPermissionData.php'
-	),
-	'Synerise\\DataManagement\\Model\\BatchUserInvitationExpirationData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BatchUserInvitationExpirationData.php'
-	),
-	'Synerise\\DataManagement\\Model\\AggregateExpressions' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AggregateExpressions.php'
-	),
-	'Synerise\\DataManagement\\Model\\ResponseEntity' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ResponseEntity.php'
-	),
-	'Synerise\\DataManagement\\Model\\ManagedDomainWithProfileRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainWithProfileRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\FieldValueLessThanOrEqualRelationConstraint' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueLessThanOrEqualRelationConstraint.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20054DateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20054DateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\PermissionGroupDetailsDTO' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionGroupDetailsDTO.php'
-	),
-	'Synerise\\DataManagement\\Model\\CheckboxGroupValueTypeValidation' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CheckboxGroupValueTypeValidation.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserAuthenticationWithBusinessProfileIdRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserAuthenticationWithBusinessProfileIdRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\BatchUserInvitationRoleAssignmentData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BatchUserInvitationRoleAssignmentData.php'
-	),
-	'Synerise\\DataManagement\\Model\\ExpressionsFilteredBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionsFilteredBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ConfirmationToken' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ConfirmationToken.php'
-	),
-	'Synerise\\DataManagement\\Model\\NumberValueTypeData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValueTypeData.php'
-	),
-	'Synerise\\DataManagement\\Model\\AssociationToNewProfileRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AssociationToNewProfileRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeValidation3' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeValidation3.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeValidation1' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeValidation1.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfSchemaRelationManyConstraintsItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaRelationManyConstraintsItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserLanguage' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserLanguage.php'
-	),
-	'Synerise\\DataManagement\\Model\\RecordsSchemaIdBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RecordsSchemaIdBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\MultiFactorMethod' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/MultiFactorMethod.php'
-	),
-	'Synerise\\DataManagement\\Model\\ActivitiesAction' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ActivitiesAction.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20056Metadata' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20056Metadata.php'
-	),
-	'Synerise\\DataManagement\\Model\\SamlGroupAssignment' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SamlGroupAssignment.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventscancelledtransactionParams' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventscancelledtransactionParams.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserCreated' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserCreated.php'
-	),
-	'Synerise\\DataManagement\\Model\\PartialUpdateTaskStatus' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PartialUpdateTaskStatus.php'
-	),
-	'Synerise\\DataManagement\\Model\\IconsIconIDBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/IconsIconIDBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReactUserResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUserResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsRecommendationseenBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsRecommendationseenBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\Rule' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Rule.php'
-	),
-	'Synerise\\DataManagement\\Model\\PermissionResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKey' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKey.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfanalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilterExpression' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfanalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilterExpression.php'
-	),
-	'Synerise\\DataManagement\\Model\\LegacyRolesListing' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyRolesListing.php'
-	),
-	'Synerise\\DataManagement\\Model\\PushReceivedBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PushReceivedBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\BusinessProfileBulkInvitationRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileBulkInvitationRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\PaginatedRecord' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedRecord.php'
-	),
-	'Synerise\\DataManagement\\Model\\RecordId' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RecordId.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReactUserProlongAccessRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUserProlongAccessRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\InternalObjectPermissionSingleAccessQueryRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InternalObjectPermissionSingleAccessQueryRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\MfaVerificationBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/MfaVerificationBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\DefinitionsmanagerExpressionsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DefinitionsmanagerExpressionsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsaddedtocartParams' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsaddedtocartParams.php'
-	),
-	'Synerise\\DataManagement\\Model\\ExtendedAuthenticationResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ExtendedAuthenticationResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\StatusResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/StatusResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\Pagination' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Pagination.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfSchemaLayoutItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaLayoutItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\RuleAction' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RuleAction.php'
-	),
-	'Synerise\\DataManagement\\Model\\DataSourceDefaultValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DataSourceDefaultValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\TokenResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TokenResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\ManagedDomainListingData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainListingData.php'
-	),
-	'Synerise\\DataManagement\\Model\\TextValueTypeDesign' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TextValueTypeDesign.php'
-	),
-	'Synerise\\DataManagement\\Model\\SelectValueTypeDesign' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueTypeDesign.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20021Bag' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20021Bag.php'
-	),
-	'Synerise\\DataManagement\\Model\\AccessPrivileges' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AccessPrivileges.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20031Data' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20031Data.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20021Data' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20021Data.php'
-	),
-	'Synerise\\DataManagement\\Model\\PermissionDTO' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionDTO.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfRuleSinglePredicate' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfRuleSinglePredicate.php'
-	),
-	'Synerise\\DataManagement\\Model\\CanManageUsersResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CanManageUsersResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\BusinessProfileBulkInvitationRequestInvitations' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileBulkInvitationRequestInvitations.php'
-	),
-	'Synerise\\DataManagement\\Model\\NumberValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\SelectValueTypeValidation' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueTypeValidation.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse423' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse423.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordMinLength' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordMinLength.php'
-	),
-	'Synerise\\DataManagement\\Model\\DirectoriesDirectoryHashBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoriesDirectoryHashBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20017' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20017.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20055Content' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20055Content.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData.php'
-	),
-	'Synerise\\DataManagement\\Model\\NumberValueType' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValueType.php'
-	),
-	'Synerise\\DataManagement\\Model\\BatchUserExpirationData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BatchUserExpirationData.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfInternalObjectPermissionSingleAccessQueryRequestAccessConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfInternalObjectPermissionSingleAccessQueryRequestAccessConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientAnonymousBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientAnonymousBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\LogoutClientDTO' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LogoutClientDTO.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReactUsersListingData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUsersListingData.php'
-	),
-	'Synerise\\DataManagement\\Model\\AuthenticationRequestV2' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AuthenticationRequestV2.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValidationRegexPattern' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValidationRegexPattern.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValuesDataSource' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValuesDataSource.php'
-	),
-	'Synerise\\DataManagement\\Model\\Label' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Label.php'
-	),
-	'Synerise\\DataManagement\\Model\\RecordRelationOne' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RecordRelationOne.php'
-	),
-	'Synerise\\DataManagement\\Model\\RulePredicateNeg' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RulePredicateNeg.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20056MetadataDateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20056MetadataDateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\TransactionsDiscountAmount' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsDiscountAmount.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientsSegmentationBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientsSegmentationBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20016' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20016.php'
-	),
-	'Synerise\\DataManagement\\Model\\SelectValueTypeDataSource' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueTypeDataSource.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfcalculateOverrideBody3DateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateOverrideBody3DateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\SelectValueTypeData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueTypeData.php'
-	),
-	'Synerise\\DataManagement\\Model\\DefinitionsmanagerAggregatesBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DefinitionsmanagerAggregatesBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\TransactionsClient' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsClient.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordAttempts' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordAttempts.php'
-	),
-	'Synerise\\DataManagement\\Model\\RelationDataSource' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RelationDataSource.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfSelectValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSelectValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20014' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20014.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20028' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20028.php'
-	),
-	'Synerise\\DataManagement\\Model\\AnalyticsdefinitionsmanagerexpressionsprojectionsVariables' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AnalyticsdefinitionsmanagerexpressionsprojectionsVariables.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserAccountDetails' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserAccountDetails.php'
-	),
-	'Synerise\\DataManagement\\Model\\DirectoriesTypesBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoriesTypesBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeLayout' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeLayout.php'
-	),
-	'Synerise\\DataManagement\\Model\\ExpressionContent' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionContent.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20055ContentDateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20055ContentDateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\CompanyclientsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CompanyclientsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsHittimerBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsHittimerBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\MultiFactorAuthConfirmResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/MultiFactorAuthConfirmResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaPrimaryKeyAuto' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaPrimaryKeyAuto.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfInternalObjectPermissionEntryCreatorRequestCreatedBy' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfInternalObjectPermissionEntryCreatorRequestCreatedBy.php'
-	),
-	'Synerise\\DataManagement\\Model\\ColumnsLayout' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ColumnsLayout.php'
-	),
-	'Synerise\\DataManagement\\Model\\FieldValueGreaterThanRelationConstraint' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueGreaterThanRelationConstraint.php'
-	),
-	'Synerise\\DataManagement\\Model\\InternalObjectPermissionBatchAccessQueryRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InternalObjectPermissionBatchAccessQueryRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\ManagedDomainRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserAuthenticationRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserAuthenticationRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20029' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20029.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20015' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20015.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaRelationOne' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaRelationOne.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleName' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleName.php'
-	),
-	'Synerise\\DataManagement\\Model\\SamlGroupAssignmentMapping' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SamlGroupAssignmentMapping.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserProfileInfoResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserProfileInfoResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\SamlEmailLocation' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SamlEmailLocation.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsAssignedtocompanyBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsAssignedtocompanyBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ManagedDomainCodeResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainCodeResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfLayoutItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfLayoutItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaRelationItem' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaRelationItem.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaName' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaName.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20031Directory' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20031Directory.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaRelations' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaRelations.php'
-	),
-	'Synerise\\DataManagement\\Model\\LegacyUsersListing' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyUsersListing.php'
-	),
-	'Synerise\\DataManagement\\Model\\Ruleset' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Ruleset.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientAccessConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientAccessConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20039' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20039.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20011' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20011.php'
-	),
-	'Synerise\\DataManagement\\Model\\Role' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Role.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleGroup' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroup.php'
-	),
-	'Synerise\\DataManagement\\Model\\CheckboxGroupValueTypeData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CheckboxGroupValueTypeData.php'
-	),
-	'Synerise\\DataManagement\\Model\\MultiFactorAuthInitResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/MultiFactorAuthInitResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\BridgeApiUserResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BridgeApiUserResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20040Base' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20040Base.php'
-	),
-	'Synerise\\DataManagement\\Model\\FingerprintResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/FingerprintResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfInternalObjectPermissionBatchAccessQueryRequestAccessConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfInternalObjectPermissionBatchAccessQueryRequestAccessConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsVisitedscreenBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsVisitedscreenBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\SamlConfigurationData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SamlConfigurationData.php'
-	),
-	'Synerise\\DataManagement\\Model\\PushViewedBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PushViewedBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ChangePasswordRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ChangePasswordRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20056Values' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20056Values.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReactUserEditRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUserEditRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleGroupDataRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupDataRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfSchemaInputLayoutItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaInputLayoutItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\TransactionsRevenue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsRevenue.php'
-	),
-	'Synerise\\DataManagement\\Model\\ItemsDownloadBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ItemsDownloadBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsrecommendationseenParams' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsrecommendationseenParams.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleWithPermissionsResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleWithPermissionsResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfAggregateExpressionsConstraint' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfAggregateExpressionsConstraint.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20010' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20010.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20038' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20038.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleGroupRoleUserResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupRoleUserResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfschemasBodyLayoutItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfschemasBodyLayoutItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserIntroduction' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserIntroduction.php'
-	),
-	'Synerise\\DataManagement\\Model\\TransactionsPaymentInfo' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsPaymentInfo.php'
-	),
-	'Synerise\\DataManagement\\Model\\ByemailClientEmailBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ByemailClientEmailBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserPhone' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserPhone.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReactUsersListingEntry' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUsersListingEntry.php'
-	),
-	'Synerise\\DataManagement\\Model\\AccessConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AccessConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfdefinitionsmanagerExpressionsBodyAnalysis' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfdefinitionsmanagerExpressionsBodyAnalysis.php'
-	),
-	'Synerise\\DataManagement\\Model\\AggregatesFilteredBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AggregatesFilteredBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ByidClientIdBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ByidClientIdBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\PaginatedRecordData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedRecordData.php'
-	),
-	'Synerise\\DataManagement\\Model\\ManagedDomainDomain' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainDomain.php'
-	),
-	'Synerise\\DataManagement\\Model\\PermissionGroupUpdateDTO' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionGroupUpdateDTO.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfRecordRelationItem' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfRecordRelationItem.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserUpdated' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserUpdated.php'
-	),
-	'Synerise\\DataManagement\\Model\\RuleRecordPredicate' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RuleRecordPredicate.php'
-	),
-	'Synerise\\DataManagement\\Model\\AuthenticationMethodsResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AuthenticationMethodsResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReindexTask' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReindexTask.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserSuperAdmin' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserSuperAdmin.php'
-	),
-	'Synerise\\DataManagement\\Model\\TransactionsFinalUnitPrice' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsFinalUnitPrice.php'
-	),
-	'Synerise\\DataManagement\\Model\\DirectoriesBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoriesBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20012' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20012.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse4001Errors' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse4001Errors.php'
-	),
-	'Synerise\\DataManagement\\Model\\DesignInitialFocus' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DesignInitialFocus.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaIdRecordIdBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaIdRecordIdBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20050Content' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20050Content.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyGroup' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyGroup.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20011PrimaryKey' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20011PrimaryKey.php'
-	),
-	'Synerise\\DataManagement\\Model\\PermissionGroupCreateDTO' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionGroupCreateDTO.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordUpperLetters' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordUpperLetters.php'
-	),
-	'Synerise\\DataManagement\\Model\\DirectoriesdirectoryHashtagsDirectory' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoriesdirectoryHashtagsDirectory.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfSchemaInputPrimaryKey' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaInputPrimaryKey.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserAuthenticationMethodsRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserAuthenticationMethodsRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\BusinessProfileGuid' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileGuid.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfschemasSchemaIdBodyLayoutItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfschemasSchemaIdBodyLayoutItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\CatalogIdMappingsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CatalogIdMappingsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValidationRequired' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValidationRequired.php'
-	),
-	'Synerise\\DataManagement\\Model\\Value' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Value.php'
-	),
-	'Synerise\\DataManagement\\Model\\SwitchValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SwitchValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\OptionalInvitationToken' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OptionalInvitationToken.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20013' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20013.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserAccessConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserAccessConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\PaginatedSchemaData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedSchemaData.php'
-	),
-	'Synerise\\DataManagement\\Model\\TableDisplay' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TableDisplay.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValuesDataSourceData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValuesDataSourceData.php'
-	),
-	'Synerise\\DataManagement\\Model\\PartialUpdateTask' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PartialUpdateTask.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleGroupDescription' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupDescription.php'
-	),
-	'Synerise\\DataManagement\\Model\\DescriptionsDescriptionIdBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DescriptionsDescriptionIdBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\AccessPrivilegesQueryBatchRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AccessPrivilegesQueryBatchRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsApplicationstartedBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsApplicationstartedBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\SwitchValueTypeDesign' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SwitchValueTypeDesign.php'
-	),
-	'Synerise\\DataManagement\\Model\\RuleSchemaPredicate' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RuleSchemaPredicate.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsAddedtocartBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsAddedtocartBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaRelationMany' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaRelationMany.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaPrimaryKey' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaPrimaryKey.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordLowerLetters' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordLowerLetters.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20022' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20022.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20036' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20036.php'
-	),
-	'Synerise\\DataManagement\\Model\\SwitchValueType' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SwitchValueType.php'
-	),
-	'Synerise\\DataManagement\\Model\\Layout' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Layout.php'
-	),
-	'Synerise\\DataManagement\\Model\\PushCancelledBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PushCancelledBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientsClientIDBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientsClientIDBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\LoginUserBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LoginUserBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\AnyOfinlineResponse401ErrorsRejectedValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AnyOfinlineResponse401ErrorsRejectedValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReactListingMeta' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReactListingMeta.php'
-	),
-	'Synerise\\DataManagement\\Model\\IconsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/IconsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\BusinessProfilePasswordSettingsData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfilePasswordSettingsData.php'
-	),
-	'Synerise\\DataManagement\\Model\\LoginProfileBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LoginProfileBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20037' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20037.php'
-	),
-	'Synerise\\DataManagement\\Model\\ObjectPermissionExtendedData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ObjectPermissionExtendedData.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20023' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20023.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse403' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse403.php'
-	),
-	'Synerise\\DataManagement\\Model\\DesignTooltip' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DesignTooltip.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReactUsersListingMeta' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUsersListingMeta.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientRefreshRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientRefreshRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyCreateRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyCreateRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordNextChange' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordNextChange.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfschemasBodyPrimaryKey' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfschemasBodyPrimaryKey.php'
-	),
-	'Synerise\\DataManagement\\Model\\PaginatedSchemaProjectionData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedSchemaProjectionData.php'
-	),
-	'Synerise\\DataManagement\\Model\\PartialUpdateTaskId' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PartialUpdateTaskId.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleGroupId' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupId.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse4001' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse4001.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20027Data' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20027Data.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse401Errors' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse401Errors.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfcalculateOverrideBody1DateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateOverrideBody1DateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\FieldValueLessThanRelationConstraint' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueLessThanRelationConstraint.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleGroupResponseAuthor' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupResponseAuthor.php'
-	),
-	'Synerise\\DataManagement\\Model\\AvatarRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AvatarRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\RecordRelations' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RecordRelations.php'
-	),
-	'Synerise\\DataManagement\\Model\\RulePredicate' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RulePredicate.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserTokenDescriptor' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserTokenDescriptor.php'
-	),
-	'Synerise\\DataManagement\\Model\\TrackingCodeResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TrackingCodeResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse401' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse401.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20035' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20035.php'
-	),
-	'Synerise\\DataManagement\\Model\\RulePredicateAnd' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RulePredicateAnd.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20021' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20021.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleGroupResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\TransactionsRegularPrice' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsRegularPrice.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserBusinessProfileAssociationResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserBusinessProfileAssociationResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfcalculateHistogramBody1DateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateHistogramBody1DateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\TagsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TagsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\TextValueTypeValidation' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TextValueTypeValidation.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordExpiration' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordExpiration.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReindexTaskStatus' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReindexTaskStatus.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserId' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserId.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserLastLogin' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserLastLogin.php'
-	),
-	'Synerise\\DataManagement\\Model\\TableDesign' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TableDesign.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsaddedtocartParamsDiscountedUnitPrice' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsaddedtocartParamsDiscountedUnitPrice.php'
-	),
-	'Synerise\\DataManagement\\Model\\TransactionsProducts' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsProducts.php'
-	),
-	'Synerise\\DataManagement\\Model\\RecordIdRelativeBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RecordIdRelativeBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\LabelValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LabelValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsaddedtocartParamsRegularUnitPrice' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsaddedtocartParamsRegularUnitPrice.php'
-	),
-	'Synerise\\DataManagement\\Model\\RadioValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RadioValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\Error' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Error.php'
-	),
-	'Synerise\\DataManagement\\Model\\AvatarUrl' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AvatarUrl.php'
-	),
-	'Synerise\\DataManagement\\Model\\RadioValueTypeDesign' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RadioValueTypeDesign.php'
-	),
-	'Synerise\\DataManagement\\Model\\SelectValueType' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueType.php'
-	),
-	'Synerise\\DataManagement\\Model\\NumberValueTypeValidation' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValueTypeValidation.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsapplicationstartedParams' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsapplicationstartedParams.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20018Data' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20018Data.php'
-	),
-	'Synerise\\DataManagement\\Model\\LegacyApiKeysListingEntry' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyApiKeysListingEntry.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20020' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20020.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20034' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20034.php'
-	),
-	'Synerise\\DataManagement\\Model\\NumberValueRelativeUpdate' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValueRelativeUpdate.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse400' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse400.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfSelectValueTypeDataSource' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSelectValueTypeDataSource.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserConfirmed' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserConfirmed.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\ModelInterface' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ModelInterface.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyGroupResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyGroupResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\RelationDisplayFields' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RelationDisplayFields.php'
-	),
-	'Synerise\\DataManagement\\Model\\LayoutItem' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LayoutItem.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfExpressionPayloadAnalysis' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfExpressionPayloadAnalysis.php'
-	),
-	'Synerise\\DataManagement\\Model\\TextValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TextValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\CalculateOverrideBody1' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateOverrideBody1.php'
-	),
-	'Synerise\\DataManagement\\Model\\PaginatedSchemaProjection' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedSchemaProjection.php'
-	),
-	'Synerise\\DataManagement\\Model\\ManagedDomainListing' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainListing.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfSchemaRelationOneConstraintsItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaRelationOneConstraintsItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20051AggregateAttribute' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20051AggregateAttribute.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientIdPreviewBody1' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientIdPreviewBody1.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20018' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20018.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20030' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20030.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20024' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20024.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfcalculateOverrideBody2DateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateOverrideBody2DateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserIdInteger' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserIdInteger.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfschemasSchemaIdBodyPrimaryKey' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfschemasSchemaIdBodyPrimaryKey.php'
-	),
-	'Synerise\\DataManagement\\Model\\PaginationMeta' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PaginationMeta.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyApiGatewayResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyApiGatewayResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordMaxLength' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordMaxLength.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyResponseV2' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyResponseV2.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleDescription' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleDescription.php'
-	),
-	'Synerise\\DataManagement\\Model\\TransactionsValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\AnalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AnalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\IpPolicySettings' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/IpPolicySettings.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsRemovedfromcartBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsRemovedfromcartBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserAutoCompleteResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserAutoCompleteResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\RulePredicateId' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RulePredicateId.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfcalculateOverrideBodyDateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateOverrideBodyDateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20025' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20025.php'
-	),
-	'Synerise\\DataManagement\\Model\\AvatarResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AvatarResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20031' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20031.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20019' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20019.php'
-	),
-	'Synerise\\DataManagement\\Model\\LegacyRolesListingEntry' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyRolesListingEntry.php'
-	),
-	'Synerise\\DataManagement\\Model\\ColumnDesign' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ColumnDesign.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20051AggregateDateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20051AggregateDateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\PartialUpdateInput' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PartialUpdateInput.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserEntity' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserEntity.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse4011' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse4011.php'
-	),
-	'Synerise\\DataManagement\\Model\\PaginatedDocumentation' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedDocumentation.php'
-	),
-	'Synerise\\DataManagement\\Model\\TextValueType' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TextValueType.php'
-	),
-	'Synerise\\DataManagement\\Model\\CalculateOverrideBody2' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateOverrideBody2.php'
-	),
-	'Synerise\\DataManagement\\Model\\RulesetInput' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RulesetInput.php'
-	),
-	'Synerise\\DataManagement\\Model\\SingleLayout' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SingleLayout.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfexpressionsUUIDBodyAnalysis' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfexpressionsUUIDBodyAnalysis.php'
-	),
-	'Synerise\\DataManagement\\Model\\BycustomidClientCustomIDBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BycustomidClientCustomIDBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleDataRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleDataRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20027' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20027.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20033' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20033.php'
-	),
-	'Synerise\\DataManagement\\Model\\TrackingCodeCreationByDomainRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TrackingCodeCreationByDomainRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse201' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse201.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyUpdateRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyUpdateRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\ExpressionPayloadCreatedBy' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionPayloadCreatedBy.php'
-	),
-	'Synerise\\DataManagement\\Model\\PermissionGroupSlug' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionGroupSlug.php'
-	),
-	'Synerise\\DataManagement\\Model\\DesignTabIndex' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DesignTabIndex.php'
-	),
-	'Synerise\\DataManagement\\Model\\AuthenticationResponseConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AuthenticationResponseConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\NumberValueTypeDesign' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValueTypeDesign.php'
-	),
-	'Synerise\\DataManagement\\Model\\ConditionalAuthenticationResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ConditionalAuthenticationResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\ActivitiesUserAgent' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ActivitiesUserAgent.php'
-	),
-	'Synerise\\DataManagement\\Model\\ChangePasswordResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ChangePasswordResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\ItemsUploadBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ItemsUploadBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\BagsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BagsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse200' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse200.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20032' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20032.php'
-	),
-	'Synerise\\DataManagement\\Model\\RecordsschemaIdrecordIdrelativeActions' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RecordsschemaIdrecordIdrelativeActions.php'
-	),
-	'Synerise\\DataManagement\\Model\\FieldValueGreaterThanOrEqualRelationConstraint' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueGreaterThanOrEqualRelationConstraint.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20026' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20026.php'
-	),
-	'Synerise\\DataManagement\\Model\\CalculateHistogramBody1' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateHistogramBody1.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfRulePredicate' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfRulePredicate.php'
-	),
-	'Synerise\\DataManagement\\Model\\BusinessProfileId' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileId.php'
-	),
-	'Synerise\\DataManagement\\Model\\CalculateOverrideBody3' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateOverrideBody3.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordResetConfirmation' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordResetConfirmation.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueType' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueType.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserIsMfaEnabled' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserIsMfaEnabled.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsProductviewBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsProductviewBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfSchemaPrimaryKey' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaPrimaryKey.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordSpecialChars' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordSpecialChars.php'
-	),
-	'Synerise\\DataManagement\\Model\\PushClickedBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PushClickedBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserRegistrationRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserRegistrationRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20011LayoutItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20011LayoutItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20041' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20041.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20055' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20055.php'
-	),
-	'Synerise\\DataManagement\\Model\\ManagedDomainVerificationRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainVerificationRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\Schema' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Schema.php'
-	),
-	'Synerise\\DataManagement\\Model\\BusinessProfileAuthenticationRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileAuthenticationRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\V2authloginclientAgreements' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/V2authloginclientAgreements.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20024Data' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20024Data.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ExpressionPayload' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionPayload.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeData1' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData1.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReindexTaskId' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReindexTaskId.php'
-	),
-	'Synerise\\DataManagement\\Model\\ManagedDomainResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\TransactionsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfValueType' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfValueType.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserDescription' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserDescription.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse2001' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2001.php'
-	),
-	'Synerise\\DataManagement\\Model\\SettableRoleResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SettableRoleResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\LabelsBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LabelsBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordSettingsData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordSettingsData.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20054' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20054.php'
-	),
-	'Synerise\\DataManagement\\Model\\TypeLayout' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TypeLayout.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20040' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20040.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValidationErrorMessage' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValidationErrorMessage.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfv1BatchBodyItemsItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfv1BatchBodyItemsItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsCompletedtransactionBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsCompletedtransactionBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\RecordInput' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RecordInput.php'
-	),
-	'Synerise\\DataManagement\\Model\\ColumnsProperty' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ColumnsProperty.php'
-	),
-	'Synerise\\DataManagement\\Model\\FieldValueEqualToConstantRelationConstraint' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueEqualToConstantRelationConstraint.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfAggregateExpressionsAttribute' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfAggregateExpressionsAttribute.php'
-	),
-	'Synerise\\DataManagement\\Model\\LegacyUsersListingEntry' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyUsersListingEntry.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyWhitelist' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyWhitelist.php'
-	),
-	'Synerise\\DataManagement\\Model\\InternalObjectPermissionEntryCreatorRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InternalObjectPermissionEntryCreatorRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserEmail' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserEmail.php'
-	),
-	'Synerise\\DataManagement\\Model\\AclSummary' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AclSummary.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserBusinessProfileAssociationRolesUpdateRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserBusinessProfileAssociationRolesUpdateRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20051Content' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20051Content.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20056Items' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20056Items.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsappearedinlocationParams' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsappearedinlocationParams.php'
-	),
-	'Synerise\\DataManagement\\Model\\CustomCssClass' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CustomCssClass.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20056' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20056.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20042' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20042.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsassignedtocompanyParams' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsassignedtocompanyParams.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReactUsersListing' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUsersListing.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsLoggedinBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsLoggedinBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsSharedBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsSharedBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse2003' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2003.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientIdNoteIdBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientIdNoteIdBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserStatus' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserStatus.php'
-	),
-	'Synerise\\DataManagement\\Model\\ContactsClientIdBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ContactsClientIdBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\BusinessProfileAssociation' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileAssociation.php'
-	),
-	'Synerise\\DataManagement\\Model\\RuleSinglePredicate' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RuleSinglePredicate.php'
-	),
-	'Synerise\\DataManagement\\Model\\RadioValueTypeData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RadioValueTypeData.php'
-	),
-	'Synerise\\DataManagement\\Model\\InvitationResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InvitationResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemasSchemaIdBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemasSchemaIdBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeData3' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData3.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeData2' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData2.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyBlacklist' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyBlacklist.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserMailAccountId' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserMailAccountId.php'
-	),
-	'Synerise\\DataManagement\\Model\\PermissionGroupName' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionGroupName.php'
-	),
-	'Synerise\\DataManagement\\Model\\ActivationRequest' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ActivationRequest.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserFirstName' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserFirstName.php'
-	),
-	'Synerise\\DataManagement\\Model\\CheckboxGroupValueType' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CheckboxGroupValueType.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse2002' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2002.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserOrganizationRole' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserOrganizationRole.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfanalyticsdefinitionsmanagerexpressionsprojectionsVariablesValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfanalyticsdefinitionsmanagerexpressionsprojectionsVariablesValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordDigits' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordDigits.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20043' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20043.php'
-	),
-	'Synerise\\DataManagement\\Model\\DesignPlaceholder' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DesignPlaceholder.php'
-	),
-	'Synerise\\DataManagement\\Model\\CompanyclientsClientIdBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CompanyclientsClientIdBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfPaginatedSchemaDataPrimaryKey' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfPaginatedSchemaDataPrimaryKey.php'
-	),
-	'Synerise\\DataManagement\\Model\\V2authloginclientAttributes' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/V2authloginclientAttributes.php'
-	),
-	'Synerise\\DataManagement\\Model\\Author' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Author.php'
-	),
-	'Synerise\\DataManagement\\Model\\SingleEventTypeBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SingleEventTypeBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20031Pagination' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20031Pagination.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20053' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20053.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20047' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20047.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20051Aggregate' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20051Aggregate.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse2006' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2006.php'
-	),
-	'Synerise\\DataManagement\\Model\\BusinessProfileResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\CalculateHistogramBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateHistogramBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsRegisteredBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsRegisteredBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ColumnDisplay' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ColumnDisplay.php'
-	),
-	'Synerise\\DataManagement\\Model\\ExpressionPayloadModifiedBy' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionPayloadModifiedBy.php'
-	),
-	'Synerise\\DataManagement\\Model\\ObjectPermissionWhitelistEntryData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ObjectPermissionWhitelistEntryData.php'
-	),
-	'Synerise\\DataManagement\\Model\\RecordRelationMany' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RecordRelationMany.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsRecommendationclickBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsRecommendationclickBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsproductviewParams' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsproductviewParams.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaProjection' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaProjection.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleId' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleId.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeValidation' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeValidation.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse2007' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2007.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiKeyIpPolicy' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyIpPolicy.php'
-	),
-	'Synerise\\DataManagement\\Model\\Permission' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Permission.php'
-	),
-	'Synerise\\DataManagement\\Model\\AvailableRolesToSetResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AvailableRolesToSetResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\DirectoryHashTypesBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoryHashTypesBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordBlock' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordBlock.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20046' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20046.php'
-	),
-	'Synerise\\DataManagement\\Model\\RelationDataSourceData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RelationDataSourceData.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20052' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20052.php'
-	),
-	'Synerise\\DataManagement\\Model\\ApiConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ApiConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\AnalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideAggregateDataBy' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AnalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideAggregateDataBy.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfLayoutItem' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfLayoutItem.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserDisplayName' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserDisplayName.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaRelationConstraint' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaRelationConstraint.php'
-	),
-	'Synerise\\DataManagement\\Model\\IsTheSameUserAsLoggedIn' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/IsTheSameUserAsLoggedIn.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleGroupRoleResponse' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupRoleResponse.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsSearchedBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsSearchedBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\TagsTagHashBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TagsTagHashBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\ClientIdPreviewBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ClientIdPreviewBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordResetToken' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordResetToken.php'
-	),
-	'Synerise\\DataManagement\\Model\\FieldValueBetweenRelationConstraint' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueBetweenRelationConstraint.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserRoles' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserRoles.php'
-	),
-	'Synerise\\DataManagement\\Model\\UserLastName' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/UserLastName.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20044' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20044.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20050' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20050.php'
-	),
-	'Synerise\\DataManagement\\Model\\PermissionsApiGateway' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionsApiGateway.php'
-	),
-	'Synerise\\DataManagement\\Model\\RulePredicateOr' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RulePredicateOr.php'
-	),
-	'Synerise\\DataManagement\\Model\\RoleAccessConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/RoleAccessConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse2005' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2005.php'
-	),
-	'Synerise\\DataManagement\\Model\\AnonymousClientAccessConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AnonymousClientAccessConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\TransactionsNetUnitPrice' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsNetUnitPrice.php'
-	),
-	'Synerise\\DataManagement\\Model\\PaginatedSchema' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedSchema.php'
-	),
-	'Synerise\\DataManagement\\Model\\ColumnProperty' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ColumnProperty.php'
-	),
-	'Synerise\\DataManagement\\Model\\DesignDescription' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DesignDescription.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfclientIdPreviewBodyAnalysis' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfclientIdPreviewBodyAnalysis.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValuesDataSourceDataValues' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValuesDataSourceDataValues.php'
-	),
-	'Synerise\\DataManagement\\Model\\ValueTypeData4' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData4.php'
-	),
-	'Synerise\\DataManagement\\Model\\SelectValue' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValue.php'
-	),
-	'Synerise\\DataManagement\\Model\\NotAvailableAccessConsumer' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/NotAvailableAccessConsumer.php'
-	),
-	'Synerise\\DataManagement\\Model\\ManagedDomainVerificationMethod' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainVerificationMethod.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfAggregateDateFilter' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfAggregateDateFilter.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse2004' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2004.php'
-	),
-	'Synerise\\DataManagement\\Model\\DesignHideLabel' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/DesignHideLabel.php'
-	),
-	'Synerise\\DataManagement\\Model\\OneOfanalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilterExpressionsItems' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfanalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilterExpressionsItems.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20051' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20051.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20045' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20045.php'
-	),
-	'Synerise\\DataManagement\\Model\\EventsAppearedinlocationBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/EventsAppearedinlocationBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\AnyOfsingleEventTypeBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/AnyOfsingleEventTypeBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemasBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemasBody.php'
-	),
-	'Synerise\\DataManagement\\Model\\Aggregate' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/Aggregate.php'
-	),
-	'Synerise\\DataManagement\\Model\\InlineResponse20016MetaData' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20016MetaData.php'
-	),
-	'Synerise\\DataManagement\\Model\\ReactApiKeysListing' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ReactApiKeysListing.php'
-	),
-	'Synerise\\DataManagement\\Model\\ActivitiesClient' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ActivitiesClient.php'
-	),
-	'Synerise\\DataManagement\\Model\\PasswordDifferent' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordDifferent.php'
-	),
-	'Synerise\\DataManagement\\Model\\SchemaPrimaryKeySingleField' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaPrimaryKeySingleField.php'
-	),
-	'Synerise\\DataManagement\\Model\\ExpressionsUUIDBody' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionsUUIDBody.php'
-	),
-	'Synerise\\DataManagement\\Api\\EventsApi' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Api/EventsApi.php'
-	),
-	'Synerise\\DataManagement\\Api\\AuthorizationApi' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Api/AuthorizationApi.php'
-	),
-	'Synerise\\DataManagement\\Api\\TrackerControllerApi' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Api/TrackerControllerApi.php'
-	),
-	'Synerise\\DataManagement\\Api\\ClientManagementApi' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Api/ClientManagementApi.php'
-	),
-	'Synerise\\DataManagement\\Api\\CatalogsApi' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Api/CatalogsApi.php'
-	),
-	'Synerise\\DataManagement\\Api\\ApiKeyControllerApi' => array(
-		'version' => '9999999-dev',
-		'path'    => $baseDir . '/lib/api-data-management/Api/ApiKeyControllerApi.php'
-	),
-	'Rhumsaa\\Uuid\\Uuid' => array(
-		'version' => '2.9.0.0',
-		'path'    => $vendorDir . '/ramsey/uuid/src/Uuid.php'
-	),
-	'Rhumsaa\\Uuid\\Doctrine\\UuidType' => array(
-		'version' => '2.9.0.0',
-		'path'    => $vendorDir . '/ramsey/uuid/src/Doctrine/UuidType.php'
-	),
-	'Rhumsaa\\Uuid\\Exception\\UnsupportedOperationException' => array(
-		'version' => '2.9.0.0',
-		'path'    => $vendorDir . '/ramsey/uuid/src/Exception/UnsupportedOperationException.php'
-	),
-	'Rhumsaa\\Uuid\\Exception\\UnsatisfiedDependencyException' => array(
-		'version' => '2.9.0.0',
-		'path'    => $vendorDir . '/ramsey/uuid/src/Exception/UnsatisfiedDependencyException.php'
+	'ArithmeticError' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php'
+	),
+	'AssertionError' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php'
+	),
+	'Automattic\\Jetpack\\Autoloader\\AutoloadFileWriter' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/AutoloadFileWriter.php'
+	),
+	'Automattic\\Jetpack\\Autoloader\\AutoloadGenerator' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/AutoloadGenerator.php'
+	),
+	'Automattic\\Jetpack\\Autoloader\\AutoloadProcessor' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/AutoloadProcessor.php'
+	),
+	'Automattic\\Jetpack\\Autoloader\\CustomAutoloaderPlugin' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/CustomAutoloaderPlugin.php'
+	),
+	'Automattic\\Jetpack\\Autoloader\\ManifestGenerator' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/ManifestGenerator.php'
+	),
+	'Detection\\MobileDetect' => array(
+		'version' => '2.8.41.0',
+		'path'    => $vendorDir . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php'
+	),
+	'DivisionByZeroError' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php'
+	),
+	'Error' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/Error.php'
+	),
+	'Gmponos\\GuzzleLogger\\Handler\\ArrayHandler' => array(
+		'version' => '0.6.0.0',
+		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/ArrayHandler.php'
+	),
+	'Gmponos\\GuzzleLogger\\Handler\\Exception\\UnsupportedException' => array(
+		'version' => '0.6.0.0',
+		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/Exception/UnsupportedException.php'
+	),
+	'Gmponos\\GuzzleLogger\\Handler\\HandlerInterface' => array(
+		'version' => '0.6.0.0',
+		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/HandlerInterface.php'
+	),
+	'Gmponos\\GuzzleLogger\\Handler\\LogLevel\\LogLevelStrategy' => array(
+		'version' => '0.6.0.0',
+		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/LogLevel/LogLevelStrategy.php'
+	),
+	'Gmponos\\GuzzleLogger\\Handler\\LogLevel\\LogLevelStrategyInterface' => array(
+		'version' => '0.6.0.0',
+		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/LogLevel/LogLevelStrategyInterface.php'
+	),
+	'Gmponos\\GuzzleLogger\\Handler\\StringHandler' => array(
+		'version' => '0.6.0.0',
+		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/StringHandler.php'
+	),
+	'Gmponos\\GuzzleLogger\\Middleware\\LoggerMiddleware' => array(
+		'version' => '0.6.0.0',
+		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Middleware/LoggerMiddleware.php'
+	),
+	'GuzzleHttp\\Client' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Client.php'
+	),
+	'GuzzleHttp\\ClientInterface' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/ClientInterface.php'
+	),
+	'GuzzleHttp\\Cookie\\CookieJar' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/CookieJar.php'
+	),
+	'GuzzleHttp\\Cookie\\CookieJarInterface' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/CookieJarInterface.php'
+	),
+	'GuzzleHttp\\Cookie\\FileCookieJar' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/FileCookieJar.php'
+	),
+	'GuzzleHttp\\Cookie\\SessionCookieJar' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php'
+	),
+	'GuzzleHttp\\Cookie\\SetCookie' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/SetCookie.php'
+	),
+	'GuzzleHttp\\Exception\\BadResponseException' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/BadResponseException.php'
+	),
+	'GuzzleHttp\\Exception\\ClientException' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/ClientException.php'
+	),
+	'GuzzleHttp\\Exception\\ConnectException' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/ConnectException.php'
+	),
+	'GuzzleHttp\\Exception\\GuzzleException' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/GuzzleException.php'
+	),
+	'GuzzleHttp\\Exception\\InvalidArgumentException' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/InvalidArgumentException.php'
+	),
+	'GuzzleHttp\\Exception\\RequestException' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/RequestException.php'
+	),
+	'GuzzleHttp\\Exception\\SeekException' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/SeekException.php'
+	),
+	'GuzzleHttp\\Exception\\ServerException' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/ServerException.php'
+	),
+	'GuzzleHttp\\Exception\\TooManyRedirectsException' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/TooManyRedirectsException.php'
+	),
+	'GuzzleHttp\\Exception\\TransferException' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/TransferException.php'
+	),
+	'GuzzleHttp\\HandlerStack' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/HandlerStack.php'
+	),
+	'GuzzleHttp\\Handler\\CurlFactory' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/CurlFactory.php'
+	),
+	'GuzzleHttp\\Handler\\CurlFactoryInterface' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/CurlFactoryInterface.php'
+	),
+	'GuzzleHttp\\Handler\\CurlHandler' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/CurlHandler.php'
+	),
+	'GuzzleHttp\\Handler\\CurlMultiHandler' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php'
+	),
+	'GuzzleHttp\\Handler\\EasyHandle' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/EasyHandle.php'
+	),
+	'GuzzleHttp\\Handler\\MockHandler' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/MockHandler.php'
+	),
+	'GuzzleHttp\\Handler\\Proxy' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/Proxy.php'
+	),
+	'GuzzleHttp\\Handler\\StreamHandler' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/StreamHandler.php'
+	),
+	'GuzzleHttp\\MessageFormatter' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/MessageFormatter.php'
+	),
+	'GuzzleHttp\\Middleware' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Middleware.php'
+	),
+	'GuzzleHttp\\Pool' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Pool.php'
+	),
+	'GuzzleHttp\\PrepareBodyMiddleware' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php'
+	),
+	'GuzzleHttp\\Promise\\AggregateException' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/AggregateException.php'
+	),
+	'GuzzleHttp\\Promise\\CancellationException' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/CancellationException.php'
+	),
+	'GuzzleHttp\\Promise\\Coroutine' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/Coroutine.php'
+	),
+	'GuzzleHttp\\Promise\\Create' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/Create.php'
+	),
+	'GuzzleHttp\\Promise\\Each' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/Each.php'
+	),
+	'GuzzleHttp\\Promise\\EachPromise' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/EachPromise.php'
+	),
+	'GuzzleHttp\\Promise\\FulfilledPromise' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/FulfilledPromise.php'
+	),
+	'GuzzleHttp\\Promise\\Is' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/Is.php'
+	),
+	'GuzzleHttp\\Promise\\Promise' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/Promise.php'
+	),
+	'GuzzleHttp\\Promise\\PromiseInterface' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/PromiseInterface.php'
+	),
+	'GuzzleHttp\\Promise\\PromisorInterface' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/PromisorInterface.php'
+	),
+	'GuzzleHttp\\Promise\\RejectedPromise' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/RejectedPromise.php'
+	),
+	'GuzzleHttp\\Promise\\RejectionException' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/RejectionException.php'
+	),
+	'GuzzleHttp\\Promise\\TaskQueue' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/TaskQueue.php'
+	),
+	'GuzzleHttp\\Promise\\TaskQueueInterface' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/TaskQueueInterface.php'
+	),
+	'GuzzleHttp\\Promise\\Utils' => array(
+		'version' => '1.5.2.0',
+		'path'    => $vendorDir . '/guzzlehttp/promises/src/Utils.php'
+	),
+	'GuzzleHttp\\Psr7\\AppendStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/AppendStream.php'
+	),
+	'GuzzleHttp\\Psr7\\BufferStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/BufferStream.php'
+	),
+	'GuzzleHttp\\Psr7\\CachingStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/CachingStream.php'
+	),
+	'GuzzleHttp\\Psr7\\DroppingStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/DroppingStream.php'
+	),
+	'GuzzleHttp\\Psr7\\FnStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/FnStream.php'
+	),
+	'GuzzleHttp\\Psr7\\Header' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Header.php'
+	),
+	'GuzzleHttp\\Psr7\\InflateStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/InflateStream.php'
+	),
+	'GuzzleHttp\\Psr7\\LazyOpenStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/LazyOpenStream.php'
+	),
+	'GuzzleHttp\\Psr7\\LimitStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/LimitStream.php'
+	),
+	'GuzzleHttp\\Psr7\\Message' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Message.php'
+	),
+	'GuzzleHttp\\Psr7\\MessageTrait' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/MessageTrait.php'
+	),
+	'GuzzleHttp\\Psr7\\MimeType' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/MimeType.php'
+	),
+	'GuzzleHttp\\Psr7\\MultipartStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/MultipartStream.php'
+	),
+	'GuzzleHttp\\Psr7\\NoSeekStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/NoSeekStream.php'
+	),
+	'GuzzleHttp\\Psr7\\PumpStream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/PumpStream.php'
+	),
+	'GuzzleHttp\\Psr7\\Query' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Query.php'
+	),
+	'GuzzleHttp\\Psr7\\Request' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Request.php'
+	),
+	'GuzzleHttp\\Psr7\\Response' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Response.php'
+	),
+	'GuzzleHttp\\Psr7\\Rfc7230' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Rfc7230.php'
+	),
+	'GuzzleHttp\\Psr7\\ServerRequest' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/ServerRequest.php'
+	),
+	'GuzzleHttp\\Psr7\\Stream' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Stream.php'
+	),
+	'GuzzleHttp\\Psr7\\StreamDecoratorTrait' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/StreamDecoratorTrait.php'
+	),
+	'GuzzleHttp\\Psr7\\StreamWrapper' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/StreamWrapper.php'
+	),
+	'GuzzleHttp\\Psr7\\UploadedFile' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/UploadedFile.php'
+	),
+	'GuzzleHttp\\Psr7\\Uri' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Uri.php'
+	),
+	'GuzzleHttp\\Psr7\\UriComparator' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/UriComparator.php'
+	),
+	'GuzzleHttp\\Psr7\\UriNormalizer' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/UriNormalizer.php'
+	),
+	'GuzzleHttp\\Psr7\\UriResolver' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/UriResolver.php'
+	),
+	'GuzzleHttp\\Psr7\\Utils' => array(
+		'version' => '1.9.0.0',
+		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Utils.php'
+	),
+	'GuzzleHttp\\RedirectMiddleware' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/RedirectMiddleware.php'
+	),
+	'GuzzleHttp\\RequestOptions' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/RequestOptions.php'
+	),
+	'GuzzleHttp\\RetryMiddleware' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/RetryMiddleware.php'
+	),
+	'GuzzleHttp\\TransferStats' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/TransferStats.php'
+	),
+	'GuzzleHttp\\UriTemplate' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/UriTemplate.php'
+	),
+	'GuzzleHttp\\Utils' => array(
+		'version' => '6.5.8.0',
+		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Utils.php'
+	),
+	'Mobile_Detect' => array(
+		'version' => '2.8.41.0',
+		'path'    => $vendorDir . '/mobiledetect/mobiledetectlib/Mobile_Detect.php'
+	),
+	'Normalizer' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php'
+	),
+	'ParseError' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ParseError.php'
+	),
+	'Psr\\Http\\Message\\MessageInterface' => array(
+		'version' => '1.0.1.0',
+		'path'    => $vendorDir . '/psr/http-message/src/MessageInterface.php'
+	),
+	'Psr\\Http\\Message\\RequestInterface' => array(
+		'version' => '1.0.1.0',
+		'path'    => $vendorDir . '/psr/http-message/src/RequestInterface.php'
+	),
+	'Psr\\Http\\Message\\ResponseInterface' => array(
+		'version' => '1.0.1.0',
+		'path'    => $vendorDir . '/psr/http-message/src/ResponseInterface.php'
+	),
+	'Psr\\Http\\Message\\ServerRequestInterface' => array(
+		'version' => '1.0.1.0',
+		'path'    => $vendorDir . '/psr/http-message/src/ServerRequestInterface.php'
+	),
+	'Psr\\Http\\Message\\StreamInterface' => array(
+		'version' => '1.0.1.0',
+		'path'    => $vendorDir . '/psr/http-message/src/StreamInterface.php'
+	),
+	'Psr\\Http\\Message\\UploadedFileInterface' => array(
+		'version' => '1.0.1.0',
+		'path'    => $vendorDir . '/psr/http-message/src/UploadedFileInterface.php'
+	),
+	'Psr\\Http\\Message\\UriInterface' => array(
+		'version' => '1.0.1.0',
+		'path'    => $vendorDir . '/psr/http-message/src/UriInterface.php'
+	),
+	'Psr\\Log\\AbstractLogger' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/AbstractLogger.php'
+	),
+	'Psr\\Log\\InvalidArgumentException' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/InvalidArgumentException.php'
+	),
+	'Psr\\Log\\LogLevel' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/LogLevel.php'
+	),
+	'Psr\\Log\\LoggerAwareInterface' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerAwareInterface.php'
+	),
+	'Psr\\Log\\LoggerAwareTrait' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerAwareTrait.php'
+	),
+	'Psr\\Log\\LoggerInterface' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerInterface.php'
+	),
+	'Psr\\Log\\LoggerTrait' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerTrait.php'
+	),
+	'Psr\\Log\\NullLogger' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/NullLogger.php'
+	),
+	'Psr\\Log\\Test\\DummyTest' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/Test/DummyTest.php'
+	),
+	'Psr\\Log\\Test\\LoggerInterfaceTest' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php'
+	),
+	'Psr\\Log\\Test\\TestLogger' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/Test/TestLogger.php'
 	),
 	'Rhumsaa\\Uuid\\Console\\Application' => array(
 		'version' => '2.9.0.0',
 		'path'    => $vendorDir . '/ramsey/uuid/src/Console/Application.php'
-	),
-	'Rhumsaa\\Uuid\\Console\\Util\\ErrorHandler' => array(
-		'version' => '2.9.0.0',
-		'path'    => $vendorDir . '/ramsey/uuid/src/Console/Util/ErrorHandler.php'
 	),
 	'Rhumsaa\\Uuid\\Console\\Command\\DecodeCommand' => array(
 		'version' => '2.9.0.0',
@@ -2774,452 +498,2792 @@ return array(
 		'version' => '2.9.0.0',
 		'path'    => $vendorDir . '/ramsey/uuid/src/Console/Exception.php'
 	),
-	'Psr\\Log\\LoggerAwareInterface' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerAwareInterface.php'
-	),
-	'Psr\\Log\\LogLevel' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/LogLevel.php'
-	),
-	'Psr\\Log\\Test\\LoggerInterfaceTest' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php'
-	),
-	'Psr\\Log\\Test\\TestLogger' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/Test/TestLogger.php'
-	),
-	'Psr\\Log\\Test\\DummyTest' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/Test/DummyTest.php'
-	),
-	'Psr\\Log\\LoggerAwareTrait' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerAwareTrait.php'
-	),
-	'Psr\\Log\\InvalidArgumentException' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/InvalidArgumentException.php'
-	),
-	'Psr\\Log\\NullLogger' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/NullLogger.php'
-	),
-	'Psr\\Log\\LoggerInterface' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerInterface.php'
-	),
-	'Psr\\Log\\LoggerTrait' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerTrait.php'
-	),
-	'Psr\\Log\\AbstractLogger' => array(
-		'version' => '1.1.4.0',
-		'path'    => $vendorDir . '/psr/log/Psr/Log/AbstractLogger.php'
-	),
-	'Psr\\Http\\Message\\ServerRequestInterface' => array(
-		'version' => '1.0.1.0',
-		'path'    => $vendorDir . '/psr/http-message/src/ServerRequestInterface.php'
-	),
-	'Psr\\Http\\Message\\UriInterface' => array(
-		'version' => '1.0.1.0',
-		'path'    => $vendorDir . '/psr/http-message/src/UriInterface.php'
-	),
-	'Psr\\Http\\Message\\StreamInterface' => array(
-		'version' => '1.0.1.0',
-		'path'    => $vendorDir . '/psr/http-message/src/StreamInterface.php'
-	),
-	'Psr\\Http\\Message\\UploadedFileInterface' => array(
-		'version' => '1.0.1.0',
-		'path'    => $vendorDir . '/psr/http-message/src/UploadedFileInterface.php'
-	),
-	'Psr\\Http\\Message\\RequestInterface' => array(
-		'version' => '1.0.1.0',
-		'path'    => $vendorDir . '/psr/http-message/src/RequestInterface.php'
-	),
-	'Psr\\Http\\Message\\ResponseInterface' => array(
-		'version' => '1.0.1.0',
-		'path'    => $vendorDir . '/psr/http-message/src/ResponseInterface.php'
-	),
-	'Psr\\Http\\Message\\MessageInterface' => array(
-		'version' => '1.0.1.0',
-		'path'    => $vendorDir . '/psr/http-message/src/MessageInterface.php'
-	),
-	'GuzzleHttp\\Psr7\\FnStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/FnStream.php'
-	),
-	'GuzzleHttp\\Psr7\\UriNormalizer' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/UriNormalizer.php'
-	),
-	'GuzzleHttp\\Psr7\\MessageTrait' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/MessageTrait.php'
-	),
-	'GuzzleHttp\\Psr7\\MimeType' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/MimeType.php'
-	),
-	'GuzzleHttp\\Psr7\\CachingStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/CachingStream.php'
-	),
-	'GuzzleHttp\\Psr7\\PumpStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/PumpStream.php'
-	),
-	'GuzzleHttp\\Psr7\\NoSeekStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/NoSeekStream.php'
-	),
-	'GuzzleHttp\\Psr7\\Response' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Response.php'
-	),
-	'GuzzleHttp\\Psr7\\InflateStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/InflateStream.php'
-	),
-	'GuzzleHttp\\Psr7\\StreamWrapper' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/StreamWrapper.php'
-	),
-	'GuzzleHttp\\Psr7\\Stream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Stream.php'
-	),
-	'GuzzleHttp\\Psr7\\UriComparator' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/UriComparator.php'
-	),
-	'GuzzleHttp\\Psr7\\Request' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Request.php'
-	),
-	'GuzzleHttp\\Psr7\\Header' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Header.php'
-	),
-	'GuzzleHttp\\Psr7\\DroppingStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/DroppingStream.php'
-	),
-	'GuzzleHttp\\Psr7\\LazyOpenStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/LazyOpenStream.php'
-	),
-	'GuzzleHttp\\Psr7\\BufferStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/BufferStream.php'
-	),
-	'GuzzleHttp\\Psr7\\Uri' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Uri.php'
-	),
-	'GuzzleHttp\\Psr7\\StreamDecoratorTrait' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/StreamDecoratorTrait.php'
-	),
-	'GuzzleHttp\\Psr7\\UploadedFile' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/UploadedFile.php'
-	),
-	'GuzzleHttp\\Psr7\\Utils' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Utils.php'
-	),
-	'GuzzleHttp\\Psr7\\Query' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Query.php'
-	),
-	'GuzzleHttp\\Psr7\\AppendStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/AppendStream.php'
-	),
-	'GuzzleHttp\\Psr7\\UriResolver' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/UriResolver.php'
-	),
-	'GuzzleHttp\\Psr7\\LimitStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/LimitStream.php'
-	),
-	'GuzzleHttp\\Psr7\\ServerRequest' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/ServerRequest.php'
-	),
-	'GuzzleHttp\\Psr7\\Message' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Message.php'
-	),
-	'GuzzleHttp\\Psr7\\MultipartStream' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/MultipartStream.php'
-	),
-	'GuzzleHttp\\Psr7\\Rfc7230' => array(
-		'version' => '1.9.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/psr7/src/Rfc7230.php'
-	),
-	'GuzzleHttp\\Promise\\PromiseInterface' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/PromiseInterface.php'
-	),
-	'GuzzleHttp\\Promise\\CancellationException' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/CancellationException.php'
-	),
-	'GuzzleHttp\\Promise\\TaskQueue' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/TaskQueue.php'
-	),
-	'GuzzleHttp\\Promise\\Each' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/Each.php'
-	),
-	'GuzzleHttp\\Promise\\Promise' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/Promise.php'
-	),
-	'GuzzleHttp\\Promise\\PromisorInterface' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/PromisorInterface.php'
-	),
-	'GuzzleHttp\\Promise\\RejectionException' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/RejectionException.php'
-	),
-	'GuzzleHttp\\Promise\\Create' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/Create.php'
-	),
-	'GuzzleHttp\\Promise\\Coroutine' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/Coroutine.php'
-	),
-	'GuzzleHttp\\Promise\\RejectedPromise' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/RejectedPromise.php'
-	),
-	'GuzzleHttp\\Promise\\Is' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/Is.php'
-	),
-	'GuzzleHttp\\Promise\\Utils' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/Utils.php'
-	),
-	'GuzzleHttp\\Promise\\EachPromise' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/EachPromise.php'
-	),
-	'GuzzleHttp\\Promise\\AggregateException' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/AggregateException.php'
-	),
-	'GuzzleHttp\\Promise\\FulfilledPromise' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/FulfilledPromise.php'
-	),
-	'GuzzleHttp\\Promise\\TaskQueueInterface' => array(
-		'version' => '1.5.1.0',
-		'path'    => $vendorDir . '/guzzlehttp/promises/src/TaskQueueInterface.php'
-	),
-	'GuzzleHttp\\Handler\\EasyHandle' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/EasyHandle.php'
-	),
-	'GuzzleHttp\\Handler\\CurlFactory' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/CurlFactory.php'
-	),
-	'GuzzleHttp\\Handler\\CurlMultiHandler' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php'
-	),
-	'GuzzleHttp\\Handler\\CurlHandler' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/CurlHandler.php'
-	),
-	'GuzzleHttp\\Handler\\MockHandler' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/MockHandler.php'
-	),
-	'GuzzleHttp\\Handler\\Proxy' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/Proxy.php'
-	),
-	'GuzzleHttp\\Handler\\StreamHandler' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/StreamHandler.php'
-	),
-	'GuzzleHttp\\Handler\\CurlFactoryInterface' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Handler/CurlFactoryInterface.php'
-	),
-	'GuzzleHttp\\UriTemplate' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/UriTemplate.php'
-	),
-	'GuzzleHttp\\RedirectMiddleware' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/RedirectMiddleware.php'
-	),
-	'GuzzleHttp\\TransferStats' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/TransferStats.php'
-	),
-	'GuzzleHttp\\Pool' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Pool.php'
-	),
-	'GuzzleHttp\\HandlerStack' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/HandlerStack.php'
-	),
-	'GuzzleHttp\\RequestOptions' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/RequestOptions.php'
-	),
-	'GuzzleHttp\\ClientInterface' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/ClientInterface.php'
-	),
-	'GuzzleHttp\\PrepareBodyMiddleware' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php'
-	),
-	'GuzzleHttp\\Cookie\\SessionCookieJar' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php'
-	),
-	'GuzzleHttp\\Cookie\\CookieJarInterface' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/CookieJarInterface.php'
-	),
-	'GuzzleHttp\\Cookie\\SetCookie' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/SetCookie.php'
-	),
-	'GuzzleHttp\\Cookie\\FileCookieJar' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/FileCookieJar.php'
-	),
-	'GuzzleHttp\\Cookie\\CookieJar' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Cookie/CookieJar.php'
-	),
-	'GuzzleHttp\\Middleware' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Middleware.php'
-	),
-	'GuzzleHttp\\RetryMiddleware' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/RetryMiddleware.php'
-	),
-	'GuzzleHttp\\MessageFormatter' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/MessageFormatter.php'
-	),
-	'GuzzleHttp\\Exception\\SeekException' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/SeekException.php'
-	),
-	'GuzzleHttp\\Exception\\TransferException' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/TransferException.php'
-	),
-	'GuzzleHttp\\Exception\\ServerException' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/ServerException.php'
-	),
-	'GuzzleHttp\\Exception\\ClientException' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/ClientException.php'
-	),
-	'GuzzleHttp\\Exception\\GuzzleException' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/GuzzleException.php'
-	),
-	'GuzzleHttp\\Exception\\BadResponseException' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/BadResponseException.php'
-	),
-	'GuzzleHttp\\Exception\\TooManyRedirectsException' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/TooManyRedirectsException.php'
-	),
-	'GuzzleHttp\\Exception\\InvalidArgumentException' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/InvalidArgumentException.php'
-	),
-	'GuzzleHttp\\Exception\\ConnectException' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/ConnectException.php'
-	),
-	'GuzzleHttp\\Exception\\RequestException' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Exception/RequestException.php'
-	),
-	'GuzzleHttp\\Client' => array(
-		'version' => '6.5.0.0',
-		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Client.php'
-	),
-	'Gmponos\\GuzzleLogger\\Handler\\LogLevel\\LogLevelStrategy' => array(
-		'version' => '0.6.0.0',
-		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/LogLevel/LogLevelStrategy.php'
-	),
-	'Gmponos\\GuzzleLogger\\Handler\\LogLevel\\LogLevelStrategyInterface' => array(
-		'version' => '0.6.0.0',
-		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/LogLevel/LogLevelStrategyInterface.php'
-	),
-	'Gmponos\\GuzzleLogger\\Handler\\ArrayHandler' => array(
-		'version' => '0.6.0.0',
-		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/ArrayHandler.php'
-	),
-	'Gmponos\\GuzzleLogger\\Handler\\StringHandler' => array(
-		'version' => '0.6.0.0',
-		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/StringHandler.php'
-	),
-	'Gmponos\\GuzzleLogger\\Handler\\HandlerInterface' => array(
-		'version' => '0.6.0.0',
-		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/HandlerInterface.php'
-	),
-	'Gmponos\\GuzzleLogger\\Handler\\Exception\\UnsupportedException' => array(
-		'version' => '0.6.0.0',
-		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Handler/Exception/UnsupportedException.php'
-	),
-	'Gmponos\\GuzzleLogger\\Middleware\\LoggerMiddleware' => array(
-		'version' => '0.6.0.0',
-		'path'    => $vendorDir . '/gmponos/guzzle_logger/src/Middleware/LoggerMiddleware.php'
-	),
-	'Automattic\\Jetpack\\Autoloader\\AutoloadGenerator' => array(
-		'version' => '2.11.6.0',
-		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/AutoloadGenerator.php'
-	),
-	'Automattic\\Jetpack\\Autoloader\\AutoloadProcessor' => array(
-		'version' => '2.11.6.0',
-		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/AutoloadProcessor.php'
-	),
-	'Automattic\\Jetpack\\Autoloader\\AutoloadFileWriter' => array(
-		'version' => '2.11.6.0',
-		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/AutoloadFileWriter.php'
-	),
-	'Automattic\\Jetpack\\Autoloader\\CustomAutoloaderPlugin' => array(
-		'version' => '2.11.6.0',
-		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/CustomAutoloaderPlugin.php'
-	),
-	'Automattic\\Jetpack\\Autoloader\\ManifestGenerator' => array(
-		'version' => '2.11.6.0',
-		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/ManifestGenerator.php'
-	),
-	'Detection\\MobileDetect' => array(
-		'version' => '2.8.39.0',
-		'path'    => $vendorDir . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php'
-	),
-	'Mobile_Detect' => array(
-		'version' => '2.8.39.0',
-		'path'    => $vendorDir . '/mobiledetect/mobiledetectlib/Mobile_Detect.php'
+	'Rhumsaa\\Uuid\\Console\\Util\\ErrorHandler' => array(
+		'version' => '2.9.0.0',
+		'path'    => $vendorDir . '/ramsey/uuid/src/Console/Util/ErrorHandler.php'
+	),
+	'Rhumsaa\\Uuid\\Doctrine\\UuidType' => array(
+		'version' => '2.9.0.0',
+		'path'    => $vendorDir . '/ramsey/uuid/src/Doctrine/UuidType.php'
+	),
+	'Rhumsaa\\Uuid\\Exception\\UnsatisfiedDependencyException' => array(
+		'version' => '2.9.0.0',
+		'path'    => $vendorDir . '/ramsey/uuid/src/Exception/UnsatisfiedDependencyException.php'
+	),
+	'Rhumsaa\\Uuid\\Exception\\UnsupportedOperationException' => array(
+		'version' => '2.9.0.0',
+		'path'    => $vendorDir . '/ramsey/uuid/src/Exception/UnsupportedOperationException.php'
+	),
+	'Rhumsaa\\Uuid\\Uuid' => array(
+		'version' => '2.9.0.0',
+		'path'    => $vendorDir . '/ramsey/uuid/src/Uuid.php'
+	),
+	'SessionUpdateTimestampHandlerInterface' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php'
+	),
+	'Symfony\\Polyfill\\Intl\\Idn\\Idn' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-intl-idn/Idn.php'
+	),
+	'Symfony\\Polyfill\\Intl\\Idn\\Info' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-intl-idn/Info.php'
+	),
+	'Symfony\\Polyfill\\Intl\\Idn\\Resources\\unidata\\DisallowedRanges' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-intl-idn/Resources/unidata/DisallowedRanges.php'
+	),
+	'Symfony\\Polyfill\\Intl\\Idn\\Resources\\unidata\\Regex' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-intl-idn/Resources/unidata/Regex.php'
+	),
+	'Symfony\\Polyfill\\Intl\\Normalizer\\Normalizer' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-intl-normalizer/Normalizer.php'
+	),
+	'Symfony\\Polyfill\\Php70\\Php70' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-php70/Php70.php'
+	),
+	'Symfony\\Polyfill\\Php72\\Php72' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-php72/Php72.php'
+	),
+	'Synerise\\DataManagement\\ApiException' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/ApiException.php'
+	),
+	'Synerise\\DataManagement\\Api\\ApiKeyControllerApi' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Api/ApiKeyControllerApi.php'
+	),
+	'Synerise\\DataManagement\\Api\\AuthorizationApi' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Api/AuthorizationApi.php'
+	),
+	'Synerise\\DataManagement\\Api\\CatalogsApi' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Api/CatalogsApi.php'
+	),
+	'Synerise\\DataManagement\\Api\\ClientManagementApi' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Api/ClientManagementApi.php'
+	),
+	'Synerise\\DataManagement\\Api\\EventsApi' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Api/EventsApi.php'
+	),
+	'Synerise\\DataManagement\\Api\\TrackerControllerApi' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Api/TrackerControllerApi.php'
+	),
+	'Synerise\\DataManagement\\Configuration' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Configuration.php'
+	),
+	'Synerise\\DataManagement\\HeaderSelector' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/HeaderSelector.php'
+	),
+	'Synerise\\DataManagement\\Model\\AccessConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AccessConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\AccessConsumerData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AccessConsumerData.php'
+	),
+	'Synerise\\DataManagement\\Model\\AccessPrivileges' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AccessPrivileges.php'
+	),
+	'Synerise\\DataManagement\\Model\\AccessPrivilegesQueryBatchRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AccessPrivilegesQueryBatchRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\AclEntryDTO' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AclEntryDTO.php'
+	),
+	'Synerise\\DataManagement\\Model\\AclEntryData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AclEntryData.php'
+	),
+	'Synerise\\DataManagement\\Model\\AclSummary' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AclSummary.php'
+	),
+	'Synerise\\DataManagement\\Model\\ActivationRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ActivationRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\ActivitiesAction' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ActivitiesAction.php'
+	),
+	'Synerise\\DataManagement\\Model\\ActivitiesClient' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ActivitiesClient.php'
+	),
+	'Synerise\\DataManagement\\Model\\ActivitiesUserAgent' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ActivitiesUserAgent.php'
+	),
+	'Synerise\\DataManagement\\Model\\Aggregate' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Aggregate.php'
+	),
+	'Synerise\\DataManagement\\Model\\AggregateAction' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AggregateAction.php'
+	),
+	'Synerise\\DataManagement\\Model\\AggregateExpressions' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AggregateExpressions.php'
+	),
+	'Synerise\\DataManagement\\Model\\AggregatesFilteredBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AggregatesFilteredBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\AggregatesUUIDBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AggregatesUUIDBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\AnalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideAggregateDataBy' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AnalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideAggregateDataBy.php'
+	),
+	'Synerise\\DataManagement\\Model\\AnalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AnalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\AnalyticsdefinitionsmanagerexpressionsprojectionsVariables' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AnalyticsdefinitionsmanagerexpressionsprojectionsVariables.php'
+	),
+	'Synerise\\DataManagement\\Model\\AnonymousClientAccessConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AnonymousClientAccessConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\AnyOfinlineResponse401ErrorsRejectedValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AnyOfinlineResponse401ErrorsRejectedValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\AnyOfsingleEventTypeBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AnyOfsingleEventTypeBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKey' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKey.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyApiGatewayResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyApiGatewayResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyBlacklist' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyBlacklist.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyCreateRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyCreateRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyGeneral' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyGeneral.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyGroup' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyGroup.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyGroupDto' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyGroupDto.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyGroupResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyGroupResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyIpPolicy' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyIpPolicy.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyResponseV2' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyResponseV2.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyUpdateRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyUpdateRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApiKeyWhitelist' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApiKeyWhitelist.php'
+	),
+	'Synerise\\DataManagement\\Model\\ApikeyPermissioncheckBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ApikeyPermissioncheckBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\AssociationToNewProfileRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AssociationToNewProfileRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\AuthenticationMethodsResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AuthenticationMethodsResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\AuthenticationRequestV2' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AuthenticationRequestV2.php'
+	),
+	'Synerise\\DataManagement\\Model\\AuthenticationRequestV21' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AuthenticationRequestV21.php'
+	),
+	'Synerise\\DataManagement\\Model\\AuthenticationResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AuthenticationResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\AuthenticationResponseConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AuthenticationResponseConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\Author' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Author.php'
+	),
+	'Synerise\\DataManagement\\Model\\AvailableRolesToSetResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AvailableRolesToSetResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\AvatarRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AvatarRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\AvatarResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AvatarResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\AvatarUrl' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/AvatarUrl.php'
+	),
+	'Synerise\\DataManagement\\Model\\BagsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BagsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\BatchUserExpirationData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BatchUserExpirationData.php'
+	),
+	'Synerise\\DataManagement\\Model\\BatchUserInvitationExpirationData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BatchUserInvitationExpirationData.php'
+	),
+	'Synerise\\DataManagement\\Model\\BatchUserInvitationRoleAssignmentData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BatchUserInvitationRoleAssignmentData.php'
+	),
+	'Synerise\\DataManagement\\Model\\BathRoleAssignmentData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BathRoleAssignmentData.php'
+	),
+	'Synerise\\DataManagement\\Model\\BrideApiApiKeyResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BrideApiApiKeyResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\BridgeApiUserBusinessProfileAssociationResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BridgeApiUserBusinessProfileAssociationResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\BridgeApiUserResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BridgeApiUserResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\BusinessProfileAccessConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileAccessConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\BusinessProfileAssociation' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileAssociation.php'
+	),
+	'Synerise\\DataManagement\\Model\\BusinessProfileAuthenticationRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileAuthenticationRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\BusinessProfileBulkInvitationRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileBulkInvitationRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\BusinessProfileBulkInvitationRequestInvitations' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileBulkInvitationRequestInvitations.php'
+	),
+	'Synerise\\DataManagement\\Model\\BusinessProfileGuid' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileGuid.php'
+	),
+	'Synerise\\DataManagement\\Model\\BusinessProfileId' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileId.php'
+	),
+	'Synerise\\DataManagement\\Model\\BusinessProfileInvitationRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileInvitationRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\BusinessProfilePasswordSettingsData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfilePasswordSettingsData.php'
+	),
+	'Synerise\\DataManagement\\Model\\BusinessProfileResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BusinessProfileResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\BycustomidClientCustomIDBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/BycustomidClientCustomIDBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ByemailClientEmailBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ByemailClientEmailBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ByidClientIdBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ByidClientIdBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\CalculateHistogramBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateHistogramBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\CalculateHistogramBody1' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateHistogramBody1.php'
+	),
+	'Synerise\\DataManagement\\Model\\CalculateOverrideBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateOverrideBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\CalculateOverrideBody1' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateOverrideBody1.php'
+	),
+	'Synerise\\DataManagement\\Model\\CalculateOverrideBody2' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateOverrideBody2.php'
+	),
+	'Synerise\\DataManagement\\Model\\CalculateOverrideBody3' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CalculateOverrideBody3.php'
+	),
+	'Synerise\\DataManagement\\Model\\CanManageUsersResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CanManageUsersResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\CatalogIdItemsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CatalogIdItemsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\CatalogIdMappingsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CatalogIdMappingsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ChangePasswordRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ChangePasswordRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\ChangePasswordResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ChangePasswordResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\CheckboxGroupValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CheckboxGroupValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\CheckboxGroupValueType' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CheckboxGroupValueType.php'
+	),
+	'Synerise\\DataManagement\\Model\\CheckboxGroupValueTypeData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CheckboxGroupValueTypeData.php'
+	),
+	'Synerise\\DataManagement\\Model\\CheckboxGroupValueTypeDesign' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CheckboxGroupValueTypeDesign.php'
+	),
+	'Synerise\\DataManagement\\Model\\CheckboxGroupValueTypeValidation' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CheckboxGroupValueTypeValidation.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientAccessConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientAccessConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientAnonymousBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientAnonymousBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientIDLogoutBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientIDLogoutBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientIdNoteIdBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientIdNoteIdBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientIdPreviewBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientIdPreviewBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientIdPreviewBody1' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientIdPreviewBody1.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientRefreshRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientRefreshRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientsClientIDBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientsClientIDBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientsListBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientsListBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ClientsSegmentationBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ClientsSegmentationBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ColumnDesign' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ColumnDesign.php'
+	),
+	'Synerise\\DataManagement\\Model\\ColumnDisplay' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ColumnDisplay.php'
+	),
+	'Synerise\\DataManagement\\Model\\ColumnProperty' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ColumnProperty.php'
+	),
+	'Synerise\\DataManagement\\Model\\ColumnsLayout' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ColumnsLayout.php'
+	),
+	'Synerise\\DataManagement\\Model\\ColumnsProperty' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ColumnsProperty.php'
+	),
+	'Synerise\\DataManagement\\Model\\CompanyclientsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CompanyclientsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\CompanyclientsClientIdBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CompanyclientsClientIdBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ConditionalAuthenticationResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ConditionalAuthenticationResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\ConfirmationToken' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ConfirmationToken.php'
+	),
+	'Synerise\\DataManagement\\Model\\ContactsClientIdBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ContactsClientIdBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\CustomCssClass' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/CustomCssClass.php'
+	),
+	'Synerise\\DataManagement\\Model\\DataSourceDefaultValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DataSourceDefaultValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\DefinitionsmanagerAggregatesBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DefinitionsmanagerAggregatesBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\DefinitionsmanagerExpressionsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DefinitionsmanagerExpressionsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\DescriptionsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DescriptionsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\DescriptionsDescriptionIdBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DescriptionsDescriptionIdBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\DesignDescription' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DesignDescription.php'
+	),
+	'Synerise\\DataManagement\\Model\\DesignHideLabel' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DesignHideLabel.php'
+	),
+	'Synerise\\DataManagement\\Model\\DesignInitialFocus' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DesignInitialFocus.php'
+	),
+	'Synerise\\DataManagement\\Model\\DesignPlaceholder' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DesignPlaceholder.php'
+	),
+	'Synerise\\DataManagement\\Model\\DesignTabIndex' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DesignTabIndex.php'
+	),
+	'Synerise\\DataManagement\\Model\\DesignTooltip' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DesignTooltip.php'
+	),
+	'Synerise\\DataManagement\\Model\\DirectoriesBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoriesBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\DirectoriesDirectoryHashBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoriesDirectoryHashBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\DirectoriesType' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoriesType.php'
+	),
+	'Synerise\\DataManagement\\Model\\DirectoriesTypesBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoriesTypesBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\DirectoriesdirectoryHashtagsDirectory' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoriesdirectoryHashtagsDirectory.php'
+	),
+	'Synerise\\DataManagement\\Model\\DirectoryHashTypesBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/DirectoryHashTypesBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EqualFieldValueRelationConstraint' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EqualFieldValueRelationConstraint.php'
+	),
+	'Synerise\\DataManagement\\Model\\Error' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Error.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsAddedtocartBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsAddedtocartBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsAddedtofavoritesBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsAddedtofavoritesBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsAppearedinlocationBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsAppearedinlocationBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsApplicationstartedBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsApplicationstartedBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsAssignedtocompanyBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsAssignedtocompanyBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsCancelledtransactionBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsCancelledtransactionBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsCompletedtransactionBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsCompletedtransactionBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsCustomBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsCustomBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsHittimerBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsHittimerBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsLoggedinBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsLoggedinBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsLoggedoutBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsLoggedoutBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsProductviewBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsProductviewBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsRecommendationclickBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsRecommendationclickBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsRecommendationseenBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsRecommendationseenBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsRegisteredBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsRegisteredBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsRemovedfromcartBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsRemovedfromcartBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsSearchedBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsSearchedBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsSharedBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsSharedBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsVisitedscreenBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsVisitedscreenBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsaddedtocartParams' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsaddedtocartParams.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsaddedtocartParamsDiscountedUnitPrice' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsaddedtocartParamsDiscountedUnitPrice.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsaddedtocartParamsFinalUnitPrice' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsaddedtocartParamsFinalUnitPrice.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsaddedtocartParamsRegularUnitPrice' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsaddedtocartParamsRegularUnitPrice.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsappearedinlocationParams' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsappearedinlocationParams.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsapplicationstartedParams' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsapplicationstartedParams.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsassignedtocompanyParams' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsassignedtocompanyParams.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventscancelledtransactionParams' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventscancelledtransactionParams.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsproductviewParams' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsproductviewParams.php'
+	),
+	'Synerise\\DataManagement\\Model\\EventsrecommendationseenParams' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/EventsrecommendationseenParams.php'
+	),
+	'Synerise\\DataManagement\\Model\\Expression' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Expression.php'
+	),
+	'Synerise\\DataManagement\\Model\\ExpressionContent' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionContent.php'
+	),
+	'Synerise\\DataManagement\\Model\\ExpressionPayload' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionPayload.php'
+	),
+	'Synerise\\DataManagement\\Model\\ExpressionPayloadCreatedBy' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionPayloadCreatedBy.php'
+	),
+	'Synerise\\DataManagement\\Model\\ExpressionPayloadModifiedBy' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionPayloadModifiedBy.php'
+	),
+	'Synerise\\DataManagement\\Model\\ExpressionsFilteredBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionsFilteredBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ExpressionsUUIDBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ExpressionsUUIDBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ExtendedAuthenticationResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ExtendedAuthenticationResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\FieldValueBetweenRelationConstraint' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueBetweenRelationConstraint.php'
+	),
+	'Synerise\\DataManagement\\Model\\FieldValueEqualToConstantRelationConstraint' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueEqualToConstantRelationConstraint.php'
+	),
+	'Synerise\\DataManagement\\Model\\FieldValueGreaterThanOrEqualRelationConstraint' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueGreaterThanOrEqualRelationConstraint.php'
+	),
+	'Synerise\\DataManagement\\Model\\FieldValueGreaterThanRelationConstraint' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueGreaterThanRelationConstraint.php'
+	),
+	'Synerise\\DataManagement\\Model\\FieldValueLessThanOrEqualRelationConstraint' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueLessThanOrEqualRelationConstraint.php'
+	),
+	'Synerise\\DataManagement\\Model\\FieldValueLessThanRelationConstraint' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/FieldValueLessThanRelationConstraint.php'
+	),
+	'Synerise\\DataManagement\\Model\\Fields' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Fields.php'
+	),
+	'Synerise\\DataManagement\\Model\\FingerprintResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/FingerprintResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\FingerprintUserResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/FingerprintUserResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\GrantedAuthority' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/GrantedAuthority.php'
+	),
+	'Synerise\\DataManagement\\Model\\IconsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/IconsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\IconsIconIDBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/IconsIconIDBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse200' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse200.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse2001' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2001.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20010' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20010.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20011' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20011.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20012' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20012.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20013' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20013.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20014' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20014.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20015' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20015.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20016' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20016.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20016Data' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20016Data.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20016MetaData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20016MetaData.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20017' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20017.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20018' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20018.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20018Data' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20018Data.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20019' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20019.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse2002' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2002.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20020' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20020.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20021' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20021.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20021Bag' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20021Bag.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20021Data' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20021Data.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20022' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20022.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20023' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20023.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20024' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20024.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20024Data' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20024Data.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20025' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20025.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20026' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20026.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20027' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20027.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20027Data' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20027Data.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20028' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20028.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20029' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20029.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse2003' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2003.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20030' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20030.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20031' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20031.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20031Data' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20031Data.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20031Directory' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20031Directory.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20031Pagination' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20031Pagination.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20032' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20032.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20033' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20033.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20034' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20034.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20035' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20035.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20036' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20036.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20037' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20037.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20038' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20038.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20039' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20039.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse2004' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2004.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20040' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20040.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20040Base' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20040Base.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20041' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20041.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20041Customers' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20041Customers.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20042' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20042.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20043' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20043.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20044' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20044.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20045' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20045.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20046' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20046.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20047' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20047.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20048' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20048.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20049' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20049.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse2005' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2005.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20050' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20050.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20050Content' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20050Content.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20051' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20051.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20051Aggregate' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20051Aggregate.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20051Content' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20051Content.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20052' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20052.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20053' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20053.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20054' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20054.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20055' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20055.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20055Content' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20055Content.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20056' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20056.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20056Items' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20056Items.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20056Metadata' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20056Metadata.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse20056Values' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse20056Values.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse2006' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2006.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse2007' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2007.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse2008' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2008.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse2009' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse2009.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse201' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse201.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse400' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse400.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse4001' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse4001.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse4001Errors' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse4001Errors.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse401' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse401.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse4011' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse4011.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse401Errors' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse401Errors.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse403' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse403.php'
+	),
+	'Synerise\\DataManagement\\Model\\InlineResponse423' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InlineResponse423.php'
+	),
+	'Synerise\\DataManagement\\Model\\InternalObjectPermissionBatchAccessQueryRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InternalObjectPermissionBatchAccessQueryRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\InternalObjectPermissionEntryCreatorRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InternalObjectPermissionEntryCreatorRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\InternalObjectPermissionSingleAccessQueryRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InternalObjectPermissionSingleAccessQueryRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\InvitationResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InvitationResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\InvitationUpdateRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/InvitationUpdateRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\IpPolicySettings' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/IpPolicySettings.php'
+	),
+	'Synerise\\DataManagement\\Model\\IsTheSameUserAsLoggedIn' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/IsTheSameUserAsLoggedIn.php'
+	),
+	'Synerise\\DataManagement\\Model\\ItemsDownloadBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ItemsDownloadBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ItemsUploadBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ItemsUploadBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\Label' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Label.php'
+	),
+	'Synerise\\DataManagement\\Model\\LabelValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LabelValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\LabelsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LabelsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\LabelsLabelIdBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LabelsLabelIdBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\Layout' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Layout.php'
+	),
+	'Synerise\\DataManagement\\Model\\LayoutItem' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LayoutItem.php'
+	),
+	'Synerise\\DataManagement\\Model\\LegacyApiKeysListing' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyApiKeysListing.php'
+	),
+	'Synerise\\DataManagement\\Model\\LegacyApiKeysListingEntry' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyApiKeysListingEntry.php'
+	),
+	'Synerise\\DataManagement\\Model\\LegacyRolesListing' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyRolesListing.php'
+	),
+	'Synerise\\DataManagement\\Model\\LegacyRolesListingEntry' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyRolesListingEntry.php'
+	),
+	'Synerise\\DataManagement\\Model\\LegacyUsersListing' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyUsersListing.php'
+	),
+	'Synerise\\DataManagement\\Model\\LegacyUsersListingEntry' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LegacyUsersListingEntry.php'
+	),
+	'Synerise\\DataManagement\\Model\\LoginProfileBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LoginProfileBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\LoginUserBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LoginUserBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\LogoutClientDTO' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/LogoutClientDTO.php'
+	),
+	'Synerise\\DataManagement\\Model\\ManagedDomainCodeResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainCodeResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\ManagedDomainDomain' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainDomain.php'
+	),
+	'Synerise\\DataManagement\\Model\\ManagedDomainListing' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainListing.php'
+	),
+	'Synerise\\DataManagement\\Model\\ManagedDomainListingData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainListingData.php'
+	),
+	'Synerise\\DataManagement\\Model\\ManagedDomainRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\ManagedDomainResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\ManagedDomainVerificationMethod' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainVerificationMethod.php'
+	),
+	'Synerise\\DataManagement\\Model\\ManagedDomainVerificationRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainVerificationRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\ManagedDomainWithProfileRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ManagedDomainWithProfileRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\MfaVerificationBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/MfaVerificationBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\ModelInterface' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ModelInterface.php'
+	),
+	'Synerise\\DataManagement\\Model\\MultiFactorAuthConfirmRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/MultiFactorAuthConfirmRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\MultiFactorAuthConfirmResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/MultiFactorAuthConfirmResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\MultiFactorAuthInitResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/MultiFactorAuthInitResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\MultiFactorAuthVerificationRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/MultiFactorAuthVerificationRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\MultiFactorMethod' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/MultiFactorMethod.php'
+	),
+	'Synerise\\DataManagement\\Model\\NotAvailableAccessConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/NotAvailableAccessConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\NumberValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\NumberValueRelativeUpdate' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValueRelativeUpdate.php'
+	),
+	'Synerise\\DataManagement\\Model\\NumberValueType' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValueType.php'
+	),
+	'Synerise\\DataManagement\\Model\\NumberValueTypeData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValueTypeData.php'
+	),
+	'Synerise\\DataManagement\\Model\\NumberValueTypeDesign' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValueTypeDesign.php'
+	),
+	'Synerise\\DataManagement\\Model\\NumberValueTypeValidation' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/NumberValueTypeValidation.php'
+	),
+	'Synerise\\DataManagement\\Model\\ObjectPermissionData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ObjectPermissionData.php'
+	),
+	'Synerise\\DataManagement\\Model\\ObjectPermissionExtendedData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ObjectPermissionExtendedData.php'
+	),
+	'Synerise\\DataManagement\\Model\\ObjectPermissionWhitelistEntryData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ObjectPermissionWhitelistEntryData.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfAggregateAttribute' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfAggregateAttribute.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfAggregateDateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfAggregateDateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfAggregateExpressionsAttribute' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfAggregateExpressionsAttribute.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfAggregateExpressionsConstraint' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfAggregateExpressionsConstraint.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfExpressionPayloadAnalysis' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfExpressionPayloadAnalysis.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfInternalObjectPermissionBatchAccessQueryRequestAccessConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfInternalObjectPermissionBatchAccessQueryRequestAccessConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfInternalObjectPermissionEntryCreatorRequestCreatedBy' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfInternalObjectPermissionEntryCreatorRequestCreatedBy.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfInternalObjectPermissionSingleAccessQueryRequestAccessConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfInternalObjectPermissionSingleAccessQueryRequestAccessConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfLayoutItem' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfLayoutItem.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfLayoutItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfLayoutItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfPaginatedSchemaDataLayoutItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfPaginatedSchemaDataLayoutItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfPaginatedSchemaDataPrimaryKey' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfPaginatedSchemaDataPrimaryKey.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfRecordRelationItem' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfRecordRelationItem.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfRulePredicate' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfRulePredicate.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfRuleSinglePredicate' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfRuleSinglePredicate.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfSchemaInputLayoutItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaInputLayoutItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfSchemaInputPrimaryKey' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaInputPrimaryKey.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfSchemaLayoutItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaLayoutItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfSchemaPrimaryKey' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaPrimaryKey.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfSchemaRelationConstraint' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaRelationConstraint.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfSchemaRelationItem' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaRelationItem.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfSchemaRelationManyConstraintsItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaRelationManyConstraintsItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfSchemaRelationOneConstraintsItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSchemaRelationOneConstraintsItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfSelectValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSelectValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfSelectValueTypeDataSource' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfSelectValueTypeDataSource.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfValueType' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfValueType.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfValueTypeDataSource' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfValueTypeDataSource.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfanalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilterExpression' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfanalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilterExpression.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfanalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilterExpressionsItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfanalyticsdefinitionsmanagerexpressionsUUIDclientclientIdcalculateoverrideFilterExpressionsItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfanalyticsdefinitionsmanagerexpressionsprojectionsVariablesValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfanalyticsdefinitionsmanagerexpressionsprojectionsVariablesValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfcalculateHistogramBody1DateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateHistogramBody1DateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfcalculateHistogramBodyDateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateHistogramBodyDateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfcalculateOverrideBody1DateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateOverrideBody1DateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfcalculateOverrideBody2DateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateOverrideBody2DateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfcalculateOverrideBody3DateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateOverrideBody3DateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfcalculateOverrideBodyDateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfcalculateOverrideBodyDateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfclientIdPreviewBodyAnalysis' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfclientIdPreviewBodyAnalysis.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfdefinitionsmanagerExpressionsBodyAnalysis' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfdefinitionsmanagerExpressionsBodyAnalysis.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfexpressionsUUIDBodyAnalysis' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfexpressionsUUIDBodyAnalysis.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20011LayoutItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20011LayoutItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20011PrimaryKey' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20011PrimaryKey.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20051AggregateAttribute' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20051AggregateAttribute.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20051AggregateDateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20051AggregateDateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20054DateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20054DateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20055ContentDateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20055ContentDateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfinlineResponse20056MetadataDateFilter' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfinlineResponse20056MetadataDateFilter.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfschemasBodyLayoutItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfschemasBodyLayoutItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfschemasBodyPrimaryKey' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfschemasBodyPrimaryKey.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfschemasSchemaIdBodyLayoutItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfschemasSchemaIdBodyLayoutItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfschemasSchemaIdBodyPrimaryKey' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfschemasSchemaIdBodyPrimaryKey.php'
+	),
+	'Synerise\\DataManagement\\Model\\OneOfv1BatchBodyItemsItems' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OneOfv1BatchBodyItemsItems.php'
+	),
+	'Synerise\\DataManagement\\Model\\OptionalInvitationToken' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/OptionalInvitationToken.php'
+	),
+	'Synerise\\DataManagement\\Model\\PaginatedDocumentation' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedDocumentation.php'
+	),
+	'Synerise\\DataManagement\\Model\\PaginatedRecord' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedRecord.php'
+	),
+	'Synerise\\DataManagement\\Model\\PaginatedRecordData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedRecordData.php'
+	),
+	'Synerise\\DataManagement\\Model\\PaginatedSchema' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedSchema.php'
+	),
+	'Synerise\\DataManagement\\Model\\PaginatedSchemaData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedSchemaData.php'
+	),
+	'Synerise\\DataManagement\\Model\\PaginatedSchemaPagination' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedSchemaPagination.php'
+	),
+	'Synerise\\DataManagement\\Model\\PaginatedSchemaProjection' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedSchemaProjection.php'
+	),
+	'Synerise\\DataManagement\\Model\\PaginatedSchemaProjectionData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PaginatedSchemaProjectionData.php'
+	),
+	'Synerise\\DataManagement\\Model\\Pagination' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Pagination.php'
+	),
+	'Synerise\\DataManagement\\Model\\PaginationMeta' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PaginationMeta.php'
+	),
+	'Synerise\\DataManagement\\Model\\PaginationMetaPagination' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PaginationMetaPagination.php'
+	),
+	'Synerise\\DataManagement\\Model\\PartialUpdateInput' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PartialUpdateInput.php'
+	),
+	'Synerise\\DataManagement\\Model\\PartialUpdateTask' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PartialUpdateTask.php'
+	),
+	'Synerise\\DataManagement\\Model\\PartialUpdateTaskId' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PartialUpdateTaskId.php'
+	),
+	'Synerise\\DataManagement\\Model\\PartialUpdateTaskStatus' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PartialUpdateTaskStatus.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordAttempts' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordAttempts.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordBlock' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordBlock.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordDifferent' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordDifferent.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordDigits' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordDigits.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordExpiration' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordExpiration.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordLowerLetters' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordLowerLetters.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordMaxIdleTime' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordMaxIdleTime.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordMaxLength' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordMaxLength.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordMinLength' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordMinLength.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordNextChange' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordNextChange.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordResetConfirmation' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordResetConfirmation.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordResetRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordResetRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordResetToken' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordResetToken.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordSettingsData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordSettingsData.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordSpecialChars' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordSpecialChars.php'
+	),
+	'Synerise\\DataManagement\\Model\\PasswordUpperLetters' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PasswordUpperLetters.php'
+	),
+	'Synerise\\DataManagement\\Model\\Permission' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Permission.php'
+	),
+	'Synerise\\DataManagement\\Model\\PermissionDTO' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionDTO.php'
+	),
+	'Synerise\\DataManagement\\Model\\PermissionGroupCreateDTO' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionGroupCreateDTO.php'
+	),
+	'Synerise\\DataManagement\\Model\\PermissionGroupDetailsDTO' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionGroupDetailsDTO.php'
+	),
+	'Synerise\\DataManagement\\Model\\PermissionGroupName' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionGroupName.php'
+	),
+	'Synerise\\DataManagement\\Model\\PermissionGroupSlug' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionGroupSlug.php'
+	),
+	'Synerise\\DataManagement\\Model\\PermissionGroupUpdateDTO' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionGroupUpdateDTO.php'
+	),
+	'Synerise\\DataManagement\\Model\\PermissionResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\PermissionsApiGateway' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PermissionsApiGateway.php'
+	),
+	'Synerise\\DataManagement\\Model\\PushCancelledBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PushCancelledBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\PushClickedBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PushClickedBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\PushReceivedBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PushReceivedBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\PushViewedBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/PushViewedBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\RadioValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RadioValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\RadioValueType' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RadioValueType.php'
+	),
+	'Synerise\\DataManagement\\Model\\RadioValueTypeData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RadioValueTypeData.php'
+	),
+	'Synerise\\DataManagement\\Model\\RadioValueTypeDesign' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RadioValueTypeDesign.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReactApiKeysListing' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReactApiKeysListing.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReactListingMeta' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReactListingMeta.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReactUserEditRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUserEditRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReactUserProlongAccessRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUserProlongAccessRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReactUserResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUserResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReactUsersListing' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUsersListing.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReactUsersListingData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUsersListingData.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReactUsersListingEntry' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUsersListingEntry.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReactUsersListingMeta' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUsersListingMeta.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReactUsersListingMetaPagination' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReactUsersListingMetaPagination.php'
+	),
+	'Synerise\\DataManagement\\Model\\Record' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Record.php'
+	),
+	'Synerise\\DataManagement\\Model\\RecordFields' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RecordFields.php'
+	),
+	'Synerise\\DataManagement\\Model\\RecordId' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RecordId.php'
+	),
+	'Synerise\\DataManagement\\Model\\RecordIdRelativeBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RecordIdRelativeBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\RecordInput' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RecordInput.php'
+	),
+	'Synerise\\DataManagement\\Model\\RecordRelationItem' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RecordRelationItem.php'
+	),
+	'Synerise\\DataManagement\\Model\\RecordRelationMany' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RecordRelationMany.php'
+	),
+	'Synerise\\DataManagement\\Model\\RecordRelationOne' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RecordRelationOne.php'
+	),
+	'Synerise\\DataManagement\\Model\\RecordRelations' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RecordRelations.php'
+	),
+	'Synerise\\DataManagement\\Model\\RecordsSchemaIdBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RecordsSchemaIdBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\RecordsschemaIdrecordIdrelativeActions' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RecordsschemaIdrecordIdrelativeActions.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReindexTask' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReindexTask.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReindexTaskId' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReindexTaskId.php'
+	),
+	'Synerise\\DataManagement\\Model\\ReindexTaskStatus' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ReindexTaskStatus.php'
+	),
+	'Synerise\\DataManagement\\Model\\RelationDataSource' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RelationDataSource.php'
+	),
+	'Synerise\\DataManagement\\Model\\RelationDataSourceData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RelationDataSourceData.php'
+	),
+	'Synerise\\DataManagement\\Model\\RelationDisplayFields' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RelationDisplayFields.php'
+	),
+	'Synerise\\DataManagement\\Model\\RelativeUpdateInput' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RelativeUpdateInput.php'
+	),
+	'Synerise\\DataManagement\\Model\\ResendConfirmationPayload' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ResendConfirmationPayload.php'
+	),
+	'Synerise\\DataManagement\\Model\\ResponseEntity' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ResponseEntity.php'
+	),
+	'Synerise\\DataManagement\\Model\\Role' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Role.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleAccessConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleAccessConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleApiGatewayResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleApiGatewayResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleDataRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleDataRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleDescription' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleDescription.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleDescriptionUpdateRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleDescriptionUpdateRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleGroup' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroup.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleGroupDataRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupDataRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleGroupDescription' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupDescription.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleGroupId' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupId.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleGroupName' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupName.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleGroupResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleGroupResponseAuthor' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupResponseAuthor.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleGroupResponseData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupResponseData.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleGroupRoleResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupRoleResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleGroupRoleUserResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleGroupRoleUserResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleId' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleId.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleName' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleName.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\RoleWithPermissionsResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RoleWithPermissionsResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\Rule' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Rule.php'
+	),
+	'Synerise\\DataManagement\\Model\\RuleAction' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RuleAction.php'
+	),
+	'Synerise\\DataManagement\\Model\\RulePredicate' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RulePredicate.php'
+	),
+	'Synerise\\DataManagement\\Model\\RulePredicateAnd' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RulePredicateAnd.php'
+	),
+	'Synerise\\DataManagement\\Model\\RulePredicateId' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RulePredicateId.php'
+	),
+	'Synerise\\DataManagement\\Model\\RulePredicateNeg' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RulePredicateNeg.php'
+	),
+	'Synerise\\DataManagement\\Model\\RulePredicateOr' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RulePredicateOr.php'
+	),
+	'Synerise\\DataManagement\\Model\\RuleRecordPredicate' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RuleRecordPredicate.php'
+	),
+	'Synerise\\DataManagement\\Model\\RuleSchemaPredicate' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RuleSchemaPredicate.php'
+	),
+	'Synerise\\DataManagement\\Model\\RuleSinglePredicate' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RuleSinglePredicate.php'
+	),
+	'Synerise\\DataManagement\\Model\\Ruleset' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Ruleset.php'
+	),
+	'Synerise\\DataManagement\\Model\\RulesetInput' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/RulesetInput.php'
+	),
+	'Synerise\\DataManagement\\Model\\SamlConfigurationData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SamlConfigurationData.php'
+	),
+	'Synerise\\DataManagement\\Model\\SamlEmailLocation' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SamlEmailLocation.php'
+	),
+	'Synerise\\DataManagement\\Model\\SamlGroupAssignment' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SamlGroupAssignment.php'
+	),
+	'Synerise\\DataManagement\\Model\\SamlGroupAssignmentMapping' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SamlGroupAssignmentMapping.php'
+	),
+	'Synerise\\DataManagement\\Model\\Schema' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Schema.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaIdRecordIdBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaIdRecordIdBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaInput' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaInput.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaName' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaName.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaPrimaryKey' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaPrimaryKey.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaPrimaryKeyAuto' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaPrimaryKeyAuto.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaPrimaryKeySingleField' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaPrimaryKeySingleField.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaProjection' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaProjection.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaRelationConstraint' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaRelationConstraint.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaRelationItem' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaRelationItem.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaRelationMany' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaRelationMany.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaRelationOne' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaRelationOne.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaRelations' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaRelations.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemaTags' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemaTags.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemasBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemasBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\SchemasSchemaIdBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SchemasSchemaIdBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\SelectValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\SelectValueDesign' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueDesign.php'
+	),
+	'Synerise\\DataManagement\\Model\\SelectValueType' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueType.php'
+	),
+	'Synerise\\DataManagement\\Model\\SelectValueTypeData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueTypeData.php'
+	),
+	'Synerise\\DataManagement\\Model\\SelectValueTypeDataSource' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueTypeDataSource.php'
+	),
+	'Synerise\\DataManagement\\Model\\SelectValueTypeDesign' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueTypeDesign.php'
+	),
+	'Synerise\\DataManagement\\Model\\SelectValueTypeValidation' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SelectValueTypeValidation.php'
+	),
+	'Synerise\\DataManagement\\Model\\SettableRoleResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SettableRoleResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\SingleEventTypeBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SingleEventTypeBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\SingleLayout' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SingleLayout.php'
+	),
+	'Synerise\\DataManagement\\Model\\StatusResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/StatusResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\SwitchValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SwitchValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\SwitchValueType' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SwitchValueType.php'
+	),
+	'Synerise\\DataManagement\\Model\\SwitchValueTypeData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SwitchValueTypeData.php'
+	),
+	'Synerise\\DataManagement\\Model\\SwitchValueTypeDesign' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/SwitchValueTypeDesign.php'
+	),
+	'Synerise\\DataManagement\\Model\\TableDesign' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TableDesign.php'
+	),
+	'Synerise\\DataManagement\\Model\\TableDisplay' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TableDisplay.php'
+	),
+	'Synerise\\DataManagement\\Model\\TableLayout' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TableLayout.php'
+	),
+	'Synerise\\DataManagement\\Model\\TagsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TagsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\TagsTagHashBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TagsTagHashBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\TextValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TextValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\TextValueType' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TextValueType.php'
+	),
+	'Synerise\\DataManagement\\Model\\TextValueTypeDesign' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TextValueTypeDesign.php'
+	),
+	'Synerise\\DataManagement\\Model\\TextValueTypeValidation' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TextValueTypeValidation.php'
+	),
+	'Synerise\\DataManagement\\Model\\TokenResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TokenResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\TrackingCodeCreationByDomainRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TrackingCodeCreationByDomainRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\TrackingCodeResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TrackingCodeResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\TransactionsBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\TransactionsClient' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsClient.php'
+	),
+	'Synerise\\DataManagement\\Model\\TransactionsDiscountAmount' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsDiscountAmount.php'
+	),
+	'Synerise\\DataManagement\\Model\\TransactionsFinalUnitPrice' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsFinalUnitPrice.php'
+	),
+	'Synerise\\DataManagement\\Model\\TransactionsNetUnitPrice' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsNetUnitPrice.php'
+	),
+	'Synerise\\DataManagement\\Model\\TransactionsPaymentInfo' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsPaymentInfo.php'
+	),
+	'Synerise\\DataManagement\\Model\\TransactionsProducts' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsProducts.php'
+	),
+	'Synerise\\DataManagement\\Model\\TransactionsRegularPrice' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsRegularPrice.php'
+	),
+	'Synerise\\DataManagement\\Model\\TransactionsRevenue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsRevenue.php'
+	),
+	'Synerise\\DataManagement\\Model\\TransactionsValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TransactionsValue.php'
+	),
+	'Synerise\\DataManagement\\Model\\TypeLayout' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/TypeLayout.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserAccessConsumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserAccessConsumer.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserAccountDetails' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserAccountDetails.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserAuthenticationMethodsRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserAuthenticationMethodsRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserAuthenticationRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserAuthenticationRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserAuthenticationWithBusinessProfileIdRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserAuthenticationWithBusinessProfileIdRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserAutoCompleteResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserAutoCompleteResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserBusinessProfileAssociationResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserBusinessProfileAssociationResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserBusinessProfileAssociationRolesUpdateRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserBusinessProfileAssociationRolesUpdateRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserConfirmed' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserConfirmed.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserCreated' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserCreated.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserDataUpdateRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserDataUpdateRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserDescription' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserDescription.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserDisplayName' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserDisplayName.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserEmail' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserEmail.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserEntity' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserEntity.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserFirstName' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserFirstName.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserId' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserId.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserIdInteger' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserIdInteger.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserIntroduction' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserIntroduction.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserIsMfaEnabled' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserIsMfaEnabled.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserLanguage' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserLanguage.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserLastLogin' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserLastLogin.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserLastName' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserLastName.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserMailAccountId' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserMailAccountId.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserOrganizationRole' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserOrganizationRole.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserPassword' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserPassword.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserPasswordLastModificationDate' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserPasswordLastModificationDate.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserPhone' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserPhone.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserProfileInfoResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserProfileInfoResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserRegistrationRequest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserRegistrationRequest.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserResponse' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserResponse.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserRoleNames' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserRoleNames.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserRoles' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserRoles.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserStatus' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserStatus.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserSuperAdmin' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserSuperAdmin.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserTokenDescriptor' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserTokenDescriptor.php'
+	),
+	'Synerise\\DataManagement\\Model\\UserUpdated' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/UserUpdated.php'
+	),
+	'Synerise\\DataManagement\\Model\\V1BatchBody' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/V1BatchBody.php'
+	),
+	'Synerise\\DataManagement\\Model\\V2authloginclientAgreements' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/V2authloginclientAgreements.php'
+	),
+	'Synerise\\DataManagement\\Model\\V2authloginclientAttributes' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/V2authloginclientAttributes.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValidationErrorMessage' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValidationErrorMessage.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValidationRegexPattern' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValidationRegexPattern.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValidationRequired' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValidationRequired.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValidationUnique' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValidationUnique.php'
+	),
+	'Synerise\\DataManagement\\Model\\Value' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/Value.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueType' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueType.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeData1' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData1.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeData2' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData2.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeData2Source' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData2Source.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeData3' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData3.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeData4' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeData4.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeLayout' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeLayout.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeValidation' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeValidation.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeValidation1' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeValidation1.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeValidation2' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeValidation2.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValueTypeValidation3' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValueTypeValidation3.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValuesDataSource' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValuesDataSource.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValuesDataSourceData' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValuesDataSourceData.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValuesDataSourceDataValues' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValuesDataSourceDataValues.php'
+	),
+	'Synerise\\DataManagement\\Model\\ValuesDataSourceValue' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/Model/ValuesDataSourceValue.php'
+	),
+	'Synerise\\DataManagement\\ObjectSerializer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/api-data-management/ObjectSerializer.php'
+	),
+	'Synerise\\IntegrationCore\\CookieManager' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/CookieManager.php'
+	),
+	'Synerise\\IntegrationCore\\CookieManagerInterface' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/CookieManagerInterface.php'
+	),
+	'Synerise\\IntegrationCore\\Exception\\ApiConfigurationException' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Exception/ApiConfigurationException.php'
+	),
+	'Synerise\\IntegrationCore\\Exception\\CoreException' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Exception/CoreException.php'
+	),
+	'Synerise\\IntegrationCore\\Exception\\InputException' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Exception/InputException.php'
+	),
+	'Synerise\\IntegrationCore\\Exception\\MergeException' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Exception/MergeException.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\Api\\CatalogsConfigurationFactory' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/Api/CatalogsConfigurationFactory.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\Api\\CatalogsConfigurationFactoryInterface' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/Api/CatalogsConfigurationFactoryInterface.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\Api\\ClientConfigurationFactory' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientConfigurationFactory.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\Api\\ClientConfigurationFactoryInterface' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientConfigurationFactoryInterface.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\Api\\ClientFactory' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientFactory.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\Api\\ClientFactoryInterface' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientFactoryInterface.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\ClientManagementApiFactory' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/ClientManagementApiFactory.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\DataManagementApiFactory' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/DataManagementApiFactory.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\DataManagementCatalogsApiFactory' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/DataManagementCatalogsApiFactory.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\TrackerApiFactory' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/TrackerApiFactory.php'
+	),
+	'Synerise\\IntegrationCore\\Logger\\Handler' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Logger/Handler.php'
+	),
+	'Synerise\\IntegrationCore\\Mapper\\Time' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Mapper/Time.php'
+	),
+	'Synerise\\IntegrationCore\\Provider\\AuthApiTokenProvider' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Provider/AuthApiTokenProvider.php'
+	),
+	'Synerise\\IntegrationCore\\Provider\\ConfigProviderInterface' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Provider/ConfigProviderInterface.php'
+	),
+	'Synerise\\IntegrationCore\\Provider\\TokenProviderInterface' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Provider/TokenProviderInterface.php'
+	),
+	'Synerise\\IntegrationCore\\Tracking' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Tracking.php'
+	),
+	'Synerise\\IntegrationCore\\Updater\\Client' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Updater/Client.php'
+	),
+	'Synerise\\IntegrationCore\\Updater\\ClientInterface' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Updater/ClientInterface.php'
+	),
+	'Synerise\\IntegrationCore\\Uuid' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Uuid.php'
+	),
+	'Synerise\\Integration\\Admin\\Synerise_For_Woocommerce_API' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Admin/class-synerise-for-woocommerce-api.php'
+	),
+	'Synerise\\Integration\\Admin\\Synerise_For_Woocommerce_Admin' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Admin/class-synerise-for-woocommerce-admin.php'
+	),
+	'Synerise\\Integration\\Config_Provider' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/class-config-provider.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Add_To_Cart' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-add-to-cart.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Cart_Status' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-cart-status.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Cart_Updated' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-cart-updated.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Client_Edit' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-client-edit.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Client_Login' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-client-login.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Client_Logout' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-client-logout.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Client_Register' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-client-register.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Order_Placed' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-order-placed.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Order_Update' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-order-update.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Product_Added' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-product-added.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Product_Bulk_Edit' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-product-bulk-edit.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Product_Import' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-product-import.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Product_Quick_Edit' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-product-quick-edit.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Product_Review' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-product-review.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Product_Trash_Untrash' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-product-trash-untrash.php'
+	),
+	'Synerise\\Integration\\Event\\Event_Removed_From_Cart' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-event-removed-from-cart.php'
+	),
+	'Synerise\\Integration\\Logger_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-logger-service.php'
+	),
+	'Synerise\\Integration\\Mapper\\Client_Action' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Mapper/class-client-action.php'
+	),
+	'Synerise\\Integration\\Service\\Cart_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-cart-service.php'
+	),
+	'Synerise\\Integration\\Service\\Catalog_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-catalog-service.php'
+	),
+	'Synerise\\Integration\\Service\\Client_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-client-service.php'
+	),
+	'Synerise\\Integration\\Service\\Open_Graph_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-open-graph-service.php'
+	),
+	'Synerise\\Integration\\Service\\Opt_In_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-opt-in-service.php'
+	),
+	'Synerise\\Integration\\Service\\Order_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-order-service.php'
+	),
+	'Synerise\\Integration\\Service\\Product_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-product-service.php'
+	),
+	'Synerise\\Integration\\Service\\Review_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-review-service.php'
+	),
+	'Synerise\\Integration\\Service\\Tracking_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-tracking-service.php'
+	),
+	'Synerise\\Integration\\Service\\User_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-user-service.php'
+	),
+	'Synerise\\Integration\\Synchronization\\DataStore\\History_Data_Store' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/DataStore/class-history-data-store.php'
+	),
+	'Synerise\\Integration\\Synchronization\\DataStore\\Queue_Data_Store' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/DataStore/class-queue-data-store.php'
+	),
+	'Synerise\\Integration\\Synchronization\\DataStore\\Status_Data_Store' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/DataStore/class-status-data-store.php'
+	),
+	'Synerise\\Integration\\Synchronization\\Filters\\MultipleSendForSynchronization' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/Filters/MultipleSendForSynchronization.php'
+	),
+	'Synerise\\Integration\\Synchronization\\History_Data' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/class-history-data.php'
+	),
+	'Synerise\\Integration\\Synchronization\\Queue_Data' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/class-queue-data.php'
+	),
+	'Synerise\\Integration\\Synchronization\\Scheduler\\Abstract_Scheduler' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/Scheduler/class-abstract-scheduler.php'
+	),
+	'Synerise\\Integration\\Synchronization\\Scheduler\\Customer_Scheduler' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/Scheduler/class-customer-scheduler.php'
+	),
+	'Synerise\\Integration\\Synchronization\\Scheduler\\Order_Scheduler' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/Scheduler/class-order-scheduler.php'
+	),
+	'Synerise\\Integration\\Synchronization\\Scheduler\\Product_Scheduler' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/Scheduler/class-product-scheduler.php'
+	),
+	'Synerise\\Integration\\Synchronization\\Status_Data' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/class-status-data.php'
+	),
+	'Synerise\\Integration\\Synchronization\\Synchronization' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Synchronization/class-synchronization.php'
+	),
+	'Synerise\\Integration\\Synerise_For_Woocommerce' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/class-synerise-for-woocommerce.php'
+	),
+	'Synerise\\Integration\\Synerise_For_Woocommerce_Activator' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-activator.php'
+	),
+	'Synerise\\Integration\\Synerise_For_Woocommerce_Deactivator' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-deactivator.php'
+	),
+	'Synerise\\Integration\\Synerise_For_Woocommerce_Events' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-events.php'
+	),
+	'Synerise\\Integration\\Synerise_For_Woocommerce_Loader' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-loader.php'
+	),
+	'Synerise\\Integration\\Synerise_For_Woocommerce_Uninstall' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-uninstall.php'
+	),
+	'Synerise\\Integration\\Synerise_For_Woocommerce_i18n' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-i18n.php'
+	),
+	'Synerise\\Integration\\Tests\\Helpers\\Helper_Coupon' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Helpers/class-helper-coupon.php'
+	),
+	'Synerise\\Integration\\Tests\\Helpers\\Helper_Customer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Helpers/class-helper-customer.php'
+	),
+	'Synerise\\Integration\\Tests\\Helpers\\Helper_Database' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Helpers/class-helper-database.php'
+	),
+	'Synerise\\Integration\\Tests\\Helpers\\Helper_Order' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Helpers/class-helper-order.php'
+	),
+	'Synerise\\Integration\\Tests\\Helpers\\Helper_Product' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Helpers/class-helper-product.php'
+	),
+	'Synerise\\Integration\\Tests\\Helpers\\Helper_Shipping' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Helpers/class-helper-shipping.php'
+	),
+	'TypeError' => array(
+		'version' => '1.19.0.0',
+		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/TypeError.php'
 	),
 );

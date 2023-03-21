@@ -57,7 +57,7 @@ class Open_Graph_Service
 
 	protected static function print_product_tags()
 	{
-        global $product, $post;
+        global $post;
 
         $attributes = array();
         foreach($_GET as $key => $value){if(str_contains($key, 'attribute_')){
@@ -66,6 +66,7 @@ class Open_Graph_Service
         }
 
 		if ($post->post_type == 'product') {
+            $product = wc_get_product($post->ID);
             if($product instanceof \WC_Product_Variable){
 
                 $variation = false;
