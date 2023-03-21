@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_synerise_synerise_for_woocommerce=self.webpackChunk_synerise_synerise_for_woocommerce||[]).push([[253],{18253:(e,s,r)=>{var o=r(95318);Object.defineProperty(s,"__esModule",{value:!0}),s.default=void 0;var _=o(r(56350)).default;s.default=_}}]);
