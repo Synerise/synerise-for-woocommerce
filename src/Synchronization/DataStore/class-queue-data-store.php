@@ -207,7 +207,7 @@ class Queue_Data_Store  {
 		$query[]        = "ORDER BY {$order_by_sql}";
 
 		if ( 0 < $args['limit'] ) {
-			$query[] = $wpdb->prepare( 'LIMIT %d', absint( (int) $args['limit'] ) * 1, absint( $args['limit'] ) );
+            $query[] = $wpdb->prepare( 'LIMIT %d', absint( $args['limit'] ) );
 		}
 
 		$raw_sync_queues = $wpdb->get_results( implode( ' ', $query ) );
