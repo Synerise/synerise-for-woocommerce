@@ -417,7 +417,20 @@ if(!class_exists('Synerise_For_Woocommerce')){
 
 		public static function is_woocommerce_enabled(): bool {
 			return in_array( 'woocommerce/woocommerce.php', (array) get_option( 'active_plugins', array() ) ) ||
-			       is_plugin_active_for_network( 'woocommerce/woocommerce.php' );
+               self::is_plugin_active_for_network( 'woocommerce/woocommerce.php' );
 		}
+
+        public static function is_plugin_active_for_network( $plugin ) {
+            if ( ! is_multisite() ) {
+                return false;
+            }
+
+            $plugins = get_site_option( 'active_sitewide_plugins' );
+            if ( isset( $plugins[ $plugin ] ) ) {
+                return true;
+            }
+
+            return false;
+        }
 	}
 }

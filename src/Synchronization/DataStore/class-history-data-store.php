@@ -61,6 +61,10 @@ class History_Data_Store {
     {
         global $wpdb;
 
+        if ( empty($historyItems) ) {
+            return;
+        }
+
         $values = $place_holders = array();
 
         foreach($historyItems as $historyItem) {
