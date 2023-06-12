@@ -37,7 +37,7 @@ class Open_Graph_Service
 		$category = get_queried_object();
 		$category_link = get_category_link($category->term_id);
 		if (is_product_category($category->slug)) {
-			$thumbnail_id = get_woocommerce_term_meta($category->term_id, 'thumbnail_id', true);
+			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
 			$image = wp_get_attachment_url($thumbnail_id);
 
 			if (!empty($image)) {

@@ -54,6 +54,11 @@ class Order_Service
          * @var \WC_Product $product
          */
         $product = $product_item->get_product();
+
+        if(empty($product)){
+            return [];
+        }
+
         $productKey = Product_Service::get_item_key($product);
 
 		if(empty($productKey)){
