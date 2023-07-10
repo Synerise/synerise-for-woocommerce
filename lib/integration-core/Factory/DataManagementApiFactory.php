@@ -4,7 +4,7 @@ namespace Synerise\IntegrationCore\Factory;
 
 use Synerise\DataManagement\Api\EventsApi;
 use Synerise\IntegrationCore\Exception\ApiConfigurationException;
-use Synerise\IntegrationCore\Factory\Api\CatalogsConfigurationFactoryInterface;
+use Synerise\IntegrationCore\Factory\Api\ConfigurationFactoryInterface;
 use Synerise\IntegrationCore\Factory\Api\ClientFactoryInterface;
 
 class DataManagementApiFactory
@@ -15,13 +15,13 @@ class DataManagementApiFactory
     private $clientFactory;
 
     /**
-     * @var CatalogsConfigurationFactoryInterface
+     * @var ConfigurationFactoryInterface
      */
     private $configurationFactory;
 
     public function __construct(
         ClientFactoryInterface $clientFactory,
-        CatalogsConfigurationFactoryInterface $configurationFactory
+        ConfigurationFactoryInterface $configurationFactory
     ) {
         $this->clientFactory = $clientFactory;
         $this->configurationFactory = $configurationFactory;
@@ -33,9 +33,13 @@ class DataManagementApiFactory
      */
     public function create(): EventsApi
     {
+        $client = $this->clientFactory->create();
+        $config = $client->getConfig();
+        $isAuthorised = isset($config['headers']['Authorization']);
+
         return new EventsApi(
-            $this->clientFactory->create(),
-            $this->configurationFactory->create()
+            $client,
+            $this->configurationFactory->create(['is_authorized' => $isAuthorised])
         );
     }
 }

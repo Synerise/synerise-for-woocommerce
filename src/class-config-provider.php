@@ -13,6 +13,16 @@ class Config_Provider implements ConfigProviderInterface
         return (string) Synerise_For_Woocommerce::get_setting('synerise_api_key');
     }
 
+    public function getApiGuid(): string
+    {
+        return (string) Synerise_For_Woocommerce::get_setting('synerise_api_guid');
+    }
+
+    public function getBasicToken(): string
+    {
+        return base64_encode("{$this->getApiGuid()}:{$this->getApiKey()}");
+    }
+
 	public function getHost(): string {
 		return (string) Synerise_For_Woocommerce::get_setting('synerise_api_host_url');
 	}
@@ -31,6 +41,11 @@ class Config_Provider implements ConfigProviderInterface
     public function isAdminStore(): bool
     {
         return is_admin();
+    }
+
+    public function isBasicAuthEnabled(): bool
+    {
+        return (bool) Synerise_For_Woocommerce::get_setting('basic_auth_enabled');
     }
 
     public function isRequestLoggingEnabled(): bool

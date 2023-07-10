@@ -19,6 +19,7 @@ use Synerise\IntegrationCore\CookieManager;
 use Synerise\IntegrationCore\Factory\Api\CatalogsConfigurationFactory;
 use Synerise\IntegrationCore\Factory\Api\ClientConfigurationFactory;
 use Synerise\IntegrationCore\Factory\Api\ClientFactory;
+use Synerise\IntegrationCore\Factory\Api\DefaultConfigurationFactory;
 use Synerise\IntegrationCore\Factory\ClientManagementApiFactory;
 use Synerise\IntegrationCore\Factory\DataManagementApiFactory;
 use Synerise\IntegrationCore\Factory\DataManagementCatalogsApiFactory;
@@ -394,8 +395,8 @@ if(!class_exists('Synerise_For_Woocommerce')){
 
 		public static function get_data_management_api_factory(): DataManagementApiFactory {
 			return new DataManagementApiFactory(
-                new ClientFactory( self::$config_provider, self::get_logger() ),
-				new CatalogsConfigurationFactory( new AuthApiTokenProvider( self::$config_provider ), self::$config_provider )
+                new ClientFactory( self::$config_provider, self::get_logger(), true ),
+				new DefaultConfigurationFactory( new AuthApiTokenProvider( self::$config_provider ), self::$config_provider )
 			);
 		}
 

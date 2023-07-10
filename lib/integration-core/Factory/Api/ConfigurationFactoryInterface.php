@@ -5,7 +5,7 @@ namespace Synerise\IntegrationCore\Factory\Api;
 use Synerise\DataManagement\Configuration;
 use Synerise\IntegrationCore\Exception\ApiConfigurationException;
 
-interface ClientConfigurationFactoryInterface
+interface ConfigurationFactoryInterface
 {
     /**
      * @param array $config

@@ -4,7 +4,7 @@ namespace Synerise\IntegrationCore\Factory;
 
 use Synerise\DataManagement\Api\TrackerControllerApi;
 use Synerise\IntegrationCore\Exception\ApiConfigurationException;
-use Synerise\IntegrationCore\Factory\Api\CatalogsConfigurationFactoryInterface;
+use Synerise\IntegrationCore\Factory\Api\ConfigurationFactoryInterface;
 use Synerise\IntegrationCore\Factory\Api\ClientFactoryInterface;
 use Synerise\IntegrationCore\Provider\ConfigProviderInterface;
 
@@ -16,7 +16,7 @@ class TrackerApiFactory
     private $clientFactory;
 
     /**
-     * @var CatalogsConfigurationFactoryInterface
+     * @var ConfigurationFactoryInterface
      */
     private $configurationFactory;
 
@@ -26,9 +26,9 @@ class TrackerApiFactory
 	private $configProvider;
 
     public function __construct(
-        ClientFactoryInterface $clientFactory,
-        CatalogsConfigurationFactoryInterface $configurationFactory,
-	    ConfigProviderInterface $configProvider
+        ClientFactoryInterface        $clientFactory,
+        ConfigurationFactoryInterface $configurationFactory,
+        ConfigProviderInterface       $configProvider
     ) {
         $this->clientFactory = $clientFactory;
         $this->configurationFactory = $configurationFactory;

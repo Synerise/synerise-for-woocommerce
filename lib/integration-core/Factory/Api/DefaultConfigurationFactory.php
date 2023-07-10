@@ -7,7 +7,7 @@ use Synerise\IntegrationCore\Exception\ApiConfigurationException;
 use Synerise\IntegrationCore\Provider\ConfigProviderInterface;
 use Synerise\IntegrationCore\Provider\TokenProviderInterface;
 
-class CatalogsConfigurationFactory implements ConfigurationFactoryInterface
+class DefaultConfigurationFactory implements ConfigurationFactoryInterface
 {
     /**
      * @var TokenProviderInterface
@@ -36,7 +36,11 @@ class CatalogsConfigurationFactory implements ConfigurationFactoryInterface
     public function create($config = []): Configuration
     {
 		$configuration = Configuration::getDefaultConfiguration();
-		$configuration->setAccessToken($this->tokenProvider->getAccessToken());
+        if (isset($config['is_authorized']) && $config['is_authorized']) {
+            $configuration->setAccessToken(null);
+        } else {
+            $configuration->setAccessToken($this->tokenProvider->getAccessToken());
+        }
 		$configuration->setHost($this->configProvider->getHost().'/v4');
         return $configuration;
     }

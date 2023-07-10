@@ -10,7 +10,7 @@ class Handler implements \Gmponos\GuzzleLogger\Handler\HandlerInterface
     {
 	    if ($value instanceof MessageInterface) {
 		    $message = \GuzzleHttp\Psr7\str($value);
-		    $message = preg_replace('/(Bearer )(.*)/', '$1{TOKEN}', $message);
+		    $message = preg_replace('/(Authorization\: )(Basic |Bearer )(.*)/', '$1$2{TOKEN}', $message);
 		    $logger->debug('Guzzle HTTP message ' . $message);
 	    }
     }

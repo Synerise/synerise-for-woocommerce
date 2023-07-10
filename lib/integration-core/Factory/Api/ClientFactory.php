@@ -23,12 +23,19 @@ class ClientFactory implements ClientFactoryInterface
      */
     private $logger;
 
+    /**
+     * @var bool
+     */
+    private $isBasicAuthAllowed;
+
     public function __construct(
         ConfigProviderInterface $configProvider,
-        LoggerInterface $logger = null
+        LoggerInterface $logger = null,
+        $isBasicAuthAllowed = false
     ) {
         $this->configProvider = $configProvider;
         $this->logger = $logger;
+        $this->isBasicAuthAllowed = $isBasicAuthAllowed;
     }
 
     public function create($options = []): ClientInterface
@@ -39,6 +46,15 @@ class ClientFactory implements ClientFactoryInterface
             }
 
             $this->pushLogMiddlewareToHandlerStack($options['handler']);
+        }
+
+        if ($this->isBasicAuthAllowed && $this->configProvider->isBasicAuthEnabled()) {
+            $basicToken = $this->configProvider->getBasicToken();
+            if (!empty($basicToken)) {
+                $options['headers'] = [
+                    'Authorization'=> [ "Basic {$basicToken}" ]
+                ];
+            }
         }
 
         return new Client($options);

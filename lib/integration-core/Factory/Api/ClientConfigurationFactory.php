@@ -7,7 +7,7 @@ use Synerise\IntegrationCore\Exception\ApiConfigurationException;
 use Synerise\IntegrationCore\Provider\ConfigProviderInterface;
 use Synerise\IntegrationCore\Provider\TokenProviderInterface;
 
-class ClientConfigurationFactory implements ClientConfigurationFactoryInterface
+class ClientConfigurationFactory implements ConfigurationFactoryInterface
 {
     /**
      * @var TokenProviderInterface
