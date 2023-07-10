@@ -5,7 +5,7 @@ namespace Synerise\IntegrationCore\Factory;
 use Synerise\DataManagement\Api\ClientManagementApi;
 use Synerise\IntegrationCore\Exception\ApiConfigurationException;
 use Synerise\IntegrationCore\Factory\Api\ClientFactoryInterface;
-use Synerise\IntegrationCore\Factory\Api\ClientConfigurationFactoryInterface;
+use Synerise\IntegrationCore\Factory\Api\ConfigurationFactoryInterface;
 
 class ClientManagementApiFactory
 {
@@ -15,13 +15,13 @@ class ClientManagementApiFactory
     private $clientFactory;
 
     /**
-     * @var ClientConfigurationFactoryInterface
+     * @var ConfigurationFactoryInterface
      */
     private $configurationFactory;
 
     public function __construct(
         ClientFactoryInterface $clientFactory,
-        ClientConfigurationFactoryInterface $configurationFactory
+        ConfigurationFactoryInterface $configurationFactory
     ) {
         $this->clientFactory = $clientFactory;
         $this->configurationFactory = $configurationFactory;

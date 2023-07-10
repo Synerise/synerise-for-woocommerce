@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a
+class ComposerStaticInit7cbca34fc5c49b169263b5c1a39276ac
 {
     public static $files = array (
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
@@ -876,11 +876,11 @@ class ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a
         'Synerise\\IntegrationCore\\Exception\\InputException' => __DIR__ . '/../..' . '/lib/integration-core/Exception/InputException.php',
         'Synerise\\IntegrationCore\\Exception\\MergeException' => __DIR__ . '/../..' . '/lib/integration-core/Exception/MergeException.php',
         'Synerise\\IntegrationCore\\Factory\\Api\\CatalogsConfigurationFactory' => __DIR__ . '/../..' . '/lib/integration-core/Factory/Api/CatalogsConfigurationFactory.php',
-        'Synerise\\IntegrationCore\\Factory\\Api\\CatalogsConfigurationFactoryInterface' => __DIR__ . '/../..' . '/lib/integration-core/Factory/Api/CatalogsConfigurationFactoryInterface.php',
         'Synerise\\IntegrationCore\\Factory\\Api\\ClientConfigurationFactory' => __DIR__ . '/../..' . '/lib/integration-core/Factory/Api/ClientConfigurationFactory.php',
-        'Synerise\\IntegrationCore\\Factory\\Api\\ClientConfigurationFactoryInterface' => __DIR__ . '/../..' . '/lib/integration-core/Factory/Api/ClientConfigurationFactoryInterface.php',
         'Synerise\\IntegrationCore\\Factory\\Api\\ClientFactory' => __DIR__ . '/../..' . '/lib/integration-core/Factory/Api/ClientFactory.php',
         'Synerise\\IntegrationCore\\Factory\\Api\\ClientFactoryInterface' => __DIR__ . '/../..' . '/lib/integration-core/Factory/Api/ClientFactoryInterface.php',
+        'Synerise\\IntegrationCore\\Factory\\Api\\ConfigurationFactoryInterface' => __DIR__ . '/../..' . '/lib/integration-core/Factory/Api/ConfigurationFactoryInterface.php',
+        'Synerise\\IntegrationCore\\Factory\\Api\\DefaultConfigurationFactory' => __DIR__ . '/../..' . '/lib/integration-core/Factory/Api/DefaultConfigurationFactory.php',
         'Synerise\\IntegrationCore\\Factory\\ClientManagementApiFactory' => __DIR__ . '/../..' . '/lib/integration-core/Factory/ClientManagementApiFactory.php',
         'Synerise\\IntegrationCore\\Factory\\DataManagementApiFactory' => __DIR__ . '/../..' . '/lib/integration-core/Factory/DataManagementApiFactory.php',
         'Synerise\\IntegrationCore\\Factory\\DataManagementCatalogsApiFactory' => __DIR__ . '/../..' . '/lib/integration-core/Factory/DataManagementCatalogsApiFactory.php',
@@ -901,10 +901,10 @@ class ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit40f7bd81144612bb3bbdf5088a22648a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7cbca34fc5c49b169263b5c1a39276ac::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7cbca34fc5c49b169263b5c1a39276ac::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit7cbca34fc5c49b169263b5c1a39276ac::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit7cbca34fc5c49b169263b5c1a39276ac::$classMap;
 
         }, null, ClassLoader::class);
     }

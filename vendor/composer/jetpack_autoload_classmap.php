@@ -6,6 +6,14 @@ $vendorDir = dirname(__DIR__);
 $baseDir   = dirname($vendorDir);
 
 return array(
+	'ActivationTest' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/test-activation.php'
+	),
+	'Add_To_Cart_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-add-to-cart-event.php'
+	),
 	'ArithmeticError' => array(
 		'version' => '1.19.0.0',
 		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php'
@@ -13,6 +21,18 @@ return array(
 	'AssertionError' => array(
 		'version' => '1.19.0.0',
 		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php'
+	),
+	'Autoloader' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-autoloader.php'
+	),
+	'Autoloader_Handler' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-autoloader-handler.php'
+	),
+	'Autoloader_Locator' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-autoloader-locator.php'
 	),
 	'Automattic\\Jetpack\\Autoloader\\AutoloadFileWriter' => array(
 		'version' => '2.11.16.0',
@@ -33,6 +53,42 @@ return array(
 	'Automattic\\Jetpack\\Autoloader\\ManifestGenerator' => array(
 		'version' => '2.11.16.0',
 		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/ManifestGenerator.php'
+	),
+	'Cart_Service_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Services/test-cart-service.php'
+	),
+	'Cart_Status_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-cart-status-event.php'
+	),
+	'Catalog_Service_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Services/test-catalog-service.php'
+	),
+	'Client_Login_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-client-login-event.php'
+	),
+	'Client_Logout_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-client-logout-event.php'
+	),
+	'Client_Register_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-client-register-event.php'
+	),
+	'Client_Service_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Services/test-client-service.php'
+	),
+	'Container' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-container.php'
+	),
+	'Customer_Scheduler_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Synchronization/Scheduler/test-customer-scheduler.php'
 	),
 	'Detection\\MobileDetect' => array(
 		'version' => '2.8.41.0',
@@ -398,6 +454,18 @@ return array(
 		'version' => '6.5.8.0',
 		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/Utils.php'
 	),
+	'Hook_Manager' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-hook-manager.php'
+	),
+	'Latest_Autoloader_Guard' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-latest-autoloader-guard.php'
+	),
+	'Manifest_Reader' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-manifest-reader.php'
+	),
 	'Mobile_Detect' => array(
 		'version' => '2.8.41.0',
 		'path'    => $vendorDir . '/mobiledetect/mobiledetectlib/Mobile_Detect.php'
@@ -406,9 +474,69 @@ return array(
 		'version' => '1.19.0.0',
 		'path'    => $vendorDir . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php'
 	),
+	'Order_Placed_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-order-placed-event.php'
+	),
+	'Order_Scheduler_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Synchronization/Scheduler/test-order-scheduler.php'
+	),
+	'Order_Service_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Services/test-order-service.php'
+	),
+	'PHP_Autoloader' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-php-autoloader.php'
+	),
 	'ParseError' => array(
 		'version' => '1.19.0.0',
 		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ParseError.php'
+	),
+	'Path_Processor' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-path-processor.php'
+	),
+	'Plugin_Locator' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-plugin-locator.php'
+	),
+	'Plugins_Handler' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-plugins-handler.php'
+	),
+	'Product_Added_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-update-product-event.php'
+	),
+	'Product_Bulk_Edit_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-product-bulk-edit-event.php'
+	),
+	'Product_Import_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-product-import-event.php'
+	),
+	'Product_Quick_Edit_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-product-quick-edit-event.php'
+	),
+	'Product_Review_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-product-review-event.php'
+	),
+	'Product_Scheduler_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Synchronization/Scheduler/test-product-scheduler.php'
+	),
+	'Product_Service_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Services/test-product-service.php'
+	),
+	'Product_Trash_Untrash_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-product-trash-untrash-event.php'
 	),
 	'Psr\\Http\\Message\\MessageInterface' => array(
 		'version' => '1.0.1.0',
@@ -482,6 +610,14 @@ return array(
 		'version' => '1.1.4.0',
 		'path'    => $vendorDir . '/psr/log/Psr/Log/Test/TestLogger.php'
 	),
+	'Removed_From_Cart_Event_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Events/test-removed-from-cart-event.php'
+	),
+	'Review_Service_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Services/test-review-service.php'
+	),
 	'Rhumsaa\\Uuid\\Console\\Application' => array(
 		'version' => '2.9.0.0',
 		'path'    => $vendorDir . '/ramsey/uuid/src/Console/Application.php'
@@ -522,6 +658,10 @@ return array(
 		'version' => '1.19.0.0',
 		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php'
 	),
+	'Shutdown_Handler' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-shutdown-handler.php'
+	),
 	'Symfony\\Polyfill\\Intl\\Idn\\Idn' => array(
 		'version' => '1.19.0.0',
 		'path'    => $vendorDir . '/symfony/polyfill-intl-idn/Idn.php'
@@ -549,6 +689,10 @@ return array(
 	'Symfony\\Polyfill\\Php72\\Php72' => array(
 		'version' => '1.19.0.0',
 		'path'    => $vendorDir . '/symfony/polyfill-php72/Php72.php'
+	),
+	'Synchronization_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Synchronization/test-synchronization.php'
 	),
 	'Synerise\\DataManagement\\ApiException' => array(
 		'version' => 'dev-master',
@@ -2986,17 +3130,9 @@ return array(
 		'version' => 'dev-master',
 		'path'    => $baseDir . '/lib/integration-core/Factory/Api/CatalogsConfigurationFactory.php'
 	),
-	'Synerise\\IntegrationCore\\Factory\\Api\\CatalogsConfigurationFactoryInterface' => array(
-		'version' => 'dev-master',
-		'path'    => $baseDir . '/lib/integration-core/Factory/Api/CatalogsConfigurationFactoryInterface.php'
-	),
 	'Synerise\\IntegrationCore\\Factory\\Api\\ClientConfigurationFactory' => array(
 		'version' => 'dev-master',
 		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientConfigurationFactory.php'
-	),
-	'Synerise\\IntegrationCore\\Factory\\Api\\ClientConfigurationFactoryInterface' => array(
-		'version' => 'dev-master',
-		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientConfigurationFactoryInterface.php'
 	),
 	'Synerise\\IntegrationCore\\Factory\\Api\\ClientFactory' => array(
 		'version' => 'dev-master',
@@ -3005,6 +3141,14 @@ return array(
 	'Synerise\\IntegrationCore\\Factory\\Api\\ClientFactoryInterface' => array(
 		'version' => 'dev-master',
 		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ClientFactoryInterface.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\Api\\ConfigurationFactoryInterface' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/Api/ConfigurationFactoryInterface.php'
+	),
+	'Synerise\\IntegrationCore\\Factory\\Api\\DefaultConfigurationFactory' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/lib/integration-core/Factory/Api/DefaultConfigurationFactory.php'
 	),
 	'Synerise\\IntegrationCore\\Factory\\ClientManagementApiFactory' => array(
 		'version' => 'dev-master',
@@ -3285,5 +3429,17 @@ return array(
 	'TypeError' => array(
 		'version' => '1.19.0.0',
 		'path'    => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/TypeError.php'
+	),
+	'User_Service_Test' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/tests/Services/test-user-service.php'
+	),
+	'Version_Loader' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-version-loader.php'
+	),
+	'Version_Selector' => array(
+		'version' => '2.11.16.0',
+		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-version-selector.php'
 	),
 );
