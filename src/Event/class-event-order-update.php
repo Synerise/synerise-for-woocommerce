@@ -31,7 +31,7 @@ class Event_Order_Update
      * @param int $order_id
      * @return void
      */
-    public function send_event(int $order_id)
+    public function execute(int $order_id)
     {
         if (!Tracking_Service::is_event_enabled(self::EVENT_NAME)) {
             return;

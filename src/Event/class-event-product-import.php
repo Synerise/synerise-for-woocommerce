@@ -29,7 +29,7 @@ class Event_Product_Import
         $this->logger = $logger;
     }
 
-    public function send_event(WC_Product $product)
+    public function execute(WC_Product $product)
     {
         if (!Tracking_Service::is_event_enabled(self::EVENT_NAME)) {
             return;

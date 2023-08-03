@@ -15,11 +15,11 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 // Remove options
-delete_option('synerise-for-woocommerce');
-delete_site_option('synerise-for-woocommerce');
+delete_option("synerise-for-woocommerce");
+delete_site_option("synerise-for-woocommerce");
 
 global $wpdb;
-$tables = array('snrs_sync_queue', 'snrs_sync_status', 'snrs_sync_history');
+$tables = array('snrs_sync_queue', 'snrs_sync_status', 'snrs_sync_history', 'snrs_event_queue_item');
 foreach ($tables as $table) {
     $table_name = $wpdb->prefix . $table;
     $wpdb->query("DROP TABLE IF EXISTS {$table_name}");

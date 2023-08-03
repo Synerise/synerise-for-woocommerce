@@ -11,6 +11,10 @@ namespace Synerise\Integration;
 
 use Synerise\Integration\Admin\Synerise_For_Woocommerce_Admin;
 use Synerise\Integration\Admin\Synerise_For_Woocommerce_API;
+use Synerise\Integration\Event_Queue\Consumer;
+use Synerise\Integration\Event_Queue\Item_Data_Store;
+use Synerise\Integration\Service\Catalog_Service;
+use Synerise\Integration\Service\Event_Service;
 use Synerise\Integration\Service\Open_Graph_Service;
 use Synerise\Integration\Service\Opt_In_Service;
 use Synerise\Integration\Service\Tracking_Service;
@@ -116,13 +120,16 @@ if(!class_exists('Synerise_For_Woocommerce')){
 			$this->define_rest_api_hooks();
 			$this->define_admin_hooks();
 
-			if(self::is_plugin_configured() && self::is_woocommerce_enabled()){
+            add_action( 'plugins_loaded', [ new Synerise_For_Woocommerce_Activator(), 'update_db_check' ] );
+
+            if(self::is_plugin_configured() && self::is_woocommerce_enabled()){
                 $this->include_frontend_scripts();
 				$this->define_synchronization_hooks();
 				$this->define_events();
 
 				add_action('init', function(){
 					Synchronization::create_cron_jobs();
+					Consumer::create_cron_jobs();
 				});
 
                 $this->define_opt_in_hooks();
@@ -137,7 +144,8 @@ if(!class_exists('Synerise_For_Woocommerce')){
 				[
 					'synerise-sync-status' => Status_Data_Store::class,
 					'synerise-sync-queue' => Queue_Data_Store::class,
-					'synerise-sync-history' => History_Data_Store::class
+					'synerise-sync-history' => History_Data_Store::class,
+					'synerise-event-queue-item' => Item_Data_Store::class
 				]
 			);
 		}
@@ -229,9 +237,11 @@ if(!class_exists('Synerise_For_Woocommerce')){
 		}
 
 		private function define_synchronization_hooks(){
+            $event_service = Synerise_For_Woocommerce::get_event_service();
 			$synchronization = new Synchronization();
 			$this->loader->add_action(Synchronization::ACTION_SYNC_BY_ID, $synchronization, 'sync_by_id');
 			$this->loader->add_action(Synchronization::ACTION_SYNC_BY_QUEUE, $synchronization, 'sync_by_queue');
+			$this->loader->add_action(Consumer::ACTION_PROCESS_EVENT_QUEUE, new Consumer($event_service), 'execute');
 			//$this->loader->add_action('init', $synchronization, 'create_cron_jobs');
 		}
 
@@ -377,6 +387,16 @@ if(!class_exists('Synerise_For_Woocommerce')){
 		public static function get_tracking_manager(): Tracking {
 			return self::$tracking_manager;
 		}
+
+        public static function get_event_service(): Event_Service {
+            return new Event_Service(
+                Synerise_For_Woocommerce::get_logger(),
+                Synerise_For_Woocommerce::get_client_management_api_factory(),
+                Synerise_For_Woocommerce::get_data_management_api_factory(),
+                Synerise_For_Woocommerce::get_data_management_catalogs_api_factory(),
+                new Catalog_Service()
+            );
+        }
 
 		public static function get_client_management_api_factory(): ClientManagementApiFactory {
 			return new ClientManagementApiFactory(

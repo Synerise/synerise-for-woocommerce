@@ -99,5 +99,7 @@ class Catalog_Service
 		if($status === 200) {
 			Synerise_For_Woocommerce::remove_setting('catalog');
 		}
+
+        return [$response, $status, $headers];
 	}
 }

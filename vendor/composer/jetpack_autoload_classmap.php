@@ -3214,6 +3214,10 @@ return array(
 		'version' => 'dev-master',
 		'path'    => $baseDir . '/src/class-config-provider.php'
 	),
+	'Synerise\\Integration\\Event\\Abstract_Event' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Event/class-abstract-event.php'
+	),
 	'Synerise\\Integration\\Event\\Event_Add_To_Cart' => array(
 		'version' => 'dev-master',
 		'path'    => $baseDir . '/src/Event/class-event-add-to-cart.php'
@@ -3221,10 +3225,6 @@ return array(
 	'Synerise\\Integration\\Event\\Event_Cart_Status' => array(
 		'version' => 'dev-master',
 		'path'    => $baseDir . '/src/Event/class-event-cart-status.php'
-	),
-	'Synerise\\Integration\\Event\\Event_Cart_Updated' => array(
-		'version' => 'dev-master',
-		'path'    => $baseDir . '/src/Event/class-event-cart-updated.php'
 	),
 	'Synerise\\Integration\\Event\\Event_Client_Edit' => array(
 		'version' => 'dev-master',
@@ -3278,6 +3278,18 @@ return array(
 		'version' => 'dev-master',
 		'path'    => $baseDir . '/src/Event/class-event-removed-from-cart.php'
 	),
+	'Synerise\\Integration\\Event_Queue\\Consumer' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/EventQueue/class-event-queue-consumer.php'
+	),
+	'Synerise\\Integration\\Event_Queue\\Item_Data' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/EventQueue/class-event-queue-item-data.php'
+	),
+	'Synerise\\Integration\\Event_Queue\\Item_Data_Store' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/EventQueue/DataStore/class-event-queue-item-data-store.php'
+	),
 	'Synerise\\Integration\\Logger_Service' => array(
 		'version' => 'dev-master',
 		'path'    => $baseDir . '/src/Service/class-logger-service.php'
@@ -3297,6 +3309,10 @@ return array(
 	'Synerise\\Integration\\Service\\Client_Service' => array(
 		'version' => 'dev-master',
 		'path'    => $baseDir . '/src/Service/class-client-service.php'
+	),
+	'Synerise\\Integration\\Service\\Event_Service' => array(
+		'version' => 'dev-master',
+		'path'    => $baseDir . '/src/Service/class-event-service.php'
 	),
 	'Synerise\\Integration\\Service\\Open_Graph_Service' => array(
 		'version' => 'dev-master',

@@ -28,7 +28,7 @@ class Event_Product_Added
         $this->logger = $logger;
     }
 
-    public function send_event(int $product_id)
+    public function execute(int $product_id)
     {
         if (!Tracking_Service::is_event_enabled(self::EVENT_NAME)) {
             return;
@@ -60,7 +60,7 @@ class Event_Product_Added
             }
 
         } catch (\Exception $e) {
-            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
+            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Event processing failed', $e));
         }
     }
 }

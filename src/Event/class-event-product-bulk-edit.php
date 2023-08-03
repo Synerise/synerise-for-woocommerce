@@ -32,7 +32,7 @@ class Event_Product_Bulk_Edit
      * @param \WC_Product $product
      * @return void
      */
-    public function send_event(\WC_Product $product)
+    public function execute(\WC_Product $product)
     {
         if (!Tracking_Service::is_event_enabled(self::EVENT_NAME)) {
             return;

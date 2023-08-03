@@ -2,6 +2,7 @@
 
 namespace Synerise\Integration;
 
+use Synerise\Integration\Event_Queue\Consumer;
 use Synerise\Integration\Synchronization\Synchronization;
 
 /**
@@ -29,5 +30,6 @@ class Synerise_For_Woocommerce_Deactivator {
 	private static function cancel_cron_jobs() {
 		as_unschedule_all_actions( Synchronization::ACTION_SYNC_BY_ID, array(), SYNERISE_FOR_WOOCOMMERCE_PREFIX );
 		as_unschedule_all_actions( Synchronization::ACTION_SYNC_BY_QUEUE, array(), SYNERISE_FOR_WOOCOMMERCE_PREFIX );
+		as_unschedule_all_actions( Consumer::ACTION_PROCESS_EVENT_QUEUE, array(), SYNERISE_FOR_WOOCOMMERCE_PREFIX );
 	}
 }
