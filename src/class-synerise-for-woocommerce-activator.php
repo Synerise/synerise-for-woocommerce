@@ -42,6 +42,9 @@ class Synerise_For_Woocommerce_Activator {
             ["value" => "product_trash_untrash", "label" => "Product trashed/untrashed"],
             ["value" => "product_review", "label" => "Product review"]
         ],
+        'event_tracking_queue_enabled' => false,
+        'event_tracking_queue_cron_expression' => "* * * * *",
+        'event_tracking_queue_page_size' => 100,
         'page_tracking_enabled' => true,
         'page_tracking_open_graph_enabled' => true,
         'page_tracking_custom_script_enabled' => false,
@@ -134,6 +137,7 @@ class Synerise_For_Woocommerce_Activator {
         $syncQueueTableName = $wpdb->prefix.'snrs_sync_queue';
         $syncStatusTableName = $wpdb->prefix.'snrs_sync_status';
         $syncHistoryTableName = $wpdb->prefix.'snrs_sync_history';
+        $eventQueueTableName = $wpdb->prefix.'snrs_event_queue_item';
 
         $syncQueue = "CREATE TABLE `$syncQueueTableName` (
                       `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
@@ -163,9 +167,17 @@ class Synerise_For_Woocommerce_Activator {
                       UNIQUE KEY `SNRS_SYNC_HISTORY_MODEL_ENTITY` (`model`, `entity_id`)
                     ) $charset_collate COMMENT='Synerise synchronization history';";
 
+        $eventQueue = "CREATE TABLE `$eventQueueTableName` (
+                      `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+                      `event_name` varchar(25) NOT NULL COMMENT 'Name of the event to be sent',
+                      `payload` longtext DEFAULT NULL COMMENT 'Event Payload to be sent',
+                      `entity_id` int(10) unsigned COMMENT 'Entity ID',
+                      PRIMARY KEY (`id`)
+                    ) $charset_collate COMMENT='Synerise event queue items';";
+
         try {
             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-            dbDelta( [$syncQueue, $syncStatus, $syncHistory] );
+            dbDelta( [$syncQueue, $syncStatus, $syncHistory, $eventQueue] );
         } catch (\Exception $e) {
             Synerise_For_Woocommerce::get_logger()->error(`SQL REQUEST ERROR ${$e->getMessage()}`);
         }

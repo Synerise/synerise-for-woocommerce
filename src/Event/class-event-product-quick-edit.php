@@ -33,7 +33,7 @@ class Event_Product_Quick_Edit
      * @param WC_Product $product
      * @return void
      */
-    public function send_event( WC_Product $product)
+    public function execute( WC_Product $product)
     {
 
         if (!Tracking_Service::is_event_enabled(self::EVENT_NAME)) {
@@ -47,7 +47,7 @@ class Event_Product_Quick_Edit
         try {
             Synchronization::add_item_to_queue('product', $product->get_id());
         } catch (\Exception $e) {
-            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
+            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Event processing failed', $e));
         }
 
     }

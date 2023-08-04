@@ -16,6 +16,7 @@ class Client_Service
             $customer->get_billing_address_1();
 
         $params = array_filter([
+            'custom_id' => $customer->get_id(),
             'uuid' => Uuid::generateUuidByEmail($customer->get_email()),
             'email' => $customer->get_email(),
             'firstname' => $customer->get_first_name() ?: null,
