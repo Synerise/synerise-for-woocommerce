@@ -27,7 +27,8 @@ class Event_Order_Placed extends Abstract_Event
         }
 
         try {
-            $this->process_event($this->prepare_event($order_id));
+            $order = wc_get_order($order_id);
+            $this->process_event($this->prepare_event($order));
 
 	        if (!is_user_logged_in()) {
 		        $client_params_json = \GuzzleHttp\json_encode([Client_Service::prepare_client_params_from_order($order)]);
@@ -39,10 +40,8 @@ class Event_Order_Placed extends Abstract_Event
         }
     }
 
-    public function prepare_event(int $order_id)
+    public function prepare_event(\WC_Order $order)
     {
-        $order = wc_get_order($order_id);
-
         $this->tracking_manager->manageClientUuid($order->get_billing_email());
 
         $order_data = Order_Service::prepare_order_params($order);
