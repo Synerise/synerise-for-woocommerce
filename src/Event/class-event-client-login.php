@@ -21,11 +21,7 @@ class Event_Client_Login extends Abstract_Event
 	public function execute(string $username)
     {
         if (!$this->is_event_enabled()) {
-            return null;
-        }
-
-        if ( current_user_can( 'manage_options' ) ) {
-            return null;
+            return;
         }
 
         try {

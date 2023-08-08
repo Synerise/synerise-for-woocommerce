@@ -20,8 +20,8 @@ class Event_Client_Logout extends Abstract_Event
             return;
         }
 
-        if ( current_user_can( 'manage_options' ) ) {
-            return null;
+        if(!$this->tracking_manager->getClientUuid()){
+            return;
         }
 
         try {
@@ -33,13 +33,6 @@ class Event_Client_Logout extends Abstract_Event
 
     public function prepare_event()
     {
-        $user = wp_get_current_user();
-        $user_id = $user->ID;
-
-        if($user_id === 0){
-            return null;
-        }
-
         return \GuzzleHttp\json_encode(
             [
                 'time' => Client_Action::get_time(new \DateTime()),

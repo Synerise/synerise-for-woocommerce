@@ -179,8 +179,8 @@ class Tracking
         $this->setResetUuid($emailUuid);
 
         $identityHash = $this->getCookieParam('identityHash');
-        // Client is anonymous or has a different uuid then merge by email
-        if ($identityHash || $identityHash != self::hashString($email)) {
+        if ($identityHash && $identityHash != $this->hashString($email)) {
+            // Different user, skip merge.
             return;
         }
 
