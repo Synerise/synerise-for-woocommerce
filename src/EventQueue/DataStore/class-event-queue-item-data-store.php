@@ -136,16 +136,23 @@ class Item_Data_Store {
 	public function update( &$item ) {
 		global $wpdb;
 
+        $item->apply_changes();
+
 		$data = array(
             'id'                    => $item->get_id( 'edit' ),
             'event_name'            => $item->get_event_name( 'edit' ),
             'payload'               => $item->get_payload( 'edit' ),
-            'entity_id'             => $item->get_entity_id( 'edit' )
+            'entity_id'             => $item->get_entity_id( 'edit' ),
+            'retry_count'           => $item->get_retry_count( 'edit' ),
+            'retry_at'              => $item->get_retry_at( 'edit' )
 		);
 
 		$format = array(
+			'%d',
 			'%s',
 			'%s',
+			'%d',
+			'%d',
 			'%s',
 		);
 
@@ -157,8 +164,6 @@ class Item_Data_Store {
 			),
 			$format
 		);
-
-        $item->apply_changes();
 	}
 
 	/**
@@ -210,6 +215,10 @@ class Item_Data_Store {
 
 		if ( !empty($args['id']) ) {
 			$query[] = $wpdb->prepare( 'AND id = %d', $args['id'] );
+		}
+
+		if ( !empty($args['retry_interval']) ) {
+			$query[] = $wpdb->prepare( 'AND retry_at IS NULL OR retry_at <= NOW() - INTERVAL %d MINUTE', $args['retry_interval'] );
 		}
 
 		$allowed_orders = array( 'id', 'event_name', 'entity_id' );

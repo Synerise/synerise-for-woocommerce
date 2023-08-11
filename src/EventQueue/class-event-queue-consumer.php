@@ -12,7 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Consumer {
 
-    const ACTION_PROCESS_EVENT_QUEUE     = SYNERISE_FOR_WOOCOMMERCE_PREFIX . '-process-event-queue';
+    const ACTION_PROCESS_EVENT_QUEUE = SYNERISE_FOR_WOOCOMMERCE_PREFIX . '-process-event-queue';
+
+    const MAX_RETRIES = 3;
+
+    const RETRY_INTERVAL = 10;
 
     /**
      * @var Event_Service
@@ -25,27 +29,39 @@ class Consumer {
     }
 
     public function execute() {
-        try {
-            /** @var Item_Data_Store $data_store */
-            $data_store = \WC_Data_Store::load( 'synerise-event-queue-item' );
+        /** @var Item_Data_Store $data_store */
+        $data_store = \WC_Data_Store::load( 'synerise-event-queue-item' );
 
-            /** @var Item_Data[] $queue_items */
-            $queue_items = $data_store->get_event_queue_items([
-                'limit' => Synerise_For_Woocommerce::get_setting('event_tracking_queue_page_size')
-            ]);
+        /** @var Item_Data[] $queue_items */
+        $queue_items = $data_store->get_event_queue_items([
+            'limit' => Synerise_For_Woocommerce::get_setting('event_tracking_queue_page_size'),
+            'retry_interval' => self::RETRY_INTERVAL
+        ]);
 
-            if(empty($queue_items)){
-                return;
-            }
+        if(empty($queue_items)){
+            return;
+        }
 
-            foreach ($queue_items as $item) {
+        $processedItems = [];
+        foreach ($queue_items as $item) {
+            try {
                 $this->event_service->send_event($item->get_event_name(), $item->get_payload());
+                $processedItems[] = $item;
+            } catch (\Exception $e) {
+                Synerise_For_Woocommerce::get_logger()->error(Logger_Service::addExceptionToMessage('Failed to process queue item payload: ' . $item->get_payload(), $e));
+                $retries = $item->get_retry_count();
+                if ($retries < self::MAX_RETRIES) {
+                    $item->set_retry_count(++$retries);
+                    $item->set_retry_at(current_time('mysql'));
+                    $item->save();
+                } else {
+                    $processedItems[] = $item;
+                }
             }
+        }
 
-            self::delete_items_from_queue($queue_items);
-
-        } catch (\Exception $e) {
-            Synerise_For_Woocommerce::get_logger()->error(Logger_Service::addExceptionToMessage('Failed to process cron items', $e));
+        if (!empty($processedItems)) {
+            self::delete_items_from_queue($processedItems);
         }
     }
 

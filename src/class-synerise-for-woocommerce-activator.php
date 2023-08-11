@@ -172,6 +172,8 @@ class Synerise_For_Woocommerce_Activator {
                       `event_name` varchar(25) NOT NULL COMMENT 'Name of the event to be sent',
                       `payload` longtext DEFAULT NULL COMMENT 'Event Payload to be sent',
                       `entity_id` int(10) unsigned COMMENT 'Entity ID',
+                      `retry_at` datetime COMMENT 'Time of last retry',
+                      `retry_count` int(1) unsigned COMMENT 'Number of retries',
                       PRIMARY KEY (`id`)
                     ) $charset_collate COMMENT='Synerise event queue items';";
 
