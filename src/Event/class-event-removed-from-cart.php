@@ -23,7 +23,7 @@ class Event_Removed_From_Cart extends Abstract_Event
         }
 
         try {
-            $this->process_event($this->get_event_name(), $this->prepare_event($cart_item_key));
+            $this->process_event($this->prepare_event($cart_item_key));
         } catch (\Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Event processing failed', $e));
         }

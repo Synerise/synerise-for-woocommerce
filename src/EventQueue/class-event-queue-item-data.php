@@ -24,6 +24,8 @@ class Item_Data extends \WC_Data {
         'payload'         => null,
         'entity_id'       => null,
         'event_name'      => null,
+        'retry_at'        => null,
+        'retry_count'     => null,
     );
 
     /**
@@ -100,6 +102,26 @@ class Item_Data extends \WC_Data {
         return $this->get_prop( 'entity_id', $context );
     }
 
+    /**
+     * Get retry at.
+     *
+     * @param $context
+     * @return mixed|null
+     */
+    public function get_retry_at( $context = 'view' ) {
+        return $this->get_prop( 'retry_at', $context );
+    }
+
+    /**
+     * Get retry at.
+     *
+     * @param $context
+     * @return mixed|null
+     */
+    public function get_retry_count( $context = 'view' ) {
+        return $this->get_prop( 'retry_count', $context );
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Setters
@@ -141,4 +163,23 @@ class Item_Data extends \WC_Data {
     public function set_entity_id( $entity_id = null ) {
         $this->set_prop( 'entity_id', $entity_id );
     }
+
+    /**
+     * Set retry at.
+     *
+     * @param $retry_at
+     */
+    public function set_retry_at( $retry_at ) {
+        $this->set_prop( 'retry_at', $retry_at );
+    }
+
+    /**
+     * set retry count.
+     *
+     * @param $retry_count
+     */
+    public function set_retry_count( $retry_count ) {
+        $this->set_prop( 'retry_count', $retry_count );
+    }
+
 }
