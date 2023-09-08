@@ -23,10 +23,9 @@ class Event_Client_Logout extends Abstract_Event
 
         try {
             $payload = $this->prepare_event($user_id);
-            if(!$payload){
-                return;
+            if($payload){
+                $this->process_event($this->prepare_event($user_id));
             }
-            $this->process_event($this->prepare_event($user_id));
 		} catch (\Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Event processing failed', $e));
         }

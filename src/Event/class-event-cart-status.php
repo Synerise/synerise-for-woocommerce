@@ -28,12 +28,11 @@ class Event_Cart_Status extends Abstract_Event
 
         try {
             $payload = $this->prepare_event();
-            if(!$payload){
-                return;
+            if($payload){
+                $this->process_event($payload);
+                define('SYNERISE_CART_STATUS_SENT', true);
             }
 
-            $this->process_event($payload);
-            define('SYNERISE_CART_STATUS_SENT', true);
         } catch (\Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Event processing failed', $e));
         }

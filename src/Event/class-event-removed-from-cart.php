@@ -33,10 +33,9 @@ class Event_Removed_From_Cart extends Abstract_Event
 
         try {
             $payload = $this->prepare_event($cart_item_key);
-            if(!$payload){
-                return;
+            if($payload){
+                $this->process_event($payload);
             }
-            $this->process_event($payload);
         } catch (\Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Event processing failed', $e));
         }
