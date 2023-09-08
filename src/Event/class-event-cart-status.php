@@ -22,10 +22,6 @@ class Event_Cart_Status extends Abstract_Event
             return;
         }
 
-        if (!$this->tracking_manager->getClientUuid()) {
-            return;
-        }
-
         try {
             $payload = $this->prepare_event();
             if($payload){
