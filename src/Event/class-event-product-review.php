@@ -20,7 +20,11 @@ class Event_Product_Review extends Abstract_Event
             return;
         }
 
-		$comment = get_comment($comment_id);
+        if (!$this->tracking_manager->getClientUuid()) {
+            return;
+        }
+
+        $comment = get_comment($comment_id);
 		$post = get_post($comment->comment_post_ID);
 
 		if(is_null($post) || strpos($post->post_type, 'product') === false) {
@@ -32,6 +36,10 @@ class Event_Product_Review extends Abstract_Event
 			return;
 		}
 
+        if(!$this->tracking_manager->getClientUuid() && empty($comment->comment_author_email)) {
+            return;
+        }
+
 		try {
             $this->process_event($this->prepare_event($comment));
 		} catch (\Exception $e) {
@@ -41,13 +49,15 @@ class Event_Product_Review extends Abstract_Event
 
     public function prepare_event($comment)
     {
+        $uuid = $this->tracking_manager->getClientUuid();
+
         $client = [];
         if($comment->user_id == 0){
             if(!empty($comment->comment_author_email) || !empty($comment->comment_author)) {
                 $client_data = [];
 
                 if ( ! empty( $comment->comment_author_email ) ) {
-                    $this->tracking_manager->manageClientUuid( $comment->comment_author_email );
+                    $uuid = $this->tracking_manager->manageClientUuid( $comment->comment_author_email );
                     $client_data['email'] = $comment->comment_author_email;
                 }
 
@@ -55,14 +65,18 @@ class Event_Product_Review extends Abstract_Event
                     $client_data['displayName'] = $comment->comment_author;
                 }
 
-                $client_data['uuid'] = $this->tracking_manager->getClientUuid();
-                $this->process_client_update(\GuzzleHttp\json_encode([$client_data]));
+                if ($uuid) {
+                    $client_data['uuid'] = $uuid;
+                    $this->process_client_update(\GuzzleHttp\json_encode([$client_data]));
+                }
             }
         } else {
             $client['custom_id'] = $comment->user_id;
         }
 
-        $client['uuid'] = $this->tracking_manager->getClientUuid();
+        if ($uuid) {
+            $client['uuid'] = $uuid;
+        }
 
         $params = Review_Service::get_review_data($comment);
 

@@ -5,6 +5,7 @@ namespace Synerise\Integration\Event;
 use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Service\Client_Service;
 use Synerise\Integration\Mapper\Client_Action;
+use Synerise\IntegrationCore\Uuid;
 
 if (! defined('ABSPATH')) {
     exit;
@@ -37,14 +38,12 @@ class Event_Client_Login extends Abstract_Event
 
         $customer = new \WC_Customer($wp_user->ID);
 
-        $this->tracking_manager->manageClientUuid($wp_user->user_email);
-
         return \GuzzleHttp\json_encode(
             [
                 'time' => Client_Action::get_time(new \DateTime()),
                 'label' => Client_Action::get_label(self::EVENT_NAME),
                 'client' => [
-                    'uuid' => $this->tracking_manager->getClientUuid(),
+                    'uuid' => $this->tracking_manager->manageClientUuid($wp_user->user_email),
                     'email' => $wp_user->user_email,
                 ],
                 'params' => Client_Service::prepare_client_params($customer)

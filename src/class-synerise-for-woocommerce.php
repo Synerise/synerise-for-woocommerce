@@ -377,8 +377,8 @@ if(!class_exists('Synerise_For_Woocommerce')){
 
 			$result = update_option( $option, $updated_settings );
 
-			if(isset($settings['page_tracking_cookie_domain']) && !empty($settings['page_tracking_cookie_domain'])){
-				Tracking_Service::add_tracking_code($settings['page_tracking_cookie_domain']);
+			if(array_key_exists('page_tracking_cookie_domain', $settings)){
+				Tracking_Service::add_or_remove_tracking_code($settings['page_tracking_cookie_domain']);
 			}
 
 			return $result;
