@@ -36,7 +36,11 @@ class Tracking_Service
         }
     }
 
-    public static function add_tracking_code($cookie_domain){
+    public static function add_or_remove_tracking_code($cookie_domain){
+        if(!$cookie_domain){
+            return Synerise_For_Woocommerce::remove_setting('page_tracking_code');
+        }
+
         $trackerApi = Synerise_For_Woocommerce::get_tracker_api_factory()->create();
         $response = $trackerApi->getOrCreateByDomain(
             new TrackingCodeCreationByDomainRequest(['domain' => $cookie_domain])

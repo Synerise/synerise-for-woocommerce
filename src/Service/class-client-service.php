@@ -10,7 +10,6 @@ class Client_Service
 
     public static function prepare_client_params(\WC_Customer $customer): array
     {
-
         $address = $customer->get_billing_address_2() ?
             $customer->get_billing_address_1() . ' ' . $customer->get_billing_address_2() :
             $customer->get_billing_address_1();

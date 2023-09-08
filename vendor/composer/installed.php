@@ -3,7 +3,7 @@
         'name' => 'synerise/synerise-for-woocommerce',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '5b3bbc08806f7df072f0ac557976980a26538308',
+        'reference' => '770a5b9673a4a80b8982d72ad11a6d40fba7d517',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -160,7 +160,7 @@
         'synerise/synerise-for-woocommerce' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '5b3bbc08806f7df072f0ac557976980a26538308',
+            'reference' => '770a5b9673a4a80b8982d72ad11a6d40fba7d517',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

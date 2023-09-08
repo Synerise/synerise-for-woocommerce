@@ -68,10 +68,6 @@ class Tracking
      */
     public function getClientUuid()
     {
-        if ($this->isAdminStore()) {
-            return null;
-        }
-
         if (!$this->clientUuid) {
             $this->clientUuid = $this->getClientUuidFromCookie();
         }
@@ -153,7 +149,7 @@ class Tracking
     /**
      * @param $email
      * @return string|null
-     * @throws MergeException
+     * @throws InputException
      */
     public function manageClientUuid($email)
     {
@@ -162,17 +158,16 @@ class Tracking
         }
 
         $uuid = $this->getClientUuidFromCookie();
+        $emailUuid = Uuid::generateUuidByEmail($email);
 
         if(!$uuid) {
-            return;
+            return $emailUuid;
         }
-
-        $emailUuid = Uuid::generateUuidByEmail($email);
 
         // Email uuid already set
         if ($uuid == $emailUuid) {
             // email uuid already set
-            return;
+            return $emailUuid;
         }
 
         // reset uuid via cookie
@@ -181,7 +176,7 @@ class Tracking
         $identityHash = $this->getCookieParam('identityHash');
         if ($identityHash && $identityHash != $this->hashString($email)) {
             // Different user, skip merge.
-            return;
+            return $emailUuid;
         }
 
         try{
@@ -190,7 +185,7 @@ class Tracking
             $this->logger->error(Logger_Service::addExceptionToMessage('Client update with uuid reset failed', $e));
         }
 
-        return $this->clientUuid;
+        return $emailUuid;
     }
 
     protected static function hashString($s)

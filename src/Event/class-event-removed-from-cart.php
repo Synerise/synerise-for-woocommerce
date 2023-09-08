@@ -6,6 +6,7 @@ use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Mapper\Client_Action;
 use Synerise\Integration\Service\Cart_Service;
 use Synerise\Integration\Service\Product_Service;
+use Synerise\IntegrationCore\Uuid;
 
 if (! defined('ABSPATH')) {
     exit;
@@ -18,24 +19,35 @@ class Event_Removed_From_Cart extends Abstract_Event
 
     public function execute(string $cart_item_key)
     {
-        if (!$this->is_event_enabled() || !$this->is_product_removed($cart_item_key)) {
+        if (!$this->is_event_enabled()) {
+            return;
+        }
+
+        if(Product_Service::is_sku_item_key() && !Cart_Service::cart_item_has_sku($cart_item_key, 'removed')){
             return;
         }
 
         try {
-            $this->process_event($this->prepare_event($cart_item_key));
+            $payload = $this->prepare_event($cart_item_key);
+            if($payload){
+                $this->process_event($payload);
+            }
         } catch (\Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Event processing failed', $e));
         }
     }
 
-    protected function is_product_removed($cart_item_key)
-    {
-        return !Product_Service::is_sku_item_key() || Cart_Service::cart_item_has_sku($cart_item_key, 'removed');
-    }
-
     public function prepare_event($cart_item_key)
     {
+        $uuid = $this->tracking_manager->getClientUuid();
+        if (!$uuid) {
+            $wp_user = wp_get_current_user();
+            if(!$wp_user || $wp_user->ID === 0){
+                return null;
+            }
+            $uuid = Uuid::generateUuidByEmail($wp_user->user_email);
+        }
+
         $instance = WC()->cart;
         $default_params = [
             'source' => Client_Action::get_source()
@@ -48,7 +60,7 @@ class Event_Removed_From_Cart extends Abstract_Event
             'time' => Client_Action::get_time(new \DateTime()),
             'label' => Client_Action::get_label(self::EVENT_NAME),
             'client' => [
-                'uuid' => $this->tracking_manager->getClientUuid(),
+                'uuid' => $uuid,
             ],
             'params' => $params
         ]);
