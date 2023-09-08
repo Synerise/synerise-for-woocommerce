@@ -27,10 +27,6 @@ class Event_Removed_From_Cart extends Abstract_Event
             return;
         }
 
-        if (!$this->tracking_manager->getClientUuid()) {
-            return;
-        }
-
         try {
             $payload = $this->prepare_event($cart_item_key);
             if($payload){
