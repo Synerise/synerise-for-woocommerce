@@ -7,6 +7,7 @@ use Synerise\DataManagement\ApiException;
 use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Service\User_Service;
 use Synerise\Integration\Synerise_For_Woocommerce;
+use Synerise\IntegrationCore\Exception\ApiConfigurationException;
 use Synerise\IntegrationCore\Factory\ClientManagementApiFactory;
 use Synerise\Integration\Service\Client_Service;
 
@@ -57,33 +58,39 @@ class Customer_Scheduler extends Abstract_Scheduler
         }
 
         if(!empty($event_add_or_update_clients_body)) {
-            $response_code = $this->send_customers_to_synerise(\GuzzleHttp\json_encode($event_add_or_update_clients_body));
-            $this->mark_items_as_sent($customers_ids);
+            list ($body, $statusCode, $headers) = $this->send_customers_to_synerise(\GuzzleHttp\json_encode($event_add_or_update_clients_body));
 
-			return $response_code;
+            if ($statusCode == 207) {
+                $this->logger->warning('Request partially accepted: ' . $body);
+            } elseif($statusCode != 202) {
+                throw new ApiException(
+                    sprintf('Invalid Status [%d]', $statusCode),
+                    $statusCode,
+                    $headers,
+                    $body
+                );
+            }
+
+            $this->mark_items_as_sent($customers_ids);
+            return $statusCode;
         }
 
+        return null;
     }
 
 
     /**
      * @param $event_add_or_update_clients_body
+     * @return array
      * @throws ApiException
+     * @throws ApiConfigurationException
      */
     public function send_customers_to_synerise($event_add_or_update_clients_body)
     {
         try {
-            list ($body, $statusCode, $headers) = $this->client_management_api_factory->create()
+            return $this->client_management_api_factory->create()
                 ->batchAddOrUpdateClientsWithHttpInfo($event_add_or_update_clients_body,'application/json','4.4');
 
-            if($statusCode != 202) {
-                throw new ApiException(sprintf(
-                    'Invalid Status [%d]',
-                    $statusCode
-                ));
-            }
-
-			return $statusCode;
         } catch (\Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
             throw $e;

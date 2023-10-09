@@ -82,16 +82,13 @@ class Item_Data_Store {
             $place_holders[] = "(%s, %s, %s)";
         }
 
-
-        $query  = "REPLACE INTO ".$wpdb->prefix.self::get_table_name()." (`event_name`, `payload`, `entity_id`) VALUES ";
+        $query  = "INSERT INTO ".$wpdb->prefix.self::get_table_name()." (`event_name`, `payload`, `entity_id`) VALUES ";
         $query .= implode( ', ', $place_holders );
+        $query .= ' ON DUPLICATE KEY UPDATE `payload`=VALUES(`payload`)';
+
         $sql = $wpdb->prepare( "$query ", $values );
 
-        $result = $wpdb->query( $sql );
-
-        if ( !$result ){
-            wp_die( esc_html__( 'Unable to insert event queue items in database.', 'synerise-for-woocommerce' ) );
-        }
+        $wpdb->query( $sql );
     }
 
 	/**

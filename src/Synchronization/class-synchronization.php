@@ -2,6 +2,7 @@
 
 namespace Synerise\Integration\Synchronization;
 
+use Synerise\DataManagement\ApiException;
 use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Synchronization\DataStore\Status_Data_Store;
 use Synerise\Integration\Synerise_For_Woocommerce;
@@ -60,7 +61,15 @@ class Synchronization {
 
                 sort($collection);
 
-                $scheduler->send_items($collection);
+                try {
+                    $scheduler->send_items($collection);
+                } catch (ApiException $e) {
+                    Synerise_For_Woocommerce::get_logger()->error(
+                        "[{$e->getCode()}] Failed to process queue item. Response Body: " . $e->getResponseBody()
+                    );
+                } catch (\Exception $e) {
+                     (new Synchronization)->logger->error(Logger_Service::addExceptionToMessage('Failed to send cron items', $e));
+                }
 
                 $status->set_start_id(end($collection));
                 if ($status->get_start_id() == $status->get_stop_id()) {

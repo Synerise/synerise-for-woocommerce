@@ -436,7 +436,7 @@ class ClientManagementApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [$response->getBody(), $statusCode, $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {

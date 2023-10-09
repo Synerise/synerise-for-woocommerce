@@ -512,6 +512,7 @@ self::VERIFICATION_STATUS_NOT_VERIFIED,        ];
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -525,6 +526,7 @@ self::VERIFICATION_STATUS_NOT_VERIFIED,        ];
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -541,6 +543,7 @@ self::VERIFICATION_STATUS_NOT_VERIFIED,        ];
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

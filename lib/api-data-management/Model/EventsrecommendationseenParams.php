@@ -427,6 +427,7 @@ self::SOURCE_DESKTOP,        ];
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -440,6 +441,7 @@ self::SOURCE_DESKTOP,        ];
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -456,6 +458,7 @@ self::SOURCE_DESKTOP,        ];
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

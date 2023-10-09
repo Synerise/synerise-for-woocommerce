@@ -336,6 +336,7 @@ self::TYPE_NOT_AVAILABLE,        ];
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -349,6 +350,7 @@ self::TYPE_NOT_AVAILABLE,        ];
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -365,6 +367,7 @@ self::TYPE_NOT_AVAILABLE,        ];
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

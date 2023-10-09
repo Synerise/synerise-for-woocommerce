@@ -27,10 +27,6 @@ class Event_Add_To_Cart extends Abstract_Event
             return;
         }
 
-        if (!$this->tracking_manager->getClientUuid()) {
-            return;
-        }
-
         try {
             $payload = $this->prepare_event($cart_item_key, $quantity);
             if($payload){
