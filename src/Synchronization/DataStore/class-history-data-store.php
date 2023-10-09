@@ -72,16 +72,12 @@ class History_Data_Store {
             $place_holders[] = "(%s, %s)";
         }
 
-
-        $query  = "REPLACE INTO ".$wpdb->prefix.self::get_table_name()." (`model`, `entity_id`) VALUES ";
+        $query  = "INSERT INTO ".$wpdb->prefix.self::get_table_name()." (`model`, `entity_id`) VALUES ";
         $query .= implode( ', ', $place_holders );
+        $query .= ' ON DUPLICATE KEY UPDATE `entity_id`=VALUES(`entity_id`)';
         $sql = $wpdb->prepare( "$query ", $values );
 
-        $result = $wpdb->query( $sql );
-
-        if ( !$result ){
-            wp_die( esc_html__( 'Unable to insert sync history items in database.', 'synerise-for-woocommerce' ) );
-        }
+        $wpdb->query( $sql );
     }
 
 	/**

@@ -45,8 +45,9 @@ class Open_Graph_Service
 			} else {
 				$img_src = apply_filters('woocommerce_placeholder_img_src', WC()->plugin_url() . '/assets/images/placeholder.png');
 			} ?>
+            <!-- SYNERISE CATEGORY PAGE OG TAGS -->
 			<meta property="og:title" content="<?php echo $category->name; ?>" />
-			<meta property="og:description" content="<?php echo $category->description; ?>" />
+			<meta property="og:description" content="<?php echo strip_tags($category->description); ?>" />
 			<meta property="og:image" content="<?php echo esc_attr($img_src); ?>" />
 			<meta property="og:type" content="product" />
 			<meta property="og:url" content="<?php echo esc_url($category_link); ?>" />
@@ -88,9 +89,10 @@ class Open_Graph_Service
 
 			$img_src = Product_Service::get_product_image($product);
             ?>
-			<meta property="og:title" content="<?php echo esc_attr($product->get_name()); ?>" />
-			<meta property="og:description" content="<?php echo strip_tags(get_the_excerpt()); ?>" />
-			<meta property="og:image" content="<?php echo esc_attr($img_src); ?>" />
+            <!-- SYNERISE PRODUCT PAGE OG TAGS -->
+            <meta property="og:title" content="<?php echo esc_attr($product->get_name()); ?>" />
+            <meta property="og:description" content="<?php echo strip_tags(get_the_excerpt()); ?>" />
+            <meta property="og:image" content="<?php echo esc_attr($img_src); ?>" />
 			<meta property="og:type" content="product" />
 			<meta property="og:url" content="<?php echo $product->get_permalink(); ?>" />
 			<meta property="og:site_name" content="<?php echo get_bloginfo(strip_tags('name')); ?>" />

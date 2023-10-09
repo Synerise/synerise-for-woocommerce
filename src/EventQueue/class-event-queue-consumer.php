@@ -2,6 +2,7 @@
 
 namespace Synerise\Integration\Event_Queue;
 
+use Synerise\DataManagement\ApiException;
 use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Service\Event_Service;
 use Synerise\Integration\Synerise_For_Woocommerce;
@@ -44,19 +45,32 @@ class Consumer {
 
         $processedItems = [];
         foreach ($queue_items as $item) {
+            $retries = $item->get_retry_count();
+
             try {
                 $this->event_service->send_event($item->get_event_name(), $item->get_payload());
-                $processedItems[] = $item;
-            } catch (\Exception $e) {
-                Synerise_For_Woocommerce::get_logger()->error(Logger_Service::addExceptionToMessage('Failed to process queue item payload: ' . $item->get_payload(), $e));
-                $retries = $item->get_retry_count();
-                if ($retries < self::MAX_RETRIES) {
-                    $item->set_retry_count(++$retries);
-                    $item->set_retry_at(current_time('mysql'));
-                    $item->save();
-                } else {
-                    $processedItems[] = $item;
+            } catch (ApiException $e) {
+                Synerise_For_Woocommerce::get_logger()->error(
+                    "[{$e->getCode()}] Failed to process queue item. Payload: " . $item->get_payload() .
+                    ' Response Body: ' . $e->getResponseBody()
+                );
+
+                if ($e->getCode() == 400) {
+                    $retries = self::MAX_RETRIES;
                 }
+
+                $item->set_retry_count(++$retries);
+            } catch (\Exception $e) {
+                Synerise_For_Woocommerce::get_logger()->error(Logger_Service::addExceptionToMessage('Failed to process queue item. Payload: ' . $item->get_payload(), $e));
+
+                $item->set_retry_count(++$retries);
+            }
+
+            if ($retries && $retries < self::MAX_RETRIES) {
+                $item->set_retry_at(current_time('mysql'));
+                $item->save();
+            } else {
+                $processedItems[] = $item;
             }
         }
 

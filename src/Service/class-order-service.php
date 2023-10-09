@@ -37,6 +37,11 @@ class Order_Service
 	        'products' => []
         ];
 
+        $coupon_codes = $order->get_coupon_codes();
+        if(!empty($coupon_codes)) {
+            $params['metadata']['couponCodes'] = $coupon_codes;
+        }
+
         foreach ($order->get_items() as $item_id => $item) {
 			$products = self::prepare_order_product_params($item);
 			if(empty($products)){

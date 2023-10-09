@@ -20,10 +20,6 @@ class Event_Product_Review extends Abstract_Event
             return;
         }
 
-        if (!$this->tracking_manager->getClientUuid()) {
-            return;
-        }
-
         $comment = get_comment($comment_id);
 		$post = get_post($comment->comment_post_ID);
 

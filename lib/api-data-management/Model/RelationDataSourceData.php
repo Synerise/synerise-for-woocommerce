@@ -339,6 +339,7 @@ self::RELATION_TYPE_ONE_TO_ONE,        ];
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -352,6 +353,7 @@ self::RELATION_TYPE_ONE_TO_ONE,        ];
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -368,6 +370,7 @@ self::RELATION_TYPE_ONE_TO_ONE,        ];
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

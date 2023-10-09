@@ -38,19 +38,18 @@ class Queue_Data_Store  {
 			'%s'
 		);
 
-		$result = $wpdb->replace(
-			$wpdb->prefix . self::get_table_name(),
-			apply_filters( 'snrs_sync_queue_insert_data', $data ),
-			apply_filters( 'snrs_sync_queue_insert_format', $format, $data )
-		);
-		do_action( 'snrs_sync_queue_insert', $data );
+        apply_filters( 'snrs_sync_queue_insert_data', $data );
+        apply_filters( 'snrs_sync_queue_insert_format', $format, $data );
 
-		if ( $result ) {
-            $queue->set_id( $wpdb->insert_id );
-            $queue->apply_changes();
-		} else {
-			wp_die( esc_html__( 'Unable to insert sync queue item entry in database.', 'synerise-for-woocommerce' ) );
-		}
+        $query  = "INSERT INTO ".$wpdb->prefix.self::get_table_name()." (`model`, `entity_id`) VALUES ";
+        $query .= '(' . implode( ', ', $format ) . ')';
+        $query .= ' ON DUPLICATE KEY UPDATE `entity_id`=VALUES(`entity_id`)';
+
+        $sql = $wpdb->prepare( "$query ", $data );
+
+        $wpdb->query( $sql );
+
+        do_action( 'snrs_sync_queue_insert', $data );
 	}
 
     /**
@@ -68,16 +67,13 @@ class Queue_Data_Store  {
             $place_holders[] = "(%s, %s)";
         }
 
-
-        $query  = "REPLACE INTO ".$wpdb->prefix.self::get_table_name()." (`model`, `entity_id`) VALUES ";
+        $query  = "INSERT INTO ".$wpdb->prefix.self::get_table_name()." (`model`, `entity_id`) VALUES ";
         $query .= implode( ', ', $place_holders );
+        $query .= ' ON DUPLICATE KEY UPDATE `entity_id`=VALUES(`entity_id`)';
+
         $sql = $wpdb->prepare( "$query ", $values );
 
         $result = $wpdb->query( $sql );
-
-        if ( !$result ){
-            wp_die( esc_html__( 'Unable to insert sync queue item entry in database.', 'synerise-for-woocommerce' ) );
-        }
     }
 
 	/**

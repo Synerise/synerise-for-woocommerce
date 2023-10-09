@@ -213,6 +213,7 @@ class AnyOfinlineResponse401ErrorsRejectedValue implements ModelInterface, Array
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
@@ -226,6 +227,7 @@ class AnyOfinlineResponse401ErrorsRejectedValue implements ModelInterface, Array
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -242,6 +244,7 @@ class AnyOfinlineResponse401ErrorsRejectedValue implements ModelInterface, Array
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

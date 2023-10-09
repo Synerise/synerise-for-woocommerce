@@ -7,28 +7,47 @@ use Synerise\IntegrationCore\Uuid;
 
 class Client_Service
 {
+    const VALID_EMAIL_PATTERN = '/^(([^<>()\[\]\\\\.,;:\s@\"]+(\.[^<>()\[\]\\\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
+
+    const VALID_PHONE_PATTERN = '/^([+][0-9 \-\/()]{6,19}$)|(^[0-9 \-\/()]{6,20}$)/';
 
     public static function prepare_client_params(\WC_Customer $customer): array
     {
+        $invalid_params = [];
         $address = $customer->get_billing_address_2() ?
             $customer->get_billing_address_1() . ' ' . $customer->get_billing_address_2() :
             $customer->get_billing_address_1();
 
+        $phone = $customer->get_billing_phone();
+        if($phone && !preg_match(self::VALID_PHONE_PATTERN, $phone)) {
+            $invalid_params['phone'] = $customer->get_billing_phone();
+        }
+
+        $email = $customer->get_email();
+        if($email && !preg_match(self::VALID_EMAIL_PATTERN, $email)) {
+            $invalid_params['email'] = $email;
+        }
+
         $params = array_filter([
             'custom_id' => $customer->get_id(),
-            'uuid' => Uuid::generateUuidByEmail($customer->get_email()),
-            'email' => $customer->get_email(),
+            'uuid' => Uuid::generateUuidByEmail($email),
+            'email' => $email && !isset($invalid_params['email']) ? $email : null,
             'firstname' => $customer->get_first_name() ?: null,
             'lastname' => $customer->get_last_name() ?: null,
-            'displayName' => $customer->get_display_name() ?: null,
-            'phone' => $customer->get_billing_phone() ?: null,
+            'phone' => $phone && !isset($invalid_params['phone']) ? $phone : null,
             'company' => $customer->get_billing_company() ?: null,
             'city' => $customer->get_billing_city() ?: null,
             'address' => $address ?: null,
-            'zip_code' => $customer->get_billing_postcode() ?: null,
+            'zipCode' => $customer->get_billing_postcode() ?: null,
             'province' => $customer->get_billing_state() ?: null,
             'countryCode' => $customer->get_billing_country() ?: null
         ]);
+
+        if(!empty($invalid_params)) {
+            Synerise_For_Woocommerce::get_logger()->warning(
+                'Some client params did not pass the validation. Skipping: ' . json_encode($invalid_params)
+            );
+        }
 
         if(Opt_In_Service::is_opt_in_enabled()){
             $agreements = self::get_customer_agreements($customer->get_id());
@@ -44,12 +63,22 @@ class Client_Service
             $order->get_billing_address_1() . ' ' . $order->get_billing_address_2() :
             $order->get_billing_address_1();
 
+        $phone = $order->get_billing_phone();
+        if($phone && !preg_match(self::VALID_PHONE_PATTERN, $phone)) {
+            $invalid_params['phone'] = $phone;
+        }
+
+        $email = $order->get_billing_email();
+        if($email && !preg_match(self::VALID_EMAIL_PATTERN, $email)) {
+            $invalid_params['email'] = $email;
+        }
+
         $params = array_filter([
             'uuid' => Uuid::generateUuidByEmail($order->get_billing_email()),
-            'email' => $order->get_billing_email(),
+            'email' => $email && !isset($invalid_params['email']) ? $email : null,
             'firstname' => $order->get_billing_first_name() ?: null,
             'lastname' => $order->get_billing_last_name() ?: null,
-            'phone' => $order->get_billing_phone() ?: null,
+            'phone' => $phone && !isset($invalid_params['phone']) ? $phone : null,
             'company' => $order->get_billing_company() ?: null,
             'city' => $order->get_billing_city() ?: null,
             'address' => $address ?: null,
@@ -57,6 +86,12 @@ class Client_Service
             'province' => $order->get_billing_state() ?: null,
             'countryCode' => $order->get_billing_country() ?: null
         ]);
+
+        if(!empty($invalid_params)) {
+            Synerise_For_Woocommerce::get_logger()->warning(
+                'Some client params did not pass the validation. Skipping: ' . json_encode($invalid_params)
+            );
+        }
 
         if(Opt_In_Service::is_opt_in_enabled()){
             $agreements = Order_Service::get_agreements_from_order($order->get_id());
