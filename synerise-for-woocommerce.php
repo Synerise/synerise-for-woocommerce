@@ -9,7 +9,7 @@
  * Plugin Name:       Synerise For Woocommerce
  * Plugin URI:        https://github.com/Synerise/synerise-for-woocommerce
  * Description:       Grow your business on Synerise! Use this official plugin to allow shoppers to Pin products while browsing your store, track conversions, and advertise on synerise.
- * Version:           1.0.8
+ * Version:           1.0.9
  * Requires at least: 4.7
  * Requires PHP:      7.0.0
  * Author:            Synerise
@@ -74,7 +74,7 @@ if ( is_readable( $autoloader ) ) {
 /**
  * Currently plugin version.
  */
-define( 'SYNERISE_FOR_WOOCOMMERCE_VERSION', '1.0.8' );
+define( 'SYNERISE_FOR_WOOCOMMERCE_VERSION', '1.0.9' );
 define( 'SYNERISE_FOR_WOOCOMMERCE_DB_VERSION', '1.0.6' );
 define( 'SYNERISE_FOR_WOOCOMMERCE_PREFIX', 'synerise_for_woocommerce' );
 define( 'SYNERISE_FOR_WOOCOMMERCE_OPTION_NAME', 'synerise-for-woocommerce');

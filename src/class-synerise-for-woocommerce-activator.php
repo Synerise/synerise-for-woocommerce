@@ -23,6 +23,7 @@ class Synerise_For_Woocommerce_Activator {
         'synerise_api_host_url' => 'https://api.synerise.com',
         'synerise_api_guid' => '',
         'basic_auth_enabled' => false,
+        'default_action_scheduler_disabled' => false,
         'request_logging_enabled' => false,
         'event_tracking_enabled' => true,
         'event_tracking_events' => [
