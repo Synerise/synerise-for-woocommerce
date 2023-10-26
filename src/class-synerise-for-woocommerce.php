@@ -132,11 +132,23 @@ if(!class_exists('Synerise_For_Woocommerce')){
 					Consumer::create_cron_jobs();
 				});
 
+                add_action( 'init', [ $this, 'disable_default_action_scheduler_runner' ], 10 );
+
                 $this->define_opt_in_hooks();
 
 				add_filter( 'woocommerce_data_stores', [$this, 'register_data_stores'] );
 			}
 		}
+
+        public function disable_default_action_scheduler_runner() {
+            if ( class_exists( 'ActionScheduler' ) && $this->is_default_action_scheduler_disabled() ) {
+                remove_action( 'action_scheduler_run_queue', array( \ActionScheduler::runner(), 'run' ) );
+            }
+        }
+
+        public function is_default_action_scheduler_disabled() {
+            return (bool) Synerise_For_Woocommerce::get_setting('default_action_scheduler_disabled');
+        }
 
 		public function register_data_stores( $data_stores ) {
 			return array_merge(
