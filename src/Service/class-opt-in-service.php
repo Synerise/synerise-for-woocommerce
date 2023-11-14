@@ -4,7 +4,8 @@ namespace Synerise\Integration\Service;
 
 use Synerise\Integration\Synerise_For_Woocommerce;
 
-class Opt_In_Service {
+class Opt_In_Service
+{
 
     const OPT_IN_MODE_DISABLED = 0;
     const OPT_IN_MODE_MAP = 1;
@@ -15,19 +16,19 @@ class Opt_In_Service {
     const OPT_IN = array(
         array(
             'mode' => self::OPT_IN_MODE_DISABLED,
-            'label'  => 'Disabled'
+            'label' => 'Disabled'
         ),
         array(
             'mode' => self::OPT_IN_MODE_MAP,
-            'label'  => 'Map existing metadata'
+            'label' => 'Map existing metadata'
         ),
         array(
             'mode' => self::OPT_IN_MODE_ADD_TO_REGISTER,
-            'label'  => 'Add marketing agreements to register form'
+            'label' => 'Add marketing agreements to register form'
         ),
         array(
             'mode' => self::OPT_IN_MODE_ADD_TO_CHECKOUT,
-            'label'  => 'Add marketing agreements to checkout form'
+            'label' => 'Add marketing agreements to checkout form'
         ),
         array(
             'mode' => self::OPT_IN_MODE_ADD_TO_REGISTER_AND_CHECKOUT,
@@ -51,9 +52,10 @@ class Opt_In_Service {
         return $opt_in_mode !== self::OPT_IN_MODE_DISABLED;
     }
 
-    public static function is_agreement_enabled($agreement): bool {
+    public static function is_agreement_enabled($agreement): bool
+    {
 
-        switch ($agreement){
+        switch ($agreement) {
             case self::AGREEMENT_TYPE_EMAIL:
                 return Synerise_For_Woocommerce::get_setting('opt_in_email_marketing_agreement_enabled');
             case self::AGREEMENT_TYPE_SMS:
@@ -68,74 +70,77 @@ class Opt_In_Service {
         $user_id = get_current_user_id();
         $user_id = $user_id ?: null;
 
-        if($user_id){
+        if ($user_id) {
             $agreements = Client_Service::get_customer_agreements($user_id);
-            if(empty($agreements)){
+            if (empty($agreements)) {
                 return $fields;
             }
         }
 
-        if(Synerise_For_Woocommerce::get_setting('opt_in_email_marketing_agreement_enabled')){
+        if (Synerise_For_Woocommerce::get_setting('opt_in_email_marketing_agreement_enabled')) {
             $email_label = Synerise_For_Woocommerce::get_setting('opt_in_checkout_agreement_email_label');
             $email_classes = Synerise_For_Woocommerce::get_setting('opt_in_checkout_agreement_email_classes');
             $email_required = Synerise_For_Woocommerce::get_setting('opt_in_checkout_agreement_email_required');
 
             $fields['order'][self::AGREEMENT_ORDER_METADATA_NAME_EMAIL] = array(
                 'label' => $email_label ?: 'Email marketing',
-                'placeholder'=> '',
-                'required'   => $email_required ?: false,
-                'class'      => $email_classes ?: '',
-                'type'  => 'checkbox'
+                'placeholder' => '',
+                'required' => $email_required ?: false,
+                'class' => $email_classes ?: '',
+                'type' => 'checkbox'
             );
         }
 
-        if(Synerise_For_Woocommerce::get_setting('opt_in_sms_marketing_agreement_enabled')){
+        if (Synerise_For_Woocommerce::get_setting('opt_in_sms_marketing_agreement_enabled')) {
             $sms_label = Synerise_For_Woocommerce::get_setting('opt_in_checkout_agreement_sms_label');
             $sms_classes = Synerise_For_Woocommerce::get_setting('opt_in_checkout_agreement_sms_classes');
             $sms_required = Synerise_For_Woocommerce::get_setting('opt_in_checkout_agreement_sms_required');
 
             $fields['order'][self::AGREEMENT_ORDER_METADATA_NAME_SMS] = array(
                 'label' => $sms_label ?: 'Sms marketing',
-                'placeholder'=> '',
-                'required'   => $sms_required ?: false,
-                'class'      => $sms_classes ?: '',
-                'type'  => 'checkbox'
+                'placeholder' => '',
+                'required' => $sms_required ?: false,
+                'class' => $sms_classes ?: '',
+                'type' => 'checkbox'
             );
         }
 
         return $fields;
     }
-    public function update_order_meta($order_id) {
+
+    public function update_order_meta($order_id)
+    {
         $user_id = get_current_user_id();
         $user_id = $user_id ?: null;
 
-        if($_POST[self::AGREEMENT_ORDER_METADATA_NAME_SMS] && Synerise_For_Woocommerce::get_setting('opt_in_sms_marketing_agreement_enabled')){
+        if ($_POST[self::AGREEMENT_ORDER_METADATA_NAME_SMS] && Synerise_For_Woocommerce::get_setting('opt_in_sms_marketing_agreement_enabled')) {
             $agreement_sms = !empty(trim(sanitize_text_field($_POST[self::AGREEMENT_ORDER_METADATA_NAME_SMS])));
-            update_post_meta( $order_id, self::AGREEMENT_ORDER_METADATA_NAME_SMS, $agreement_sms );
-            if($user_id){
+            update_post_meta($order_id, self::AGREEMENT_ORDER_METADATA_NAME_SMS, $agreement_sms);
+            if ($user_id) {
                 update_user_meta($user_id, self::AGREEMENT_USER_METADATA_NAME_SMS, $agreement_sms);
             }
         }
 
-        if($_POST[self::AGREEMENT_ORDER_METADATA_NAME_EMAIL] && Synerise_For_Woocommerce::get_setting('opt_in_email_marketing_agreement_enabled')){
+        if ($_POST[self::AGREEMENT_ORDER_METADATA_NAME_EMAIL] && Synerise_For_Woocommerce::get_setting('opt_in_email_marketing_agreement_enabled')) {
             $agreement_email = !empty(trim(sanitize_text_field($_POST[self::AGREEMENT_ORDER_METADATA_NAME_EMAIL])));
-            update_post_meta( $order_id, self::AGREEMENT_ORDER_METADATA_NAME_EMAIL, $agreement_email );
-            if($user_id){
+            update_post_meta($order_id, self::AGREEMENT_ORDER_METADATA_NAME_EMAIL, $agreement_email);
+            if ($user_id) {
                 update_user_meta($user_id, self::AGREEMENT_USER_METADATA_NAME_EMAIL, $agreement_email);
             }
         }
 
     }
 
-    public function add_user_profile_fields($user){
-        if(!$user){
+    public function add_user_profile_fields($user)
+    {
+        if (!$user) {
             $user_id = get_current_user_id();
         } else {
             $user_id = $user->ID;
         }
 
-        $author_meta_email_agreement = esc_attr( get_the_author_meta( self::AGREEMENT_USER_METADATA_NAME_EMAIL, $user_id ) );
-        $author_meta_sms_agreement = esc_attr( get_the_author_meta( self::AGREEMENT_USER_METADATA_NAME_SMS, $user_id ) );
+        $author_meta_email_agreement = esc_attr(get_the_author_meta(self::AGREEMENT_USER_METADATA_NAME_EMAIL, $user_id));
+        $author_meta_sms_agreement = esc_attr(get_the_author_meta(self::AGREEMENT_USER_METADATA_NAME_SMS, $user_id));
 
         $field_email_agreement_classes = Synerise_For_Woocommerce::get_setting('opt_in_register_agreement_email_classes');
         $field_email_agreement_label = Synerise_For_Woocommerce::get_setting('opt_in_register_agreement_email_label');
@@ -148,7 +153,7 @@ class Opt_In_Service {
 
         echo '
             <h2>Marketing agreements</h2>
-            <table class="form-table">'.
+            <table class="form-table">' .
             (($agreement_email_enabled) ? '
                 <tr class="' . $field_email_agreement_classes . '">
                     <th>
@@ -160,39 +165,40 @@ class Opt_In_Service {
                 </tr>
             ' : "") .
             (($agreement_sms_enabled) ? '
-                <tr class="'.$field_sms_agreement_classes.'">
+                <tr class="' . $field_sms_agreement_classes . '">
                     <th>
-                        <label for="'.self::AGREEMENT_USER_METADATA_NAME_SMS.'">'.$field_sms_agreement_label.'</label>
+                        <label for="' . self::AGREEMENT_USER_METADATA_NAME_SMS . '">' . $field_sms_agreement_label . '</label>
                     </th>
                     <td>
-                        <input type="checkbox" value="1" name="'.self::AGREEMENT_USER_METADATA_NAME_SMS.'" id="'.self::AGREEMENT_USER_METADATA_NAME_SMS.'" class="regular-text" '.(($author_meta_sms_agreement) ? 'checked': "").'/>
+                        <input type="checkbox" value="1" name="' . self::AGREEMENT_USER_METADATA_NAME_SMS . '" id="' . self::AGREEMENT_USER_METADATA_NAME_SMS . '" class="regular-text" ' . (($author_meta_sms_agreement) ? 'checked' : "") . '/>
                     </td>
                 </tr>
             ' : "") .
-        '</table>';
+            '</table>';
     }
 
-    public function update_user_meta($user_id){
+    public function update_user_meta($user_id)
+    {
         $agreement_email_enabled = Synerise_For_Woocommerce::get_setting('opt_in_email_marketing_agreement_enabled');
         $agreement_sms_enabled = Synerise_For_Woocommerce::get_setting('opt_in_sms_marketing_agreement_enabled');
 
-        if($agreement_sms_enabled){
-            if(isset($_POST[self::AGREEMENT_USER_METADATA_NAME_SMS])){
+        if ($agreement_sms_enabled) {
+            if (isset($_POST[self::AGREEMENT_USER_METADATA_NAME_SMS])) {
                 $agreement_sms = !empty(trim(sanitize_text_field($_POST[self::AGREEMENT_USER_METADATA_NAME_SMS])));
             } else {
                 $agreement_sms = false;
             }
 
-            update_user_meta($user_id, self::AGREEMENT_USER_METADATA_NAME_SMS, (int) $agreement_sms);
+            update_user_meta($user_id, self::AGREEMENT_USER_METADATA_NAME_SMS, (int)$agreement_sms);
         }
 
-        if($agreement_email_enabled){
-            if(isset($_POST[self::AGREEMENT_USER_METADATA_NAME_EMAIL])){
+        if ($agreement_email_enabled) {
+            if (isset($_POST[self::AGREEMENT_USER_METADATA_NAME_EMAIL])) {
                 $agreement_email = !empty(trim(sanitize_text_field($_POST[self::AGREEMENT_USER_METADATA_NAME_EMAIL])));
             } else {
                 $agreement_email = false;
             }
-            update_user_meta($user_id, self::AGREEMENT_USER_METADATA_NAME_EMAIL, (int) $agreement_email);
+            update_user_meta($user_id, self::AGREEMENT_USER_METADATA_NAME_EMAIL, (int)$agreement_email);
         }
     }
 }

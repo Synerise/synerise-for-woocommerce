@@ -2,14 +2,16 @@
 
 namespace Synerise\Integration\Synchronization\Scheduler;
 
+use Exception;
 use Psr\Log\LoggerInterface;
 use Synerise\DataManagement\ApiException;
 use Synerise\Integration\Logger_Service;
+use Synerise\Integration\Service\Client_Service;
 use Synerise\Integration\Service\User_Service;
 use Synerise\Integration\Synerise_For_Woocommerce;
 use Synerise\IntegrationCore\Exception\ApiConfigurationException;
 use Synerise\IntegrationCore\Factory\ClientManagementApiFactory;
-use Synerise\Integration\Service\Client_Service;
+use WC_Customer;
 
 class Customer_Scheduler extends Abstract_Scheduler
 {
@@ -27,15 +29,16 @@ class Customer_Scheduler extends Abstract_Scheduler
     private $client_management_api_factory;
 
     public function __construct(
-        LoggerInterface $logger,
+        LoggerInterface            $logger,
         ClientManagementApiFactory $client_management_api_factory
-    ) {
+    )
+    {
         $this->logger = $logger;
         $this->client_management_api_factory = $client_management_api_factory;
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function send_items(array $collection)
     {
@@ -43,26 +46,26 @@ class Customer_Scheduler extends Abstract_Scheduler
             return;
         }
 
-	    $event_add_or_update_clients_body = [];
+        $event_add_or_update_clients_body = [];
         $customers_ids = [];
 
         foreach ($collection as $customer_id) {
-			if(!User_Service::is_user_customer($customer_id)){
-				continue;
-			}
+            if (!User_Service::is_user_customer($customer_id)) {
+                continue;
+            }
 
-	        $customer_user = new \WC_Customer($customer_id);
+            $customer_user = new WC_Customer($customer_id);
 
-	        $event_add_or_update_clients_body[] = Client_Service::prepare_client_params($customer_user);
-	        $customers_ids[] = $customer_id;
+            $event_add_or_update_clients_body[] = Client_Service::prepare_client_params($customer_user);
+            $customers_ids[] = $customer_id;
         }
 
-        if(!empty($event_add_or_update_clients_body)) {
+        if (!empty($event_add_or_update_clients_body)) {
             list ($body, $statusCode, $headers) = $this->send_customers_to_synerise(\GuzzleHttp\json_encode($event_add_or_update_clients_body));
 
             if ($statusCode == 207) {
                 $this->logger->warning('Request partially accepted: ' . $body);
-            } elseif($statusCode != 202) {
+            } elseif ($statusCode != 202) {
                 throw new ApiException(
                     sprintf('Invalid Status [%d]', $statusCode),
                     $statusCode,
@@ -89,9 +92,9 @@ class Customer_Scheduler extends Abstract_Scheduler
     {
         try {
             return $this->client_management_api_factory->create()
-                ->batchAddOrUpdateClientsWithHttpInfo($event_add_or_update_clients_body,'application/json','4.4');
+                ->batchAddOrUpdateClientsWithHttpInfo($event_add_or_update_clients_body, 'application/json', '4.4');
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Api request failed', $e));
             throw $e;
         }
@@ -99,23 +102,23 @@ class Customer_Scheduler extends Abstract_Scheduler
 
     public function get_current_last_id()
     {
-	    global $wpdb;
-	    $table_name = $wpdb->prefix. 'users';
-	    return $wpdb->get_var("SELECT ID FROM {$table_name} WHERE 1=1 ORDER BY ID DESC LIMIT 1");
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'users';
+        return $wpdb->get_var("SELECT ID FROM {$table_name} WHERE 1=1 ORDER BY ID DESC LIMIT 1");
     }
 
     public function get_collection_filtered_by_id_range($start_id, $stop_id, $page_size): array
     {
         global $wpdb;
 
-	    $table_name = $wpdb->prefix. 'users';
-	    $sql = $wpdb->prepare("SELECT ID FROM {$table_name} WHERE ID <= %d AND ID > %d ORDER BY ID ASC LIMIT %d", [$stop_id, $start_id, $page_size]);
-	    return $wpdb->get_col($sql);
+        $table_name = $wpdb->prefix . 'users';
+        $sql = $wpdb->prepare("SELECT ID FROM {$table_name} WHERE ID <= %d AND ID > %d ORDER BY ID ASC LIMIT %d", [$stop_id, $start_id, $page_size]);
+        return $wpdb->get_col($sql);
     }
 
-	public function is_enabled(): bool
-	{
-		return (bool) Synerise_For_Woocommerce::get_setting('data_customers_enabled');
-	}
+    public function is_enabled(): bool
+    {
+        return (bool)Synerise_For_Woocommerce::get_setting('data_customers_enabled');
+    }
 
 }

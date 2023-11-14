@@ -2,6 +2,7 @@
 
 namespace Synerise\Integration\Service;
 
+use Exception;
 use Psr\Log\LoggerInterface;
 use Synerise\DataManagement\ApiException;
 use Synerise\Integration\Event\Event_Add_To_Cart;
@@ -23,6 +24,7 @@ use Synerise\IntegrationCore\Exception\ApiConfigurationException;
 use Synerise\IntegrationCore\Factory\ClientManagementApiFactory;
 use Synerise\IntegrationCore\Factory\DataManagementApiFactory;
 use Synerise\IntegrationCore\Factory\DataManagementCatalogsApiFactory;
+use WC_Data_Store;
 
 class Event_Service
 {
@@ -52,12 +54,13 @@ class Event_Service
     private $catalog_service;
 
     public function __construct(
-        LoggerInterface $logger,
-        ClientManagementApiFactory $client_management_api_factory,
-        DataManagementApiFactory $data_management_api_factory,
+        LoggerInterface                  $logger,
+        ClientManagementApiFactory       $client_management_api_factory,
+        DataManagementApiFactory         $data_management_api_factory,
         DataManagementCatalogsApiFactory $data_management_catalogs_api_factory,
-        Catalog_Service $catalog_service
-    ) {
+        Catalog_Service                  $catalog_service
+    )
+    {
         $this->logger = $logger;
         $this->client_management_api_factory = $client_management_api_factory;
         $this->data_management_api_factory = $data_management_api_factory;
@@ -116,6 +119,24 @@ class Event_Service
     }
 
     /**
+     * @param $model
+     * @param $entity_id
+     * @return void
+     * @throws Exception
+     */
+    private function mark_item_as_sent($model, $entity_id)
+    {
+        /** @var History_Data_Store $data_store */
+        $data_store = WC_Data_Store::load('synerise-sync-history');
+
+        $history_item = new History_Data();
+        $history_item->set_model($model);
+        $history_item->set_entity_id($entity_id);
+
+        $data_store->create($history_item);
+    }
+
+    /**
      * @throws ApiConfigurationException
      * @throws ApiException
      */
@@ -124,9 +145,9 @@ class Event_Service
         try {
             $catalog_id = $this->catalog_service->get_catalog_id();
             return $this->data_management_catalogs_api_factory->create()->addItemsBatchWithHttpInfo($catalog_id, $items);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             if ($e->getCode() === 404) {
-                $this->logger->warning(Logger_Service::addExceptionToMessage('Catalog with id: '.$catalog_id.' not found', $e));
+                $this->logger->warning(Logger_Service::addExceptionToMessage('Catalog with id: ' . $catalog_id . ' not found', $e));
 
                 $catalog_name = Synerise_For_Woocommerce::get_setting('data_catalog_name');
                 $catalog_id = $this->catalog_service->get_catalog_id_by_name($catalog_name);
@@ -135,23 +156,5 @@ class Event_Service
                 throw $e;
             }
         }
-    }
-
-    /**
-     * @param $model
-     * @param $entity_id
-     * @return void
-     * @throws \Exception
-     */
-    private function mark_item_as_sent($model, $entity_id)
-    {
-        /** @var History_Data_Store $data_store */
-        $data_store = \WC_Data_Store::load( 'synerise-sync-history' );
-
-        $history_item = new History_Data();
-        $history_item->set_model($model);
-        $history_item->set_entity_id($entity_id);
-
-        $data_store->create($history_item);
     }
 }

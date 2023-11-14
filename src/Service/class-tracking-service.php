@@ -9,19 +9,31 @@
 namespace Synerise\Integration\Service;
 
 use Synerise\DataManagement\Model\TrackingCodeCreationByDomainRequest;
-use Synerise\Integration\Config_Provider;
 use Synerise\Integration\Synerise_For_Woocommerce;
+use WC_Product_Variable;
 
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
 class Tracking_Service
 {
-	const APPLICATION_NAME = 'woocommerce';
+    const APPLICATION_NAME = 'woocommerce';
 
-    public static function is_tracking_enabled(): bool {
-        return (bool) Synerise_For_Woocommerce::get_setting('page_tracking_enabled');
+    const TRACKER_HOSTS = array(
+        "AZURE" => array(
+            'value' => 'web.snrbox.com',
+            'label' => 'AZURE'
+        ),
+        "GEB" => array(
+            'value' => 'web.geb.snrbox.com',
+            'label' => 'GCP'
+        ),
+    );
+
+    public static function is_tracking_enabled(): bool
+    {
+        return (bool)Synerise_For_Woocommerce::get_setting('page_tracking_enabled');
     }
 
     public static function is_event_enabled($event): bool
@@ -36,8 +48,9 @@ class Tracking_Service
         }
     }
 
-    public static function add_or_remove_tracking_code($cookie_domain){
-        if(!$cookie_domain){
+    public static function add_or_remove_tracking_code($cookie_domain)
+    {
+        if (!$cookie_domain) {
             return Synerise_For_Woocommerce::remove_setting('page_tracking_code');
         }
 
@@ -60,20 +73,32 @@ class Tracking_Service
         } else {
             $scriptOptions = self::getScriptOptions();
             if ($scriptOptions) { ?>
-            <script>
-                function onSyneriseLoad() {
-                    SR.init({<?php echo $scriptOptions ?>});
-                }
+                <script>
+                    function onSyneriseLoad() {
+                        SR.init({<?php echo $scriptOptions ?>});
+                    }
 
-                (function(s,y,n,e,r,i,se){s['SyneriseObjectNamespace']=r;s[r]=s[r]||[],
-                    s[r]._t=1*new Date(),s[r]._i=0,s[r]._l=i;var z=y.createElement(n),
-                    se=y.getElementsByTagName(n)[0];z.async=1;z.src=e;se.parentNode.insertBefore(z,se);
-                    z.onload=z.onreadystatechange=function(){var rdy=z.readyState;
-                        if(!rdy||/complete|loaded/.test(z.readyState)){s[i]();z.onload = null;
-                            z.onreadystatechange=null;}};})(window,document,'script',
-                    '//www.snrcdn.net/sdk/3.0/synerise-javascript-sdk.min.js','SR', 'onSyneriseLoad');
-            </script>
-      <?php }
+                    (function (s, y, n, e, r, i, se) {
+                        s['SyneriseObjectNamespace'] = r;
+                        s[r] = s[r] || [],
+                            s[r]._t = 1 * new Date(), s[r]._i = 0, s[r]._l = i;
+                        var z = y.createElement(n),
+                            se = y.getElementsByTagName(n)[0];
+                        z.async = 1;
+                        z.src = e;
+                        se.parentNode.insertBefore(z, se);
+                        z.onload = z.onreadystatechange = function () {
+                            var rdy = z.readyState;
+                            if (!rdy || /complete|loaded/.test(z.readyState)) {
+                                s[i]();
+                                z.onload = null;
+                                z.onreadystatechange = null;
+                            }
+                        };
+                    })(window, document, 'script',
+                        '//<?php echo self::get_tracking_host() ?>/synerise-javascript-sdk.min.js', 'SR', 'onSyneriseLoad');
+                </script>
+            <?php }
         }
     }
 
@@ -93,13 +118,28 @@ class Tracking_Service
         return implode(', ', $options);
     }
 
-    public static function add_variation_change_script() {
+    /**
+     * @return string
+     * @since 1.0.10
+     */
+    public static function get_tracking_host(): string
+    {
+        $host = Synerise_For_Woocommerce::get_setting('page_tracking_tracker_host');
+        if ($host) {
+            return $host;
+        } else {
+            return self::TRACKER_HOSTS['AZURE']['value'];
+        }
+    }
+
+    public static function add_variation_change_script()
+    {
         global $product;
-        if ( $product instanceof \WC_Product_Variable) {
-            wp_enqueue_script( 'synerise-for-woocommerce-tracking', SYNERISE_FOR_WOOCOMMERCE_PUBLIC_URL . '/js/' . 'synerise-for-woocommerce-tracking.js', array(), time(), false );
-            wp_localize_script( 'synerise-for-woocommerce-tracking', 'rest', [
-                'url' => get_rest_url().'synerise-for-woocommerce'.'/v1/',
-                'nonce' => wp_create_nonce( 'wp_rest' )
+        if ($product instanceof WC_Product_Variable) {
+            wp_enqueue_script('synerise-for-woocommerce-tracking', SYNERISE_FOR_WOOCOMMERCE_PUBLIC_URL . '/js/' . 'synerise-for-woocommerce-tracking.js', array(), time(), false);
+            wp_localize_script('synerise-for-woocommerce-tracking', 'rest', [
+                'url' => get_rest_url() . 'synerise-for-woocommerce' . '/v1/',
+                'nonce' => wp_create_nonce('wp_rest')
             ]);
         }
     }
