@@ -2,14 +2,15 @@
 
 namespace Synerise\Integration\Synchronization\Scheduler;
 
+use Exception;
 use Psr\Log\LoggerInterface;
 use Synerise\DataManagement\ApiException;
 use Synerise\Integration\Logger_Service;
+use Synerise\Integration\Service\Catalog_Service;
+use Synerise\Integration\Service\Product_Service;
 use Synerise\Integration\Synerise_For_Woocommerce;
 use Synerise\IntegrationCore\Exception\ApiConfigurationException;
 use Synerise\IntegrationCore\Factory\DataManagementCatalogsApiFactory;
-use Synerise\Integration\Service\Catalog_Service;
-use Synerise\Integration\Service\Product_Service;
 
 class Product_Scheduler extends Abstract_Scheduler
 {
@@ -32,9 +33,10 @@ class Product_Scheduler extends Abstract_Scheduler
     private $catalog_service;
 
     public function __construct(
-        LoggerInterface $logger,
+        LoggerInterface                  $logger,
         DataManagementCatalogsApiFactory $data_management_catalogs_api_factory
-    ) {
+    )
+    {
         $this->logger = $logger;
         $this->data_management_catalogs_api_factory = $data_management_catalogs_api_factory;
         $this->catalog_service = new Catalog_Service();
@@ -50,24 +52,24 @@ class Product_Scheduler extends Abstract_Scheduler
             return;
         }
 
-	    $products_ids = [];
-	    $prepared_items = [];
+        $products_ids = [];
+        $prepared_items = [];
 
         foreach ($collection as $product_id) {
             $product = wc_get_product($product_id);
-			if(empty(Product_Service::get_item_key($product))){
-				continue;
-			}
+            if (empty(Product_Service::get_item_key($product))) {
+                continue;
+            }
 
             $products_ids[] = $product_id;
             $prepared_items[] = Product_Service::get_add_item($product);
         }
 
-        if(!empty($prepared_items)) {
-			$response_code = $this->send_products_to_synerise(\GuzzleHttp\json_encode($prepared_items));
+        if (!empty($prepared_items)) {
+            $response_code = $this->send_products_to_synerise(\GuzzleHttp\json_encode($prepared_items));
             $this->mark_items_as_sent($products_ids);
 
-			return $response_code;
+            return $response_code;
         }
     }
 
@@ -80,12 +82,12 @@ class Product_Scheduler extends Abstract_Scheduler
     {
         $catalog_id = $this->catalog_service->get_catalog_id();
 
-        try{
+        try {
             list($body, $status_code, $headers) = $this->data_management_catalogs_api_factory->create()->addItemsBatchWithHttpInfo($catalog_id, $items);
-			return $status_code;
-        } catch (\Exception $e) {
+            return $status_code;
+        } catch (Exception $e) {
             if ($e->getCode() === 404) {
-                $this->logger->warning('Catalog with id: '.$catalog_id.' not found', ['exception' => $e]);
+                $this->logger->warning('Catalog with id: ' . $catalog_id . ' not found', ['exception' => $e]);
                 $catalog_name = Synerise_For_Woocommerce::get_setting('data_catalog_name');
                 $this->catalog_service->get_catalog_id_by_name($catalog_name);
                 $this->send_products_to_synerise($items);
@@ -100,24 +102,24 @@ class Product_Scheduler extends Abstract_Scheduler
     {
         global $wpdb;
 
-		$table_name = $wpdb->prefix. 'posts';
+        $table_name = $wpdb->prefix . 'posts';
 
         $sql = $wpdb->prepare("SELECT ID FROM {$table_name} WHERE ID <= %d AND ID > %d AND post_type IN ('product', 'product_variation') ORDER BY ID ASC LIMIT %d", [$stop_id, $start_id, $page_size]);
 
-	    return $wpdb->get_col($sql);
+        return $wpdb->get_col($sql);
     }
 
     public function get_current_last_id()
     {
         global $wpdb;
 
-	    $table_name = $wpdb->prefix. 'posts';
+        $table_name = $wpdb->prefix . 'posts';
 
         return $wpdb->get_var("SELECT ID FROM {$table_name} WHERE post_type IN ('product', 'product_variation') ORDER BY ID DESC LIMIT 1");
     }
 
     public function is_enabled(): bool
     {
-        return (bool) Synerise_For_Woocommerce::get_setting('data_products_enabled');
+        return (bool)Synerise_For_Woocommerce::get_setting('data_products_enabled');
     }
 }

@@ -4,6 +4,8 @@ namespace Synerise\Integration\Service;
 
 use Synerise\Integration\Synerise_For_Woocommerce;
 use Synerise\IntegrationCore\Uuid;
+use WC_Customer;
+use WC_Order;
 
 class Client_Service
 {
@@ -11,7 +13,7 @@ class Client_Service
 
     const VALID_PHONE_PATTERN = '/^([+][0-9 \-\/()]{6,19}$)|(^[0-9 \-\/()]{6,20}$)/';
 
-    public static function prepare_client_params(\WC_Customer $customer): array
+    public static function prepare_client_params(WC_Customer $customer): array
     {
         $invalid_params = [];
         $address = $customer->get_billing_address_2() ?
@@ -19,12 +21,12 @@ class Client_Service
             $customer->get_billing_address_1();
 
         $phone = $customer->get_billing_phone();
-        if($phone && !preg_match(self::VALID_PHONE_PATTERN, $phone)) {
+        if ($phone && !preg_match(self::VALID_PHONE_PATTERN, $phone)) {
             $invalid_params['phone'] = $customer->get_billing_phone();
         }
 
         $email = $customer->get_email();
-        if($email && !preg_match(self::VALID_EMAIL_PATTERN, $email)) {
+        if ($email && !preg_match(self::VALID_EMAIL_PATTERN, $email)) {
             $invalid_params['email'] = $email;
         }
 
@@ -43,13 +45,13 @@ class Client_Service
             'countryCode' => $customer->get_billing_country() ?: null
         ]);
 
-        if(!empty($invalid_params)) {
+        if (!empty($invalid_params)) {
             Synerise_For_Woocommerce::get_logger()->warning(
                 'Some client params did not pass the validation. Skipping: ' . json_encode($invalid_params)
             );
         }
 
-        if(Opt_In_Service::is_opt_in_enabled()){
+        if (Opt_In_Service::is_opt_in_enabled()) {
             $agreements = self::get_customer_agreements($customer->get_id());
             $params = array_merge($params, $agreements);
         }
@@ -57,19 +59,60 @@ class Client_Service
         return array_filter($params);
     }
 
-    public static function prepare_client_params_from_order(\WC_Order $order): array
+    public static function get_customer_agreements($customer_id): array
+    {
+        $opt_in_mode = Synerise_For_Woocommerce::get_setting('opt_in');
+        $email_agreement_enabled = Opt_In_Service::is_agreement_enabled(Opt_In_Service::AGREEMENT_TYPE_EMAIL);
+        $sms_agreement_enabled = Opt_In_Service::is_agreement_enabled(Opt_In_Service::AGREEMENT_TYPE_SMS);
+
+        $array = [
+            'agreements' => []
+        ];
+
+        if ($opt_in_mode === Opt_In_Service::OPT_IN_MODE_MAP) {
+            $order_sms_agreement_mapping = Synerise_For_Woocommerce::get_setting('opt_in_mapping_customer_sms_agreement');
+            $order_email_agreement_mapping = Synerise_For_Woocommerce::get_setting('opt_in_mapping_customer_email_agreement');
+
+            if ($order_sms_agreement_mapping && $sms_agreement_enabled) {
+                $sms_meta_field = get_user_meta($customer_id, $order_sms_agreement_mapping);
+                $array['agreements']['sms'] = $sms_meta_field ? (bool)$sms_meta_field[0] : null;
+            }
+
+            if ($order_email_agreement_mapping && $sms_agreement_enabled) {
+                $email_meta_field = get_user_meta($customer_id, $order_email_agreement_mapping);
+                $array['agreements']['email'] = $email_meta_field ? (bool)$email_meta_field[0] : null;
+            }
+        } else {
+            if ($email_agreement_enabled) {
+                $sms_meta_field = get_user_meta($customer_id, Opt_In_Service::AGREEMENT_USER_METADATA_NAME_SMS);
+                $array['agreements']['sms'] = $sms_meta_field ? (bool)$sms_meta_field[0] : null;
+            }
+            if ($sms_agreement_enabled) {
+                $email_meta_field = get_user_meta($customer_id, Opt_In_Service::AGREEMENT_USER_METADATA_NAME_EMAIL);
+                $array['agreements']['email'] = $email_meta_field ? (bool)$email_meta_field[0] : null;
+            }
+        }
+
+        $array['agreements'] = array_filter($array['agreements'], static function ($value) {
+            return ($value !== null && $value !== '');
+        });
+
+        return $array;
+    }
+
+    public static function prepare_client_params_from_order(WC_Order $order): array
     {
         $address = $order->get_billing_address_2() ?
             $order->get_billing_address_1() . ' ' . $order->get_billing_address_2() :
             $order->get_billing_address_1();
 
         $phone = $order->get_billing_phone();
-        if($phone && !preg_match(self::VALID_PHONE_PATTERN, $phone)) {
+        if ($phone && !preg_match(self::VALID_PHONE_PATTERN, $phone)) {
             $invalid_params['phone'] = $phone;
         }
 
         $email = $order->get_billing_email();
-        if($email && !preg_match(self::VALID_EMAIL_PATTERN, $email)) {
+        if ($email && !preg_match(self::VALID_EMAIL_PATTERN, $email)) {
             $invalid_params['email'] = $email;
         }
 
@@ -87,13 +130,13 @@ class Client_Service
             'countryCode' => $order->get_billing_country() ?: null
         ]);
 
-        if(!empty($invalid_params)) {
+        if (!empty($invalid_params)) {
             Synerise_For_Woocommerce::get_logger()->warning(
                 'Some client params did not pass the validation. Skipping: ' . json_encode($invalid_params)
             );
         }
 
-        if(Opt_In_Service::is_opt_in_enabled()){
+        if (Opt_In_Service::is_opt_in_enabled()) {
             $agreements = Order_Service::get_agreements_from_order($order->get_id());
             $params = array_merge($params, $agreements);
         }
@@ -101,57 +144,16 @@ class Client_Service
         return array_filter($params);
     }
 
-	public static function get_customers_count()
-	{
-		$args = array(
-			'role' => 'customer',
-			'fields' => 'ids',
-			'no_found_rows' => true,
-		);
-
-		$users = get_users($args);
-
-		return count($users);
-	}
-
-    public static function get_customer_agreements($customer_id): array
+    public static function get_customers_count()
     {
-        $opt_in_mode = Synerise_For_Woocommerce::get_setting('opt_in');
-        $email_agreement_enabled = Opt_In_Service::is_agreement_enabled(Opt_In_Service::AGREEMENT_TYPE_EMAIL);
-        $sms_agreement_enabled = Opt_In_Service::is_agreement_enabled(Opt_In_Service::AGREEMENT_TYPE_SMS);
+        $args = array(
+            'role' => 'customer',
+            'fields' => 'ids',
+            'no_found_rows' => true,
+        );
 
-        $array = [
-            'agreements' => []
-        ];
+        $users = get_users($args);
 
-        if($opt_in_mode === Opt_In_Service::OPT_IN_MODE_MAP){
-            $order_sms_agreement_mapping = Synerise_For_Woocommerce::get_setting('opt_in_mapping_customer_sms_agreement');
-            $order_email_agreement_mapping = Synerise_For_Woocommerce::get_setting('opt_in_mapping_customer_email_agreement');
-
-            if($order_sms_agreement_mapping && $sms_agreement_enabled){
-                $sms_meta_field = get_user_meta($customer_id, $order_sms_agreement_mapping);
-                $array['agreements']['sms'] = $sms_meta_field ? (bool) $sms_meta_field[0] : null;
-            }
-
-            if($order_email_agreement_mapping && $sms_agreement_enabled){
-                $email_meta_field = get_user_meta($customer_id, $order_email_agreement_mapping);
-                $array['agreements']['email'] = $email_meta_field ? (bool) $email_meta_field[0] : null;
-            }
-        } else {
-            if($email_agreement_enabled){
-                $sms_meta_field = get_user_meta($customer_id, Opt_In_Service::AGREEMENT_USER_METADATA_NAME_SMS);
-                $array['agreements']['sms'] = $sms_meta_field ? (bool) $sms_meta_field[0] : null;
-            }
-            if($sms_agreement_enabled){
-                $email_meta_field = get_user_meta($customer_id, Opt_In_Service::AGREEMENT_USER_METADATA_NAME_EMAIL);
-                $array['agreements']['email'] = $email_meta_field ? (bool) $email_meta_field[0] : null;
-            }
-        }
-
-        $array['agreements'] = array_filter($array['agreements'], static function($value){
-            return ($value !== null && $value !== '');
-        });
-
-        return $array;
+        return count($users);
     }
 }

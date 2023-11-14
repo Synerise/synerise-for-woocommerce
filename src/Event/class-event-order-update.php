@@ -2,12 +2,13 @@
 
 namespace Synerise\Integration\Event;
 
+use Exception;
 use Psr\Log\LoggerInterface;
 use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Service\Tracking_Service;
 use Synerise\Integration\Synchronization\Synchronization;
 
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
@@ -23,7 +24,8 @@ class Event_Order_Update
 
     public function __construct(
         LoggerInterface $logger
-    ) {
+    )
+    {
         $this->logger = $logger;
     }
 
@@ -37,13 +39,13 @@ class Event_Order_Update
             return;
         }
 
-        if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
             return;
         }
 
         try {
             Synchronization::add_item_to_queue('order', $order_id);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Failed to add order to cron queue', $e));
         }
     }

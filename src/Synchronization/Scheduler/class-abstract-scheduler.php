@@ -5,6 +5,7 @@ namespace Synerise\Integration\Synchronization\Scheduler;
 use Synerise\Integration\Synchronization\DataStore\History_Data_Store;
 use Synerise\Integration\Synchronization\History;
 use Synerise\Integration\Synchronization\History_Data;
+use WC_Data_Store;
 
 abstract class Abstract_Scheduler
 {
@@ -20,13 +21,13 @@ abstract class Abstract_Scheduler
     public function mark_items_as_sent($entity_ids)
     {
         /** @var History_Data_Store $data_store */
-        $data_store = \WC_Data_Store::load( 'synerise-sync-history' );
+        $data_store = WC_Data_Store::load('synerise-sync-history');
 
         $history_items = array();
-        foreach ($entity_ids as $entity_id){
+        foreach ($entity_ids as $entity_id) {
             $history_item = new History_Data();
-	        $history_item->set_model(static::MODEL);
-	        $history_item->set_entity_id($entity_id);
+            $history_item->set_model(static::MODEL);
+            $history_item->set_entity_id($entity_id);
             $history_items[] = $history_item;
         }
 

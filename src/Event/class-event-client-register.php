@@ -2,19 +2,22 @@
 
 namespace Synerise\Integration\Event;
 
+use DateTime;
+use Exception;
 use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Mapper\Client_Action;
 use Synerise\Integration\Service\Client_Service;
+use WC_Customer;
 
 
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
 class Event_Client_Register extends Abstract_Event
 {
-	const HOOK_NAME = 'user_register';
-	const EVENT_NAME = 'register';
+    const HOOK_NAME = 'user_register';
+    const EVENT_NAME = 'register';
 
     public function execute(int $user_id)
     {
@@ -22,7 +25,7 @@ class Event_Client_Register extends Abstract_Event
             return;
         }
 
-        $customer = new \WC_Customer($user_id);
+        $customer = new WC_Customer($user_id);
 
         if ($customer->get_role() == 'administrator') {
             return null;
@@ -30,7 +33,7 @@ class Event_Client_Register extends Abstract_Event
 
         try {
             $this->process_event($this->prepare_event($customer));
-		} catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Event processing failed', $e));
         }
     }
@@ -42,7 +45,7 @@ class Event_Client_Register extends Abstract_Event
         $this->process_client_update($client_params, $customer->get_id());
 
         return \GuzzleHttp\json_encode([
-            'time' => Client_Action::get_time(new \DateTime()),
+            'time' => Client_Action::get_time(new DateTime()),
             'label' => Client_Action::get_label(self::EVENT_NAME),
             'client' => [
                 'custom_id' => $customer->get_id(),

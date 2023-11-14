@@ -9,9 +9,10 @@ use Synerise\Integration\Service\Event_Service;
 use Synerise\Integration\Service\Tracking_Service;
 use Synerise\Integration\Synerise_For_Woocommerce;
 use Synerise\IntegrationCore\Tracking;
+use WC_Data_Store;
 
 
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
@@ -35,9 +36,10 @@ abstract class Abstract_Event
 
     public function __construct(
         LoggerInterface $logger,
-	    Tracking $tracking_manager,
-        Event_Service $event_service
-    ) {
+        Tracking        $tracking_manager,
+        Event_Service   $event_service
+    )
+    {
         $this->logger = $logger;
         $this->tracking_manager = $tracking_manager;
         $this->event_service = $event_service;
@@ -57,17 +59,22 @@ abstract class Abstract_Event
     {
         $event_name = $this->get_event_name();
 
-        if ( $this->is_queue_enabled() ) {
+        if ($this->is_queue_enabled()) {
             $this->publish_event($event_name, $payload, $entity_id);
         } else {
             $this->send_event($event_name, $payload, $entity_id);
         }
     }
 
+    private function is_queue_enabled()
+    {
+        return (bool)Synerise_For_Woocommerce::get_setting('event_tracking_queue_enabled');
+    }
+
     public function publish_event(string $event_name, $payload, $entity_id = null)
     {
         /** @var Item_Data_Store $data_store */
-        $data_store = \WC_Data_Store::load( 'synerise-event-queue-item' );
+        $data_store = WC_Data_Store::load('synerise-event-queue-item');
         $queue_item = new Item_Data();
         $queue_item->set_event_name($event_name);
         $queue_item->set_payload($payload);
@@ -83,15 +90,10 @@ abstract class Abstract_Event
 
     protected function process_client_update($payload, $entity_id = null)
     {
-        if ( $this->is_queue_enabled() ) {
+        if ($this->is_queue_enabled()) {
             $this->publish_event('ADD_OR_UPDATE_CLIENT', $payload, $entity_id);
         } else {
             $this->send_event('ADD_OR_UPDATE_CLIENT', $payload, $entity_id);
         }
-    }
-
-    private function is_queue_enabled()
-    {
-        return (bool) Synerise_For_Woocommerce::get_setting('event_tracking_queue_enabled');
     }
 }

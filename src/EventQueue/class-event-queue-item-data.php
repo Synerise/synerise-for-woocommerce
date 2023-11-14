@@ -3,9 +3,13 @@
 namespace Synerise\Integration\Event_Queue;
 
 
-defined( 'ABSPATH' ) || exit;
+use WC_Data;
+use WC_Data_Store;
 
-class Item_Data extends \WC_Data {
+defined('ABSPATH') || exit;
+
+class Item_Data extends WC_Data
+{
 
     /**
      * This is the name of this object type.
@@ -20,12 +24,12 @@ class Item_Data extends \WC_Data {
      * @var array
      */
     protected $data = array(
-        'id'              => null,
-        'payload'         => null,
-        'entity_id'       => null,
-        'event_name'      => null,
-        'retry_at'        => null,
-        'retry_count'     => null,
+        'id' => null,
+        'payload' => null,
+        'entity_id' => null,
+        'event_name' => null,
+        'retry_at' => null,
+        'retry_count' => null,
     );
 
     /**
@@ -33,25 +37,26 @@ class Item_Data extends \WC_Data {
      *
      * @param int|object|array $item Event queue item ID.
      */
-    public function __construct( $item = 0) {
-        parent::__construct( $item );
+    public function __construct($item = 0)
+    {
+        parent::__construct($item);
 
-        if ( $item instanceof self ) {
-            $this->set_id( $item->get_id() );
-        } elseif ( is_numeric( $item ) && $item > 0 ) {
-            $this->set_id( $item );
-        } elseif ( is_object( $item ) && ! empty( $item->id ) ) {
-            $this->set_id( $item->id );
-            $this->set_props( (array) $item );
-            $this->set_object_read( true );
+        if ($item instanceof self) {
+            $this->set_id($item->get_id());
+        } elseif (is_numeric($item) && $item > 0) {
+            $this->set_id($item);
+        } elseif (is_object($item) && !empty($item->id)) {
+            $this->set_id($item->id);
+            $this->set_props((array)$item);
+            $this->set_object_read(true);
         } else {
-            $this->set_object_read( true );
+            $this->set_object_read(true);
         }
 
-        $this->data_store = \WC_Data_Store::load( 'synerise-event-queue-item' );
+        $this->data_store = WC_Data_Store::load('synerise-event-queue-item');
 
-        if ( $this->get_id() > 0 ) {
-            $this->data_store->read( $this );
+        if ($this->get_id() > 0) {
+            $this->data_store->read($this);
         }
     }
 
@@ -63,43 +68,57 @@ class Item_Data extends \WC_Data {
     */
 
     /**
+     * Set id.
+     *
+     * @param integer|null $id
+     */
+    public function set_id($id = null)
+    {
+        $this->set_prop('id', $id);
+    }
+
+    /**
      * Get id.
      *
-     * @param  string $context Get context.
+     * @param string $context Get context.
      * @return string
      */
-    public function get_id( $context = 'view' ) {
-        return $this->get_prop( 'id', $context );
+    public function get_id($context = 'view')
+    {
+        return $this->get_prop('id', $context);
     }
 
     /**
      * Get event_name.
      *
-     * @param  string $context Get context.
+     * @param string $context Get context.
      * @return string
      */
-    public function get_event_name( $context = 'view' ) {
-        return $this->get_prop( 'event_name', $context );
+    public function get_event_name($context = 'view')
+    {
+        return $this->get_prop('event_name', $context);
     }
 
     /**
      * Get payload.
      *
-     * @param  string $context Get context.
+     * @param string $context Get context.
      * @return string
      */
-    public function get_payload( $context = 'view' ) {
-        return json_decode($this->get_prop( 'payload', $context ));
+    public function get_payload($context = 'view')
+    {
+        return json_decode($this->get_prop('payload', $context));
     }
 
     /**
      * Get entity id.
      *
-     * @param  string $context Get context.
+     * @param string $context Get context.
      * @return integer|null
      */
-    public function get_entity_id( $context = 'view' ) {
-        return $this->get_prop( 'entity_id', $context );
+    public function get_entity_id($context = 'view')
+    {
+        return $this->get_prop('entity_id', $context);
     }
 
     /**
@@ -108,18 +127,9 @@ class Item_Data extends \WC_Data {
      * @param $context
      * @return mixed|null
      */
-    public function get_retry_at( $context = 'view' ) {
-        return $this->get_prop( 'retry_at', $context );
-    }
-
-    /**
-     * Get retry at.
-     *
-     * @param $context
-     * @return mixed|null
-     */
-    public function get_retry_count( $context = 'view' ) {
-        return $this->get_prop( 'retry_count', $context );
+    public function get_retry_at($context = 'view')
+    {
+        return $this->get_prop('retry_at', $context);
     }
 
     /*
@@ -129,12 +139,14 @@ class Item_Data extends \WC_Data {
     */
 
     /**
-     * Set id.
+     * Get retry at.
      *
-     * @param integer|null $id
+     * @param $context
+     * @return mixed|null
      */
-    public function set_id( $id = null ) {
-        $this->set_prop( 'id', $id );
+    public function get_retry_count($context = 'view')
+    {
+        return $this->get_prop('retry_count', $context);
     }
 
     /**
@@ -142,8 +154,9 @@ class Item_Data extends \WC_Data {
      *
      * @param string|null $event_name
      */
-    public function set_event_name( $event_name = null ) {
-        $this->set_prop( 'event_name', $event_name );
+    public function set_event_name($event_name = null)
+    {
+        $this->set_prop('event_name', $event_name);
     }
 
     /**
@@ -151,8 +164,9 @@ class Item_Data extends \WC_Data {
      *
      * @param array|null $payload
      */
-    public function set_payload( $payload = null ) {
-        $this->set_prop( 'payload', json_encode($payload));
+    public function set_payload($payload = null)
+    {
+        $this->set_prop('payload', json_encode($payload));
     }
 
     /**
@@ -160,8 +174,9 @@ class Item_Data extends \WC_Data {
      *
      * @param integer|null $entity_id
      */
-    public function set_entity_id( $entity_id = null ) {
-        $this->set_prop( 'entity_id', $entity_id );
+    public function set_entity_id($entity_id = null)
+    {
+        $this->set_prop('entity_id', $entity_id);
     }
 
     /**
@@ -169,8 +184,9 @@ class Item_Data extends \WC_Data {
      *
      * @param $retry_at
      */
-    public function set_retry_at( $retry_at ) {
-        $this->set_prop( 'retry_at', $retry_at );
+    public function set_retry_at($retry_at)
+    {
+        $this->set_prop('retry_at', $retry_at);
     }
 
     /**
@@ -178,8 +194,9 @@ class Item_Data extends \WC_Data {
      *
      * @param $retry_count
      */
-    public function set_retry_count( $retry_count ) {
-        $this->set_prop( 'retry_count', $retry_count );
+    public function set_retry_count($retry_count)
+    {
+        $this->set_prop('retry_count', $retry_count);
     }
 
 }

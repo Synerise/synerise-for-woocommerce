@@ -2,42 +2,44 @@
 
 namespace Synerise\Integration\Event;
 
+use Exception;
 use Synerise\Integration\Logger_Service;
 use Synerise\Integration\Service\Product_Service;
+use WC_Product;
 
-if (! defined('ABSPATH')) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 
 class Event_Product_Trash_Untrash extends Abstract_Event
 {
-	const EVENT_NAME = 'product_trash_untrash';
+    const EVENT_NAME = 'product_trash_untrash';
 
-	public function execute($post_id)
-	{
+    public function execute($post_id)
+    {
         if (!$this->is_event_enabled()) {
             return null;
         }
 
-		$post = get_post($post_id);
-		if(is_null($post) || strpos($post->post_type, 'product') === false){
-			return null;
-		}
+        $post = get_post($post_id);
+        if (is_null($post) || strpos($post->post_type, 'product') === false) {
+            return null;
+        }
 
-		/**
-		 * @var \WC_Product $product
-		 */
-		$product = wc_get_product($post_id);
-		if(empty(Product_Service::get_item_key($product))){
-			return null;
-		}
+        /**
+         * @var WC_Product $product
+         */
+        $product = wc_get_product($post_id);
+        if (empty(Product_Service::get_item_key($product))) {
+            return null;
+        }
 
-		try {
+        try {
             $this->process_event($this->prepare_event($product));
-		} catch (\Exception $e) {
-                $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Event processing failed', $e));
-		}
-	}
+        } catch (Exception $e) {
+            $this->logger->error(Logger_Service::addExceptionToMessage('Synerise Event processing failed', $e));
+        }
+    }
 
     public function prepare_event($product)
     {

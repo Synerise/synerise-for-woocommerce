@@ -1,10 +1,12 @@
 <?php
+
 namespace Synerise\Integration;
 
+use Exception;
 use Psr\Log\LoggerInterface;
 use WC_Logger;
 
-if (! defined('ABSPATH')) {
+if (!defined('ABSPATH')) {
     exit;
 }
 
@@ -21,10 +23,29 @@ class Logger_Service implements LoggerInterface
      */
     public static $logger;
 
+    public static function addExceptionToMessage($message, Exception $e): string
+    {
+        $message .= "\nException code: " . $e->getCode();
+        $message .= "\nException message: " . $e->getMessage();
+        $message .= "\nException file: " . $e->getFile();
+        $message .= "\nException trace: " . $e->getTraceAsString();
+
+        return $message;
+    }
+
     public function emergency($message, array $context = array('source' => 'synerise'))
     {
         self::getCommonInstance()->emergency($message, $context);
     }
+
+    protected static function getCommonInstance()
+    {
+        if (!self::$logger) {
+            self::$logger = wc_get_logger();
+        }
+        return self::$logger;
+    }
+
     public function alert($message, array $context = array('source' => 'synerise'))
     {
         self::getCommonInstance()->alert($message, $context);
@@ -63,23 +84,5 @@ class Logger_Service implements LoggerInterface
     public function log($message, $level = 'debug', array $context = array('source' => 'synerise'))
     {
         self::getCommonInstance()->log($level, $message, $context);
-    }
-
-    protected static function getCommonInstance()
-    {
-        if (! self::$logger) {
-            self::$logger = wc_get_logger();
-        }
-        return self::$logger;
-    }
-
-    public static function addExceptionToMessage($message, \Exception $e): string
-    {
-        $message .= "\nException code: ".$e->getCode();
-        $message .= "\nException message: ". $e->getMessage();
-        $message .= "\nException file: ". $e->getFile();
-        $message .= "\nException trace: ". $e->getTraceAsString();
-
-        return $message;
     }
 }

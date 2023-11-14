@@ -2,6 +2,7 @@
 
 namespace Synerise\Integration;
 
+use Exception;
 use Synerise\Integration\Synchronization\Status_Data;
 
 /**
@@ -12,7 +13,8 @@ use Synerise\Integration\Synchronization\Status_Data;
  * @since      1.0.0
  * @package    Synerise\Integration
  */
-class Synerise_For_Woocommerce_Activator {
+class Synerise_For_Woocommerce_Activator
+{
 
     const SYNC_QUEUE_TABLE_NAME = 'snrs_sync_queue';
     const SYNC_STATUS_TABLE_NAME = 'snrs_sync_status';
@@ -88,30 +90,20 @@ class Synerise_For_Woocommerce_Activator {
      *
      * @since    1.0.0
      */
-    public static function activate() {
+    public static function activate()
+    {
         self::table_exist_check();
         self::update_db_check();
         self::set_default_values();
     }
 
-    /**
-     * Check if the database is up to date.
-     * @return void
-     */
-    public static function update_db_check() {
-        $installed_ver = get_option( "synerise_for_woocommerce_db_version" );
-        if ( $installed_ver != SYNERISE_FOR_WOOCOMMERCE_DB_VERSION ) {
-            self::datatables_create_update();
-            self::datatables_insert_data();
-        }
-    }
-
-    public static function table_exist_check() {
+    public static function table_exist_check()
+    {
         global $wpdb;
 
-        $syncQueueTableName = $wpdb->prefix.self::SYNC_QUEUE_TABLE_NAME;
-        $syncStatusTableName = $wpdb->prefix.self::SYNC_STATUS_TABLE_NAME;
-        $syncHistoryTableName = $wpdb->prefix.self::SYNC_HISTORY_TABLE_NAME;
+        $syncQueueTableName = $wpdb->prefix . self::SYNC_QUEUE_TABLE_NAME;
+        $syncStatusTableName = $wpdb->prefix . self::SYNC_STATUS_TABLE_NAME;
+        $syncHistoryTableName = $wpdb->prefix . self::SYNC_HISTORY_TABLE_NAME;
 
         $tables_exist = $wpdb->get_var("
             SELECT COUNT(*) 
@@ -120,10 +112,23 @@ class Synerise_For_Woocommerce_Activator {
             AND table_name IN ('{$syncQueueTableName}', '{$syncStatusTableName}', '{$syncHistoryTableName}')
         ");
 
-        if($tables_exist !== 3) {
-            update_option( "synerise_for_woocommerce_db_version", null );
+        if ($tables_exist !== 3) {
+            update_option("synerise_for_woocommerce_db_version", null);
         }
 
+    }
+
+    /**
+     * Check if the database is up to date.
+     * @return void
+     */
+    public static function update_db_check()
+    {
+        $installed_ver = get_option("synerise_for_woocommerce_db_version");
+        if ($installed_ver != SYNERISE_FOR_WOOCOMMERCE_DB_VERSION) {
+            self::datatables_create_update();
+            self::datatables_insert_data();
+        }
     }
 
     /**
@@ -131,14 +136,15 @@ class Synerise_For_Woocommerce_Activator {
      *
      * @return void
      */
-    public static function datatables_create_update() {
+    public static function datatables_create_update()
+    {
         global $wpdb;
 
         $charset_collate = $wpdb->get_charset_collate();
-        $syncQueueTableName = $wpdb->prefix.'snrs_sync_queue';
-        $syncStatusTableName = $wpdb->prefix.'snrs_sync_status';
-        $syncHistoryTableName = $wpdb->prefix.'snrs_sync_history';
-        $eventQueueTableName = $wpdb->prefix.'snrs_event_queue_item';
+        $syncQueueTableName = $wpdb->prefix . 'snrs_sync_queue';
+        $syncStatusTableName = $wpdb->prefix . 'snrs_sync_status';
+        $syncHistoryTableName = $wpdb->prefix . 'snrs_sync_history';
+        $eventQueueTableName = $wpdb->prefix . 'snrs_event_queue_item';
 
         $syncQueue = "CREATE TABLE `$syncQueueTableName` (
                       `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
@@ -179,13 +185,13 @@ class Synerise_For_Woocommerce_Activator {
                     ) $charset_collate COMMENT='Synerise event queue items';";
 
         try {
-            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-            dbDelta( [$syncQueue, $syncStatus, $syncHistory, $eventQueue] );
-        } catch (\Exception $e) {
+            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+            dbDelta([$syncQueue, $syncStatus, $syncHistory, $eventQueue]);
+        } catch (Exception $e) {
             Synerise_For_Woocommerce::get_logger()->error(`SQL REQUEST ERROR ${$e->getMessage()}`);
         }
 
-        update_option( "synerise_for_woocommerce_db_version", SYNERISE_FOR_WOOCOMMERCE_DB_VERSION );
+        update_option("synerise_for_woocommerce_db_version", SYNERISE_FOR_WOOCOMMERCE_DB_VERSION);
     }
 
     /**
@@ -196,22 +202,21 @@ class Synerise_For_Woocommerce_Activator {
     public static function datatables_insert_data()
     {
         global $wpdb;
-        $table_name = $wpdb->prefix.'snrs_sync_status';
+        $table_name = $wpdb->prefix . 'snrs_sync_status';
 
         $statuses = ['customer', 'order', 'product'];
 
-        foreach ($statuses as $status){
+        foreach ($statuses as $status) {
             $entity = [
                 $status,
                 Status_Data::STATE_IN_PROGRESS
             ];
 
-            $sql = 'INSERT INTO '.$table_name.' (model, state) VALUES (\''.$entity[0].'\', \''.$entity[1].'\') ON DUPLICATE KEY UPDATE model = VALUES(model)';
+            $sql = 'INSERT INTO ' . $table_name . ' (model, state) VALUES (\'' . $entity[0] . '\', \'' . $entity[1] . '\') ON DUPLICATE KEY UPDATE model = VALUES(model)';
             $query_status = $wpdb->query($sql);
 
-            if($query_status === FALSE)
-            {
-                wp_die( esc_html__( 'Unable to insert default statuses', 'synerise-for-woocommerce' ) );
+            if ($query_status === FALSE) {
+                wp_die(esc_html__('Unable to insert default statuses', 'synerise-for-woocommerce'));
             }
         }
     }
@@ -220,28 +225,29 @@ class Synerise_For_Woocommerce_Activator {
     {
         $synerise_options = get_option('synerise-for-woocommerce');
 
-        if($synerise_options){
-            foreach(self::defaults as $key => $value){
-                if(array_key_exists($key, $synerise_options)){
+        if ($synerise_options) {
+            foreach (self::defaults as $key => $value) {
+                if (array_key_exists($key, $synerise_options)) {
                     continue;
                 }
 
                 Synerise_For_Woocommerce::save_setting($key, $value);
             }
         } else {
-            foreach(self::defaults as $key => $value){
+            foreach (self::defaults as $key => $value) {
                 Synerise_For_Woocommerce::save_setting($key, $value);
             }
         }
     }
 
-    public static function redirect_after_activation($plugin) {
+    public static function redirect_after_activation($plugin)
+    {
         $plugin_name = explode('/', $plugin)[1];
-        if($plugin_name !== 'synerise-for-woocommerce.php'){
+        if ($plugin_name !== 'synerise-for-woocommerce.php') {
             return;
         }
 
-        if(Synerise_For_Woocommerce::is_plugin_configured()){
+        if (Synerise_For_Woocommerce::is_plugin_configured()) {
             wp_redirect(admin_url('admin.php?page=synerise'));
         } else {
             wp_redirect(admin_url('admin.php?page=synerise/wizard'));
