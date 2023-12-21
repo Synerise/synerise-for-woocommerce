@@ -4,6 +4,7 @@ namespace Synerise\Integration\Synchronization\DataStore;
 
 use Exception;
 use Synerise\Integration\Synchronization\History_Data;
+use Synerise\Integration\Synerise_For_Woocommerce;
 
 
 class History_Data_Store
@@ -12,38 +13,13 @@ class History_Data_Store
     const SNRS_SYNC_HISTORY_TABLE = 'snrs_sync_history';
 
     /**
-     * Create sync history.
-     *
-     * @param History_Data $history sync history object.
+     * @var \Synerise\Integration\Logger_Service
      */
-    public function create(History_Data &$history)
+    private $logger;
+
+    public function __construct()
     {
-        global $wpdb;
-
-        $data = array(
-            'model' => $history->get_model('edit'),
-            'entity_id' => $history->get_entity_id('edit'),
-        );
-
-        $format = array(
-            '%s',
-            '%s',
-        );
-
-        $result = $wpdb->insert(
-            $wpdb->prefix . self::get_table_name(),
-            apply_filters('snrs_sync_history_insert_data', $data),
-            apply_filters('snrs_sync_history_insert_format', $format, $data)
-        );
-
-        do_action('snrs_sync_history_insert', $data);
-
-        if ($result) {
-            $history->set_id($wpdb->insert_id);
-            $history->apply_changes();
-        } else {
-            wp_die(esc_html__('Unable to insert sync history entry in database.', 'synerise-for-woocommerce'));
-        }
+        $this->logger = Synerise_For_Woocommerce::get_logger();
     }
 
     /**
@@ -57,10 +33,49 @@ class History_Data_Store
     }
 
     /**
+     * Create sync history.
+     *
+     * @param History_Data $history sync history object.
+     * @return void
+     */
+    public function create(History_Data &$history)
+    {
+        global $wpdb;
+
+        $data = array(
+            'model' => $history->get_model('edit'),
+            'entity_id' => $history->get_entity_id('edit')
+        );
+
+        $format = array(
+            '%s',
+            '%s',
+        );
+
+        $query = "INSERT INTO " . $wpdb->prefix . self::get_table_name() . " (`model`, `entity_id`)";
+        $query .= " VALUES (". implode(',', $format) .")";
+        $query .= " ON DUPLICATE KEY UPDATE `entity_id` = VALUES(`entity_id`), `synerise_updated_at` = NOW()";
+
+        $sql = $wpdb->prepare($query, $data);
+        $result = $wpdb->query($sql);
+
+        if ($result === false) {
+            $this->logger->error(
+                $this->logger->addAttributesToMessage(
+                'Unable to insert sync history item to database.',
+                    ['query' => $sql, 'data' => $data, 'wpdb_last_error' => $wpdb->last_error, 'test' => true]
+                )
+            );
+        } else {
+            do_action('snrs_sync_history_insert', $data);
+        }
+    }
+
+    /**
      * @param History_Data[] $historyItems
      * @return void
      */
-    public function createMultiple(array $historyItems)
+    public function create_multiple(array $historyItems)
     {
         global $wpdb;
 
@@ -75,12 +90,23 @@ class History_Data_Store
             $place_holders[] = "(%s, %s)";
         }
 
-        $query = "INSERT INTO " . $wpdb->prefix . self::get_table_name() . " (`model`, `entity_id`) VALUES ";
-        $query .= implode(', ', $place_holders);
-        $query .= ' ON DUPLICATE KEY UPDATE `entity_id`=VALUES(`entity_id`)';
-        $sql = $wpdb->prepare("$query ", $values);
+        $query = "INSERT INTO " . $wpdb->prefix . self::get_table_name() . " (`model`, `entity_id`)";
+        $query .= " VALUES " . implode(', ', $place_holders);
+        $query .= " ON DUPLICATE KEY UPDATE `entity_id` = VALUES(`entity_id`), `synerise_updated_at` = NOW()";
 
-        $wpdb->query($sql);
+        $sql = $wpdb->prepare("$query ", $values);
+        $result = $wpdb->query($sql);
+
+        if ($result === false) {
+            $this->logger->error(
+                $this->logger->addAttributesToMessage(
+                    'Unable to insert sync history multiple items to database.',
+                    ['query' => $sql, 'data' => $values, 'wpdb_last_error' => $wpdb->last_error]
+                )
+            );
+        } else {
+            do_action('snrs_sync_history_insert_multiple', $values);
+        }
     }
 
     /**
@@ -246,7 +272,7 @@ class History_Data_Store
      *
      * @return History_Data
      */
-    private function get_sync_history($data): History_Data
+    private function get_sync_history(array $data): History_Data
     {
         return new History_Data($data);
     }

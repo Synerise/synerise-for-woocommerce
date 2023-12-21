@@ -3,7 +3,6 @@
 namespace Synerise\Integration\Synchronization\Scheduler;
 
 use Synerise\Integration\Synchronization\DataStore\History_Data_Store;
-use Synerise\Integration\Synchronization\History;
 use Synerise\Integration\Synchronization\History_Data;
 use WC_Data_Store;
 
@@ -31,6 +30,6 @@ abstract class Abstract_Scheduler
             $history_items[] = $history_item;
         }
 
-        $data_store->createMultiple($history_items);
+        $data_store->create_multiple($history_items);
     }
 }

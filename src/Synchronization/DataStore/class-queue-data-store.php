@@ -3,8 +3,8 @@
 namespace Synerise\Integration\Synchronization\DataStore;
 
 use Exception;
-use Synerise\Integration\Synchronization\Queue;
 use Synerise\Integration\Synchronization\Queue_Data;
+use Synerise\Integration\Synerise_For_Woocommerce;
 
 defined('ABSPATH') || exit;
 
@@ -12,6 +12,26 @@ class Queue_Data_Store
 {
 
     const SNRS_SYNC_QUEUE_TABLE = 'snrs_sync_queue';
+
+    /**
+     * @var \Synerise\Integration\Logger_Service
+     */
+    private $logger;
+
+    public function __construct()
+    {
+        $this->logger = Synerise_For_Woocommerce::get_logger();
+    }
+
+    /**
+     * Get the table name for sync queue items.
+     *
+     * @return string
+     */
+    public static function get_table_name()
+    {
+        return self::SNRS_SYNC_QUEUE_TABLE;
+    }
 
     /**
      * Create sync queue item.
@@ -32,28 +52,24 @@ class Queue_Data_Store
             '%s'
         );
 
-        apply_filters('snrs_sync_queue_insert_data', $data);
-        apply_filters('snrs_sync_queue_insert_format', $format, $data);
-
         $query = "INSERT INTO " . $wpdb->prefix . self::get_table_name() . " (`model`, `entity_id`) VALUES ";
         $query .= '(' . implode(', ', $format) . ')';
         $query .= ' ON DUPLICATE KEY UPDATE `entity_id`=VALUES(`entity_id`)';
 
         $sql = $wpdb->prepare("$query ", $data);
 
-        $wpdb->query($sql);
+        $result = $wpdb->query($sql);
 
-        do_action('snrs_sync_queue_insert', $data);
-    }
-
-    /**
-     * Get the table name for sync queue items.
-     *
-     * @return string
-     */
-    public static function get_table_name()
-    {
-        return self::SNRS_SYNC_QUEUE_TABLE;
+        if ($result === false) {
+            $this->logger->error(
+                $this->logger->addAttributesToMessage(
+                    'Unable to insert sync queue items to database.',
+                    ['query' => $sql, 'data' => $data, 'wpdb_last_error' => $wpdb->last_error]
+                )
+            );
+        } else {
+            do_action('snrs_sync_queue_insert', $data);
+        }
     }
 
     /**
@@ -64,6 +80,10 @@ class Queue_Data_Store
     {
         global $wpdb;
 
+        if (empty($queue_items)) {
+            return;
+        }
+
         $values = $place_holders = array();
 
         foreach ($queue_items as $queue_item) {
@@ -71,13 +91,23 @@ class Queue_Data_Store
             $place_holders[] = "(%s, %s)";
         }
 
-        $query = "INSERT INTO " . $wpdb->prefix . self::get_table_name() . " (`model`, `entity_id`) VALUES ";
-        $query .= implode(', ', $place_holders);
+        $query = "INSERT INTO " . $wpdb->prefix . self::get_table_name() . " (`model`, `entity_id`)";
+        $query .= " VALUES " . implode(', ', $place_holders);
         $query .= ' ON DUPLICATE KEY UPDATE `entity_id`=VALUES(`entity_id`)';
 
         $sql = $wpdb->prepare("$query ", $values);
-
         $result = $wpdb->query($sql);
+
+        if ($result === false) {
+            $this->logger->error(
+                $this->logger->addAttributesToMessage(
+                    'Unable to insert sync queue multiple items to database.',
+                    ['query' => $sql, 'data' => $values, 'wpdb_last_error' => $wpdb->last_error]
+                )
+            );
+        } else {
+            do_action('snrs_sync_queue_insert_multiple', $values);
+        }
     }
 
     /**

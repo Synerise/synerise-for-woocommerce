@@ -11,6 +11,16 @@ class Status_Data_Store
     const SNRS_SYNC_STATUS_TABLE = 'snrs_sync_status';
 
     /**
+     * Get the table name for sync statuses.
+     *
+     * @return string
+     */
+    public static function get_table_name()
+    {
+        return self::SNRS_SYNC_STATUS_TABLE;
+    }
+
+    /**
      * Create sync status.
      *
      * @param Status_Data $status sync status object.
@@ -35,11 +45,9 @@ class Status_Data_Store
 
         $result = $wpdb->insert(
             $wpdb->prefix . self::get_table_name(),
-            apply_filters('snrs_sync_status_insert_data', $data),
-            apply_filters('snrs_sync_status_insert_format', $format, $data)
+            $data,
+            $format
         );
-
-        do_action('snrs_sync_status_insert', $data);
 
         if ($result) {
             $status->set_id($wpdb->insert_id);
@@ -47,16 +55,8 @@ class Status_Data_Store
         } else {
             wp_die(esc_html__('Unable to insert sync status entry in database.', 'synerise-for-woocommerce'));
         }
-    }
 
-    /**
-     * Get the table name for sync statuses.
-     *
-     * @return string
-     */
-    public static function get_table_name()
-    {
-        return self::SNRS_SYNC_STATUS_TABLE;
+        do_action('snrs_sync_status_insert', $data);
     }
 
     /**

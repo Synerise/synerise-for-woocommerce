@@ -33,6 +33,15 @@ class Logger_Service implements LoggerInterface
         return $message;
     }
 
+    public static function addAttributesToMessage($message, array $attributes): string
+    {
+        foreach ($attributes as $key => $value) {
+            $message .= "\n" . $key . ": " . json_encode($value);
+        }
+
+        return $message;
+    }
+
     public function emergency($message, array $context = array('source' => 'synerise'))
     {
         self::getCommonInstance()->emergency($message, $context);

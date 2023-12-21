@@ -195,6 +195,18 @@ class Product_Service
 
     public static function add_attribute(WC_Product $product, array $option, array &$params)
     {
+        $product_params = Product_Service::set_product_attribute($product, $option);
+        if($product->get_parent_id() && empty($product_params)){
+            $parent_product = wc_get_product($product->get_parent_id());
+            $product_params = Product_Service::set_product_attribute($parent_product, $option);
+        }
+
+        $params = array_merge($params, $product_params);
+    }
+
+    public static function set_product_attribute(WC_Product $product, array $option): array
+    {
+        $params = [];
         $product_all_attributes = $product->get_attributes();
 
         if (isset($product_all_attributes[$option['value']])) {
@@ -210,6 +222,8 @@ class Product_Service
                 $params['itemAttributes:' . $option['label']] = $attribute;
             }
         }
+
+        return $params;
     }
 
     public static function get_product_attributes(): array
