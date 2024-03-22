@@ -58,6 +58,10 @@ class Event_Add_To_Cart extends Abstract_Event
         $params = Cart_Service::prepare_add_to_cart_product_data($cart_item_key, $quantity);
         $params = array_merge($params, $defaultParams);
 
+        if ($this->should_include_snrs_params() && $snrs_params = $this->tracking_manager->getSnrsParamsFromCookie()) {
+            $params['snrs_params'] = $snrs_params;
+        }
+
         return \GuzzleHttp\json_encode(array_filter([
             'time' => Client_Action::get_time(new DateTime()),
             'label' => Client_Action::get_label(self::EVENT_NAME),

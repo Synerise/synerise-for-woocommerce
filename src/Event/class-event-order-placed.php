@@ -51,7 +51,9 @@ class Event_Order_Placed extends Abstract_Event
 
     public function prepare_event(WC_Order $order)
     {
-        $order_data = Order_Service::prepare_order_params($order);
+        $snrs_params = $this->should_include_snrs_params() ? $this->tracking_manager->getSnrsParamsFromCookie() : null;
+
+        $order_data = Order_Service::prepare_order_params($order, $snrs_params);
         if (empty($order_data['products'])) {
             return null;
         }

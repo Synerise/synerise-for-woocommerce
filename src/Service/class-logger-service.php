@@ -42,7 +42,7 @@ class Logger_Service implements LoggerInterface
         return $message;
     }
 
-    public function emergency($message, array $context = array('source' => 'synerise'))
+    public function emergency($message, array $context = array('source' => 'synerise')): void
     {
         self::getCommonInstance()->emergency($message, $context);
     }
@@ -55,42 +55,42 @@ class Logger_Service implements LoggerInterface
         return self::$logger;
     }
 
-    public function alert($message, array $context = array('source' => 'synerise'))
+    public function alert($message, array $context = array('source' => 'synerise')): void
     {
         self::getCommonInstance()->alert($message, $context);
     }
 
-    public function critical($message, array $context = array('source' => 'synerise'))
+    public function critical($message, array $context = array('source' => 'synerise')): void
     {
         self::getCommonInstance()->critical($message, $context);
     }
 
-    public function error($message, array $context = array('source' => 'synerise'))
+    public function error($message, array $context = array('source' => 'synerise')): void
     {
         self::getCommonInstance()->error($message, $context);
     }
 
-    public function warning($message, array $context = array('source' => 'synerise'))
+    public function warning($message, array $context = array('source' => 'synerise')): void
     {
         self::getCommonInstance()->warning($message, $context);
     }
 
-    public function notice($message, array $context = array('source' => 'synerise'))
+    public function notice($message, array $context = array('source' => 'synerise')): void
     {
         self::getCommonInstance()->notice($message, $context);
     }
 
-    public function info($message, array $context = array('source' => 'synerise'))
+    public function info($message, array $context = array('source' => 'synerise')): void
     {
         self::getCommonInstance()->info($message, $context);
     }
 
-    public function debug($message, array $context = array('source' => 'synerise'))
+    public function debug($message, array $context = array('source' => 'synerise')): void
     {
         self::getCommonInstance()->debug($message, $context);
     }
 
-    public function log($message, $level = 'debug', array $context = array('source' => 'synerise'))
+    public function log($message, $level = 'debug', array $context = array('source' => 'synerise')): void
     {
         self::getCommonInstance()->log($level, $message, $context);
     }
