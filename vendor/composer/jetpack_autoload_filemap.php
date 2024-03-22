@@ -11,7 +11,7 @@ return array(
 		'path'    => $vendorDir . '/ralouphie/getallheaders/src/getallheaders.php'
 	),
 	'6e3fae29631ef280660b3cdad06f25a8' => array(
-		'version' => '3.4.0.0',
+		'version' => '2.5.2.0',
 		'path'    => $vendorDir . '/symfony/deprecation-contracts/function.php'
 	),
 	'37a3dc5111fe8f707ab4c132ef1dbc62' => array(

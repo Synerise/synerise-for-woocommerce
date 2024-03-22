@@ -11,7 +11,7 @@ return array(
     'Synerise\\IntegrationCore\\' => array($baseDir . '/lib/integration-core'),
     'Synerise\\DataManagement\\' => array($baseDir . '/lib/api-data-management'),
     'Rhumsaa\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),
     'Psr\\Http\\Client\\' => array($vendorDir . '/psr/http-client/src'),
     'GuzzleLogMiddleware\\' => array($vendorDir . '/gmponos/guzzle_logger/src'),

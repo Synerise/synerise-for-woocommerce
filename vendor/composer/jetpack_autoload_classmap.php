@@ -6,14 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir   = dirname($vendorDir);
 
 return array(
-	'ActivationTest' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/test-activation.php'
-	),
-	'Add_To_Cart_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-add-to-cart-event.php'
-	),
 	'Autoloader' => array(
 		'version' => '2.12.0',
 		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-autoloader.php'
@@ -46,41 +38,9 @@ return array(
 		'version' => '2.12.0',
 		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/ManifestGenerator.php'
 	),
-	'Cart_Service_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Services/test-cart-service.php'
-	),
-	'Cart_Status_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-cart-status-event.php'
-	),
-	'Catalog_Service_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Services/test-catalog-service.php'
-	),
-	'Client_Login_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-client-login-event.php'
-	),
-	'Client_Logout_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-client-logout-event.php'
-	),
-	'Client_Register_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-client-register-event.php'
-	),
-	'Client_Service_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Services/test-client-service.php'
-	),
 	'Container' => array(
 		'version' => '2.12.0',
 		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-container.php'
-	),
-	'Customer_Scheduler_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Synchronization/Scheduler/test-customer-scheduler.php'
 	),
 	'Detection\\MobileDetect' => array(
 		'version' => '2.8.45.0',
@@ -482,18 +442,6 @@ return array(
 		'version' => '2.8.45.0',
 		'path'    => $vendorDir . '/mobiledetect/mobiledetectlib/Mobile_Detect.php'
 	),
-	'Order_Placed_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-order-placed-event.php'
-	),
-	'Order_Scheduler_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Synchronization/Scheduler/test-order-scheduler.php'
-	),
-	'Order_Service_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Services/test-order-service.php'
-	),
 	'PHP_Autoloader' => array(
 		'version' => '2.12.0',
 		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-php-autoloader.php'
@@ -509,38 +457,6 @@ return array(
 	'Plugins_Handler' => array(
 		'version' => '2.12.0',
 		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-plugins-handler.php'
-	),
-	'Product_Added_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-update-product-event.php'
-	),
-	'Product_Bulk_Edit_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-product-bulk-edit-event.php'
-	),
-	'Product_Import_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-product-import-event.php'
-	),
-	'Product_Quick_Edit_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-product-quick-edit-event.php'
-	),
-	'Product_Review_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-product-review-event.php'
-	),
-	'Product_Scheduler_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Synchronization/Scheduler/test-product-scheduler.php'
-	),
-	'Product_Service_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Services/test-product-service.php'
-	),
-	'Product_Trash_Untrash_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-product-trash-untrash-event.php'
 	),
 	'Psr\\Http\\Client\\ClientExceptionInterface' => array(
 		'version' => '1.0.3.0',
@@ -611,44 +527,48 @@ return array(
 		'path'    => $vendorDir . '/psr/http-message/src/UriInterface.php'
 	),
 	'Psr\\Log\\AbstractLogger' => array(
-		'version' => '3.0.0.0',
-		'path'    => $vendorDir . '/psr/log/src/AbstractLogger.php'
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/AbstractLogger.php'
 	),
 	'Psr\\Log\\InvalidArgumentException' => array(
-		'version' => '3.0.0.0',
-		'path'    => $vendorDir . '/psr/log/src/InvalidArgumentException.php'
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/InvalidArgumentException.php'
 	),
 	'Psr\\Log\\LogLevel' => array(
-		'version' => '3.0.0.0',
-		'path'    => $vendorDir . '/psr/log/src/LogLevel.php'
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/LogLevel.php'
 	),
 	'Psr\\Log\\LoggerAwareInterface' => array(
-		'version' => '3.0.0.0',
-		'path'    => $vendorDir . '/psr/log/src/LoggerAwareInterface.php'
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerAwareInterface.php'
 	),
 	'Psr\\Log\\LoggerAwareTrait' => array(
-		'version' => '3.0.0.0',
-		'path'    => $vendorDir . '/psr/log/src/LoggerAwareTrait.php'
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerAwareTrait.php'
 	),
 	'Psr\\Log\\LoggerInterface' => array(
-		'version' => '3.0.0.0',
-		'path'    => $vendorDir . '/psr/log/src/LoggerInterface.php'
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerInterface.php'
 	),
 	'Psr\\Log\\LoggerTrait' => array(
-		'version' => '3.0.0.0',
-		'path'    => $vendorDir . '/psr/log/src/LoggerTrait.php'
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/LoggerTrait.php'
 	),
 	'Psr\\Log\\NullLogger' => array(
-		'version' => '3.0.0.0',
-		'path'    => $vendorDir . '/psr/log/src/NullLogger.php'
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/NullLogger.php'
 	),
-	'Removed_From_Cart_Event_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Events/test-removed-from-cart-event.php'
+	'Psr\\Log\\Test\\DummyTest' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/Test/DummyTest.php'
 	),
-	'Review_Service_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Services/test-review-service.php'
+	'Psr\\Log\\Test\\LoggerInterfaceTest' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php'
+	),
+	'Psr\\Log\\Test\\TestLogger' => array(
+		'version' => '1.1.4.0',
+		'path'    => $vendorDir . '/psr/log/Psr/Log/Test/TestLogger.php'
 	),
 	'Rhumsaa\\Uuid\\Console\\Application' => array(
 		'version' => '2.9.0.0',
@@ -689,10 +609,6 @@ return array(
 	'Shutdown_Handler' => array(
 		'version' => '2.12.0',
 		'path'    => $vendorDir . '/automattic/jetpack-autoloader/src/class-shutdown-handler.php'
-	),
-	'Synchronization_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Synchronization/test-synchronization.php'
 	),
 	'Synerise\\DataManagement\\ApiException' => array(
 		'version' => '1.2.0.0',
@@ -3417,34 +3333,6 @@ return array(
 	'Synerise\\Integration\\Synerise_For_Woocommerce_i18n' => array(
 		'version' => '1.2.0.0',
 		'path'    => $baseDir . '/src/class-synerise-for-woocommerce-i18n.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Coupon' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-coupon.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Customer' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-customer.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Database' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-database.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Order' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-order.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Product' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-product.php'
-	),
-	'Synerise\\Integration\\Tests\\Helpers\\Helper_Shipping' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Helpers/class-helper-shipping.php'
-	),
-	'User_Service_Test' => array(
-		'version' => '1.2.0.0',
-		'path'    => $baseDir . '/tests/Services/test-user-service.php'
 	),
 	'Version_Loader' => array(
 		'version' => '2.12.0',
