@@ -1,6 +1,12 @@
 {
     "name": "gmponos/guzzle_logger",
-    "description": "A middleware for guzzle to log every request and response",
+    "description": "A Guzzle middleware to log request and responses automatically",
+    "keywords": [
+        "psr3",
+        "guzzle",
+        "log",
+        "logging"
+    ],
     "license": "MIT",
     "homepage": "https://github.com/gmponos/guzzle-log-middleware",
     "authors": [
@@ -11,33 +17,43 @@
     ],
     "autoload": {
         "psr-4": {
-            "Gmponos\\GuzzleLogger\\": "src/"
+            "GuzzleLogMiddleware\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Gmponos\\GuzzleLogger\\Test\\": "tests/"
+            "GuzzleLogMiddleware\\Test\\": "tests/"
         }
     },
     "require": {
-        "php": ">=5.5",
+        "php": "^7.2 || ^8.0",
         "ext-json": "*",
-        "guzzlehttp/guzzle": "6.*",
-        "psr/log": "~1.0"
+        "guzzlehttp/guzzle": "^6.1 || ^7.0.1",
+        "guzzlehttp/psr7": "^1.7 || ^2.0",
+        "psr/log": "^1.1 || ^2.0 || ^3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.*|5.*",
-        "webthink/codesniffer": "1.*"
+        "phpstan/phpstan": "~0.12.32",
+        "phpstan/phpstan-phpunit": "^0.12.11",
+        "phpstan/phpstan-strict-rules": "^0.12.2",
+        "phpunit/phpunit": "^8.5.8 || ^9.2.5",
+        "squizlabs/php_codesniffer": "^3.5.5"
+    },
+    "suggest": {
+        "monolog/monolog": "A PSR-3 logger to send your logs to files, sockets and various web services"
     },
     "scripts": {
         "test": "php vendor/bin/phpunit",
-        "phpcs": "php vendor/bin/phpcs ./src ./tests",
+        "phpcs": "php vendor/bin/phpcs ./src ./tests -n",
         "phpcbf": "php vendor/bin/phpcbf ./src ./tests"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.4-dev"
+            "dev-master": "2.0-dev"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true
+    }
 }

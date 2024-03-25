@@ -12,7 +12,7 @@ use WC_Product_Variation;
 
 class Order_Service
 {
-    public static function prepare_order_params(WC_Order $order): array
+    public static function prepare_order_params(WC_Order $order, ?array $snrs_params = null): array
     {
         $date = $order->get_date_created() ?: new DateTime('now');
         $date->setTimezone(new DateTimeZone("UTC"));
@@ -42,13 +42,17 @@ class Order_Service
             'products' => []
         ];
 
+        if ($snrs_params) {
+            $params['snrs_params'] = $snrs_params;
+        }
+
         $coupon_codes = $order->get_coupon_codes();
         if (!empty($coupon_codes)) {
             $params['metadata']['couponCodes'] = $coupon_codes;
         }
 
         foreach ($order->get_items() as $item_id => $item) {
-            $products = self::prepare_order_product_params($item);
+            $products = self::prepare_order_product_params($item, $snrs_params);
             if (empty($products)) {
                 continue;
             }
@@ -58,7 +62,7 @@ class Order_Service
         return $params;
     }
 
-    public static function prepare_order_product_params(WC_Order_Item $product_item): array
+    public static function prepare_order_product_params(WC_Order_Item $product_item, ?array $snrs_params): array
     {
         /**
          * @var WC_Product $product
@@ -80,7 +84,7 @@ class Order_Service
             $parentKey = Product_Service::get_item_key($parent);
         }
 
-        return [
+        $params = [
             'name' => $product->get_name(),
             'cancel' => false,
             'finalUnitPrice' => [
@@ -102,6 +106,12 @@ class Order_Service
             'parentProductSku' => isset($parent) ? $parent->get_data()['sku'] : null
 
         ];
+
+        if ($snrs_params) {
+            $params['snrs_params'] = $snrs_params;
+        }
+
+        return $params;
     }
 
     public static function get_orders_count()

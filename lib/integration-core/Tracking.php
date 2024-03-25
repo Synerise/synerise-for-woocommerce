@@ -14,6 +14,7 @@ class Tracking
     const COOKIE_CLIENT_PARAMS = '_snrs_p';
     const COOKIE_CLIENT_UUID = '_snrs_uuid';
     const COOKIE_CLIENT_UUID_RESET = '_snrs_reset_uuid';
+    const COOKIE_SNRS_PARAMS = '_snrs_params';
 
     /**
      * @var CookieManagerInterface
@@ -77,6 +78,12 @@ class Tracking
     public function getClientUuidFromCookie()
     {
         return $this->cookieManager->getCookie(self::COOKIE_CLIENT_UUID);
+    }
+
+    public function getSnrsParamsFromCookie()
+    {
+        $paramsString = stripslashes($this->cookieManager->getCookie(self::COOKIE_SNRS_PARAMS));
+        return json_decode($paramsString, true);
     }
 
     /**

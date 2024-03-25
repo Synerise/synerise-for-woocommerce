@@ -50,6 +50,11 @@ abstract class Abstract_Event
         return Tracking_Service::is_event_enabled($this->get_event_name());
     }
 
+    protected function should_include_snrs_params()
+    {
+        return Tracking_Service::should_include_snrs_params();
+    }
+
     public function get_event_name()
     {
         return static::EVENT_NAME;

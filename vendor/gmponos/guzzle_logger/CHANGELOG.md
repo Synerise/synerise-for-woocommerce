@@ -2,6 +2,77 @@
 
 All Notable changes to `gmponos/guzzle_logger` will be documented in this file
 
+## 2.2.0 - 2021-04-04
+
+## Changes
+- Allow psr/log in version 2 and 3, like guzzlehttp/guzzle do it ([44](https://github.com/gmponos/guzzle-log-middleware/pull/44))
+
+## 2.1.0 - 2021-03-18
+
+That was a long layoff
+
+## Changes
+- Allow PHP 8
+- Fix a deprecation on MultiRecordArrayHandler regarding query
+
+## 2.0.0 - 2020-07-05
+
+### Changed
+- [BC] Changed the signature of `HandlerInterface::log` to allow Throwables. Now the signature is
+```php
+HandlerInterface::log(
+    LoggerInterface $logger,
+    RequestInterface $request,
+    ?ResponseInterface $response = null,
+    ?Throwable $exception = null,
+    ?TransferStats $stats = null,
+    array $options = []
+)
+```
+
+- Allow guzzle 7
+
+## 1.1.0 - 2019-09-03
+
+### Added
+- Added parameters in MultiRecordArrayHandler in order to customize the size truncated [#25](https://github.com/gmponos/guzzle-log-middleware/pull/25)
+- MultiRecordArrayHandler will parse form requests as and log them as array [#27](https://github.com/gmponos/guzzle-log-middleware/pull/27)  
+
+## 1.0.1 - 2019-06-18
+
+### Changes
+- Fixes [#24](https://github.com/gmponos/guzzle-log-middleware/issues/24). Body MUST rewind on huge responses.
+
+## 1.0.0 - 2018-12-28
+
+### Changes
+- Added more classes of status codes to `ThresholdStrategy`
+
+## 0.8.0 - 2018-12-13
+
+### Changes
+
+- Set as the default strategy in all handlers the `FixedStrategy`
+
+**BREAKING CHANGES**
+ 
+- `LogLevelStrategy` class is removed and it has been separated to smaller classes.
+Check the `added` section below.
+- Changed the namespaces completely. The new namespace is `GuzzleLogMiddleware` instead of `Gmponos\GuzzleLogger`.
+Check the README file for instructions.
+- Changed the signature of function `HandlerInterface::log`.
+- Changed `ArrayHandler` to `MultiRecordArrayHandler`  
+
+### Added
+- `FixedStrategy` a strategy that you are able to set one level for all your logs.
+- `ThresholdLevelStrategy` a strategy that works with thresholds depending on the status code. 
+- `StatusCodeStrategy` a strategy that you are able to set a specific log level per status code.
+
+## 0.7.0 - 2018-11-15
+
+### Changed
+- **BREAKING CHANGE** Dropped support for PHP 5 and require PHP 7.2 as minimum version.
+
 ## 0.6.0 - 2018-10-19
 
 ### Changed

@@ -143,4 +143,9 @@ class Tracking_Service
             ]);
         }
     }
+
+    public static function should_include_snrs_params()
+    {
+        return (bool)Synerise_For_Woocommerce::get_setting('event_tracking_snrs_params_include');
+    }
 }

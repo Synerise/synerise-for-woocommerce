@@ -59,6 +59,10 @@ class Event_Cart_Status extends Abstract_Event
             $cart_status_params = Cart_Service::prepare_cart_status_params($cart);
         }
 
+        if ($this->should_include_snrs_params() && $snrs_params = $this->tracking_manager->getSnrsParamsFromCookie()) {
+            $cart_status_params['snrs_params'] = $snrs_params;
+        }
+
         return \GuzzleHttp\json_encode(
             [
                 'time' => Client_Action::get_time(new DateTime()),

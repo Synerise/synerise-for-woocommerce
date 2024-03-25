@@ -5,7 +5,7 @@ namespace Synerise\IntegrationCore\Factory\Api;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\HandlerStack;
-use Gmponos\GuzzleLogger\Middleware\LoggerMiddleware;
+use GuzzleLogMiddleware\LogMiddleware;
 
 use Psr\Log\LoggerInterface;
 use Synerise\IntegrationCore\Logger\Handler;
@@ -62,7 +62,7 @@ class ClientFactory implements ClientFactoryInterface
 
     protected function pushLogMiddlewareToHandlerStack(HandlerStack $handlerStack)
     {
-        $LogMiddleware = new LoggerMiddleware($this->logger, new Handler());
+        $LogMiddleware = new LogMiddleware($this->logger, new Handler());
         $handlerStack->push($LogMiddleware, 'logger');
     }
 }
