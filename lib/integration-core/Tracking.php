@@ -82,7 +82,7 @@ class Tracking
 
     public function getSnrsParamsFromCookie()
     {
-        $paramsString = stripslashes($this->cookieManager->getCookie(self::COOKIE_SNRS_PARAMS));
+        $paramsString = stripslashes((string) $this->cookieManager->getCookie(self::COOKIE_SNRS_PARAMS));
         return json_decode($paramsString, true);
     }
 

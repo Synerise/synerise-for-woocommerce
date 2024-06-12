@@ -1,7 +1,7 @@
 {
     "name": "synerise/synerise-for-woocommerce",
     "description": "Synerise integration with Wordpress WooCommerce plugin.",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "require-dev": {
         "composer/installers": "^1.7.0",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",

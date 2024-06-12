@@ -188,7 +188,7 @@ class Synerise_For_Woocommerce_Activator
             require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
             dbDelta([$syncQueue, $syncStatus, $syncHistory, $eventQueue]);
         } catch (Exception $e) {
-            Synerise_For_Woocommerce::get_logger()->error(`SQL REQUEST ERROR ${$e->getMessage()}`);
+            Synerise_For_Woocommerce::get_logger()->error('SQL REQUEST ERROR ' . $e->getMessage());
         }
 
         update_option("synerise_for_woocommerce_db_version", SYNERISE_FOR_WOOCOMMERCE_DB_VERSION);
