@@ -1,8 +1,8 @@
 # Synerise integration plugin for WooCommerce
 
 ## Requirements
-* PHP 7.0+
-* Wordpress 4.7+
+* PHP 7.4+
+* Wordpress 6.3+
 * WooCommerce 3.7+
 
 ## Installation
