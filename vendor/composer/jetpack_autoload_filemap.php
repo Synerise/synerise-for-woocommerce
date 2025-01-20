@@ -11,11 +11,11 @@ return array(
 		'path'    => $vendorDir . '/ralouphie/getallheaders/src/getallheaders.php'
 	),
 	'6e3fae29631ef280660b3cdad06f25a8' => array(
-		'version' => '2.5.2.0',
+		'version' => '2.5.4.0',
 		'path'    => $vendorDir . '/symfony/deprecation-contracts/function.php'
 	),
 	'37a3dc5111fe8f707ab4c132ef1dbc62' => array(
-		'version' => '7.8.1.0',
+		'version' => '7.9.2.0',
 		'path'    => $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php'
 	),
 	'5255c38a0faeba867671b61dfda6d864' => array(
