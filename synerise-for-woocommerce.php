@@ -74,7 +74,7 @@ if (is_readable($autoloader)) {
 /**
  * Currently plugin version.
  */
-define('SYNERISE_FOR_WOOCOMMERCE_VERSION', '1.2.2');
+define('SYNERISE_FOR_WOOCOMMERCE_VERSION', '1.2.3');
 define('SYNERISE_FOR_WOOCOMMERCE_DB_VERSION', '1.0.6');
 define('SYNERISE_FOR_WOOCOMMERCE_PREFIX', 'synerise_for_woocommerce');
 define('SYNERISE_FOR_WOOCOMMERCE_OPTION_NAME', 'synerise-for-woocommerce');

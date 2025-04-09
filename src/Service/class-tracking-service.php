@@ -25,6 +25,10 @@ class Tracking_Service
             'value' => 'web.snrbox.com',
             'label' => 'AZURE'
         ),
+        "AZU" => array(
+            'value' => 'web.azu.snrbox.com',
+            'label' => 'AZU'
+        ),
         "GEB" => array(
             'value' => 'web.geb.snrbox.com',
             'label' => 'GCP'
